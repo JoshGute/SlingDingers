@@ -1,0 +1,8 @@
+FontContent = 
+{
+	FontBuilder = 
+	{
+		string Name = "Digitalt",
+		uint64 ResourceId = 581fb1b9a46d90bb,
+	},
+},
