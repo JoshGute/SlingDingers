@@ -104,7 +104,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-4.83894873, 16.300148, 50],
+			Vec3 Translation = [-43.0494652, 17.3527775, 50],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278471e-08, 0, 1],
 		},
@@ -116,7 +116,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 81.1038971,
+			float Size = 100,
 		},
 		EditorCameraController = 
 		{
@@ -124,7 +124,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [-4.83894873, 16.300148, -2.1151709e-07],
+			Vec3 LookTarget = [-43.0494652, 17.3527775, -1.88175227e-06],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -19662,65 +19662,70 @@ Level =
 			string Name = "Block2",
 		},
 	},
-	ArchetypeInstance = 
+	Cog = 
 	{
-		string Name = "581fb1c4beeeb56e:StartText",
 		LinkId = 
 		{
 			uint Id = 1074,
-		},
-		Transform = 
-		{
-			Vec3 Translation = [-82.5, 6.5, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
 		},
 		Named = 
 		{
 			string Name = "StartText",
 		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 1075,
-		},
-		Named = 
-		{
-			string Name = "StartBack",
-		},
 		Archetyped = 
 		{
-			string Name = "581fb1f3bf5c4498:StartBack",
+			string Name = "581fb1c4beeeb56e:StartText",
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-2.85997772, 7.31104088, 0],
-			Vec3 Scale = [105.157135, 69.3649826, 31.6016979],
+			Vec3 Translation = [-121.131569, 29.9736824, 0],
+			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
-		Sprite = 
+		StartGameText = 
+		{
+			string Curve = "581fbe8337f42331:StartTextCurve",
+			Vec3 EndOfScreen = [51, 29.9736996, 30],
+		},
+		SpriteText = 
 		{
 			bool Visible = true,
 			bool VisibilityCulling = true,
 			bool VisibilityEvents = true,
 			bool CastShadows = false,
-			Vec4 Color = [1, 1, 1, 0],
+			Vec4 Color = [0, 0, 0, 1],
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
 			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string SpriteSource = "5275aa4d802dd6dc:Square",
-			bool RenderMask = false,
-			bool FlipX = false,
-			bool FlipY = false,
-			bool AnimationActive = true,
-			float AnimationSpeed = 1,
-			uint StartFrame = 0,
+			string FontName = "581fb1b9a46d90bb:Digitalt",
+			uint FontSize = 132,
+			string Text = "Don't fall through!",
+			TextAlign Align = Center,
+			float PixelsPerUnit = 13.973835,
+			bool Smoothing = true,
 		},
-		StartScreen = 
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "581fb1f3bf5c4498:StartBack",
+		LinkId = 
 		{
-			string OpacityCurve = "581fbff02cb426d0:StartScreenCurve",
+			uint Id = 1075,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [3.98213196, 22.4165134, 0],
+			Vec3 Scale = [181.157135, 99.5759277, 31.6016979],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "StartBack",
+		},
+		EditorFlags = 
+		{
+			bool Locked = true,
+			bool Hidden = true,
 		},
 	},
 },
