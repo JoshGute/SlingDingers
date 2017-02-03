@@ -20,7 +20,12 @@ class BlockLogic : ZilchComponent
     function OnOnBlockDestroy(event : Event)
     {
         this.Space.CreateAtPosition(Archetype.DestructionParticleEffect, this.Owner.Transform.Translation);
+        this.LevelSettings.CameraViewport.Camera.ScreenShake.ShakeParam(0.015, 0.2, 19.0, this.LevelSettings.CameraViewport.Camera.Transform.Translation - this.Owner.Transform.Translation, 0);
         
+        var seq = Actions.Sequence(this.Owner.Actions);
+        
+        Actions.Property(seq, @this.Owner.Sprite.Color, Real4(0, 0, 0, 0), 0.3, Ease.QuadOut);
+        Actions.Call(seq, this.Owner.Destroy);
     }
 
     function OnLogicUpdate(event : UpdateEvent)
