@@ -142,9 +142,9 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-2.93797231, 16.4790192, 50],
+			Vec3 Translation = [-19.5590382, 32.0078087, 42.993248],
 			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [-0, -1.09278471e-08, 0, 1],
+			Quat Rotation = [9.87201929e-08, -1.02293551e-08, 2.15759832e-15, 1],
 		},
 		Camera = 
 		{
@@ -154,15 +154,15 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 54.8811989,
+			float Size = 33.2871208,
 		},
 		EditorCameraController = 
 		{
 			ControlMode ControlMode = ZPlane,
 			float LookDistance = 50,
-			float VerticalAngle = 0,
-			float HorizontalAngle = 0,
-			Vec3 LookTarget = [-2.93797231, 16.4790192, -1.03187972e-06],
+			float VerticalAngle = -1.97440386e-07,
+			float HorizontalAngle = -2.79396772e-09,
+			Vec3 LookTarget = [-19.5590382, 32.0078201, -7.00675154],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -35032,6 +35032,42 @@ Level =
 		Named = 
 		{
 			string Name = "SuddenDeathManager",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "581f59c0f738d5e2:Pickup_Dunker",
+		LinkId = 
+		{
+			uint Id = 622,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-17.5382633, 9.00960159, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Pickup_Dunker",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "585e9e979321b7c1:Burst_Dunker",
+		LinkId = 
+		{
+			uint Id = 623,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-19.1365757, 32.1035538, -7.00675201],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Burst_Dunker",
 		},
 	},
 },
