@@ -8,6 +8,8 @@ class StartGameText : ZilchComponent
     
     function Initialize(init : CogInitializer)
     {
+        this.EndOfScreen.X = this.Owner.Transform.Translation.X + (2 * Math.Abs(this.Owner.Transform.Translation.X - this.LevelSettings.CameraViewport.Camera.Transform.Translation.X));
+        
         var grp = Actions.Group(this.Owner.Actions);
         
         Actions.Property(grp, @this.Owner.Transform.Translation, this.EndOfScreen, 6, this.Curve);
