@@ -1,0 +1,7 @@
+ContentLibrary = 
+{
+	string Name = "SlingDingers",
+	uint64 LibraryId = 58ea24d591a5987a,
+	string SourceControlType = "",
+	bool ReadOnly = false,
+},
