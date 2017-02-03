@@ -20,6 +20,8 @@ class WeaponSystem : ZilchComponent
     var Ammo : Integer;
     var Delay : Real = 10;
     
+    sends AmmoUpdate : AmmoEvent;
+    
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
@@ -35,7 +37,7 @@ class WeaponSystem : ZilchComponent
         
         //TODO: fix player sent when players exist
         //TODO: send to HUD instead of space maybe
-        this.Space.DispatchEvent("AmmoUpdate", new AmmoEvent(1, this.Ammo, this.MaxAmmo));
+        this.Space.DispatchEvent(Events.AmmoUpdate, new AmmoEvent(1, this.Ammo, this.MaxAmmo));
     }
 
     function OnLogicUpdate(event : UpdateEvent)
