@@ -104,7 +104,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [1.81250405, 3.54627728, 49],
+			Vec3 Translation = [-2.24596953, 4.14476824, 49],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278471e-08, 0, 1],
 		},
@@ -116,7 +116,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 31.0069752,
+			float Size = 13.3717899,
 		},
 		EditorCameraController = 
 		{
@@ -124,7 +124,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [1.81250405, 3.54627728, -1.00000048],
+			Vec3 LookTarget = [-2.24596953, 4.14476824, -0.999999642],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -216,10 +216,28 @@ Level =
 	},
 	ArchetypeInstance = 
 	{
-		string Name = "585f903389d922a0:BounceRound",
+		string Name = "585feefa1b00b9dc:ARRound",
 		LinkId = 
 		{
 			uint Id = 6,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-10.7006283, 8.47660542, 5.72138648e-09],
+			Vec3 Scale = [0.467888206, 0.467888206, 0.467888206],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "ARRound",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "585f903389d922a0:BounceRound",
+		LinkId = 
+		{
+			uint Id = 7,
 		},
 		Transform = 
 		{
@@ -237,7 +255,7 @@ Level =
 		string Name = "585fac28698068cb:SuddenDeathRound",
 		LinkId = 
 		{
-			uint Id = 7,
+			uint Id = 8,
 		},
 		Transform = 
 		{
@@ -255,7 +273,7 @@ Level =
 		string Name = "585fab63a868685d:DunkRound",
 		LinkId = 
 		{
-			uint Id = 8,
+			uint Id = 9,
 		},
 		Transform = 
 		{
@@ -273,7 +291,7 @@ Level =
 		string Name = "585fab2a9168efce:GenericEffect",
 		LinkId = 
 		{
-			uint Id = 9,
+			uint Id = 10,
 		},
 		Transform = 
 		{
@@ -291,7 +309,7 @@ Level =
 		string Name = "585fc9cdd476fa0b:Burst_Bounce",
 		LinkId = 
 		{
-			uint Id = 10,
+			uint Id = 11,
 		},
 		Transform = 
 		{
@@ -309,7 +327,7 @@ Level =
 		string Name = "585fc69037750ac5:Burst_Pistol",
 		LinkId = 
 		{
-			uint Id = 11,
+			uint Id = 12,
 		},
 		Transform = 
 		{
@@ -326,7 +344,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 12,
+			uint Id = 13,
 		},
 		Named = 
 		{
@@ -362,7 +380,7 @@ Level =
 		string Name = "581fd9633a3d8375:DestructionParticleEffect",
 		LinkId = 
 		{
-			uint Id = 13,
+			uint Id = 14,
 		},
 		Transform = 
 		{

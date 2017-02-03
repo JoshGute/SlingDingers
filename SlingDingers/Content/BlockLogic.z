@@ -19,6 +19,8 @@ class BlockLogic : ZilchComponent
 
     function OnBlockDestroy(event : BlockDestroy)
     {
+        this.Owner.RemoveComponentByName("Collider");
+        
         var particle : CogPath = new CogPath();
         particle.Cog = this.Space.CreateAtPosition(Archetype.DestructionParticleEffect, this.Owner.Transform.Translation);
         

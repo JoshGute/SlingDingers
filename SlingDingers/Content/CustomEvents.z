@@ -11,11 +11,12 @@ class BlockDestroy : ZilchEvent
 
 class AmmoEvent : ZilchEvent
 {
-    constructor(player : Integer, currentAmmo : Integer, maxAmmo : Integer) : base()
+    constructor(player : Integer, gunType : WeaponName, currentAmmo : Integer, maxAmmo : Integer) : base()
     {
         this.Player = player;
         this.CurrentAmmo = currentAmmo;
         this.MaxAmmo = maxAmmo;
+        this.GunType = gunType;
     }
     
     constructor() : base()
@@ -26,4 +27,5 @@ class AmmoEvent : ZilchEvent
     var Player : Integer;
     var CurrentAmmo : Integer;
     var MaxAmmo : Integer;
+    var GunType : WeaponName;
 }

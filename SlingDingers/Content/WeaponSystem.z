@@ -7,6 +7,14 @@ enum WeaponType
     Type_Arc
 }
 
+enum WeaponName
+{
+    Pistol,
+    MachineGun,
+    Dunker,
+    Laser
+}
+
 class WeaponSystem : ZilchComponent
 {
     [Property]
@@ -19,6 +27,7 @@ class WeaponSystem : ZilchComponent
     var MaxAmmo : Integer;
     var Ammo : Integer;
     var Delay : Real = 10;
+    var GunType : WeaponName;
     
     sends AmmoUpdate : AmmoEvent;
     
@@ -33,11 +42,12 @@ class WeaponSystem : ZilchComponent
         var bulletObj = this.Space.CreateAtPosition(this.CurrentWepaon, Real3(0,-200,0));
         this.RoF = bulletObj.BulletScript.RoF;
         this.Ammo = bulletObj.BulletScript.Ammo;
+        this.GunType = bulletObj.BulletScript.GunType;
         bulletObj.Destroy();
         
         //TODO: fix player sent when players exist
         //TODO: send to HUD instead of space maybe
-        this.Space.DispatchEvent(Events.AmmoUpdate, new AmmoEvent(1, this.Ammo, this.MaxAmmo));
+        this.Space.DispatchEvent(Events.AmmoUpdate, new AmmoEvent(1, this.GunType, this.Ammo, this.MaxAmmo));
     }
 
     function OnLogicUpdate(event : UpdateEvent)
