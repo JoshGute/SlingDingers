@@ -81,6 +81,8 @@ class CharacterController : ZilchComponent
     
     function Initialize(init : CogInitializer)
     {
+        CharacterController.GameEnded = false;
+        
         if(this.PNumberData == 0)
         {
             this.Owner.Sprite.Color = Real4(0,1,1,1);
@@ -98,9 +100,6 @@ class CharacterController : ZilchComponent
         Zero.Connect(this.Owner, Events.CollisionEnded, this.OnCollisionEnded);
         Zero.Connect(this.Owner, Events.CollisionPersisted, this.OnCollisionPersisted);
         
-        Zero.Connect(this.Owner, Events.KnockBackStarted, this.OnKnockBackStarted);
-        Zero.Connect(this.Owner, Events.KnockBackEnded, this.OnKnockBackEnded);
-        
         
         //Sets all important referenced objects
         this.TutorialText = this.Owner.FindChildByName("Text");
@@ -116,14 +115,15 @@ class CharacterController : ZilchComponent
         
     }
     
-    function OnKnockBackStarted(event : Event)
+    function KnockBackStarted()
     {
         this.HitStunned = true;
     }
     
-    function OnKnockBackEnded(event : Event)
+    function KnockBackEnded()
     {
         this.HitStunned = false;
+        this.TakingDamage = false;
     }
     
     
@@ -141,12 +141,81 @@ class CharacterController : ZilchComponent
     
     ////////////////////////////////////////////////////////////
     
-    function OnCollisionPersisted(event : CollisionEvent)
-    {
-        
-    }
+    var TakingDamage : Boolean = false;
+    
+    [Static]
+    var GameEnded : Boolean = false;
     
     function OnCollisionStarted(event : CollisionEvent)
+    {
+        if(this.CheckLegalHit(event))
+        {
+            this.TakingDamage = true;
+            this.KnockBack(event);
+        }
+        if(event.OtherObject.DeathBox != null)
+        {
+            if(!CharacterController.GameEnded)
+            {
+                var hud = this.GameSession.FindSpaceByName("HudSpace");
+                hud.DispatchEvent(Events.VictoryEvent, new VictoryEvent((!this.PNumberData as Boolean) as Integer));
+                CharacterController.GameEnded = true;
+            }
+            
+            this.Die();
+        }
+    }
+    
+    function Die()
+    {
+        //ADD ALL THE FANCY SHITE
+        this.Owner.Destroy();
+    }
+    
+    function KnockBack(event : CollisionEvent)
+    {
+        this.KnockBackHitStun(event);
+        
+        
+        var skid = this.Space.CreateAtPosition(Archetype.Skid, this.Owner.Transform.Translation);
+        skid.AttachToRelative(this.Owner);
+        
+        Console.WriteLine("FPIW");
+        
+        this.Owner.Platforming.Grounded = false;
+        
+        var knoc = 1500;
+        
+        this.Owner.RigidBody.Velocity = Real3(0,0,0);
+        
+        if(event.OtherObject.BulletScript.Type != WeaponType.Type_Dunk) 
+            this.Owner.RigidBody.ApplyForce(-event.FirstPoint.WorldNormalTowardsOther * knoc);
+        else
+            this.Owner.RigidBody.ApplyForce(Real3(0, -4000, 0));
+    }
+    
+    function KnockBackHitStun(event : CollisionEvent)
+    {
+        var seq = Actions.Sequence(this.Owner.Actions);
+        
+        Actions.Call(seq, this.KnockBackStarted);
+        
+        Actions.Delay(seq, 0.5);
+        
+        if(!this.Dead)
+        {
+            Actions.Call(seq, this.KnockBackEnded);
+        }
+    }
+    
+    function CheckLegalHit(event : CollisionEvent) : Boolean
+    {
+        return (event.OtherObject.BulletScript != null &&
+               !this.Owner.CharacterController.Dead &&
+               !this.TakingDamage);
+    }
+    
+    function OnCollisionPersisted(event : CollisionEvent)
     {
         
     }
@@ -182,6 +251,7 @@ class CharacterController : ZilchComponent
     
     function ManageMove(event : UpdateEvent)
     {
+        if(this.HitStunned) return;
         
         this.Owner.Platforming.MoveHorizontal(this.Controller.LeftStick.X);
         

@@ -1,0 +1,235 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "Burst_Sudden",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [5.33919716, 3.52918816, -1.00099945],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	SpriteParticleSystem = 
+	{
+		bool Visible = true,
+		bool VisibilityCulling = true,
+		bool VisibilityEvents = true,
+		bool CastShadows = false,
+		SystemChildMode ChildMode = Independent,
+		SystemSpace SystemSpace = WorldSpace,
+		uint DrawOrder = 0,
+		Vec4 Tint = [1, 0.160000026, 0.160000026, 0.999899983],
+		float WarmUpTime = 0,
+		ParticleGeometry GeometryMode = Billboarded,
+		ParticleRenderMode RenderMode = Additive,
+		ParticleSortMode SortMode = Youngest,
+		ParticleAnimation ParticleAnimation = Single,
+		string Texture = "5310e87946eeadd0:Smoke2",
+		float VelocityScale = 1,
+		float LengthScale = 1,
+		float MaxParticleSize = 100,
+		Vec3 SystemSize = [4, 4, 4],
+	},
+	SphericalParticleEmitter = 
+	{
+		bool Active = true,
+		uint EmitCount = 90,
+		float EmitRate = 1200,
+		float EmitVariance = 0,
+		float Size = 3,
+		float SizeVariance = 0.100000001,
+		float Lifetime = 0.5,
+		float LifetimeVariance = 0.5,
+		float Spin = 0,
+		float SpinVariance = 50,
+		bool RandomSpin = true,
+		float Fill = 1,
+		float EmitterVelocityPercent = 0,
+		Vec3 StartVelocity = [0, 0, 0],
+		Vec3 RandomVelocity = [15, 15, 15],
+		Vec3 TangentVelocity = [0, 0, 0],
+		Vec3 EmitterSize = [0, 0, 0],
+		bool FastMovingEmitter = false,
+	},
+	LinearParticleAnimator = 
+	{
+		Vec3 Force = [0, 40, 0],
+		Vec3 RandomForce = [0, 90, 0],
+		float Torque = 0,
+		float Growth = 0,
+		float Dampening = 15,
+		Vec3 Twist = [0, 0, 0],
+	},
+	ParticleColorAnimator = 
+	{
+		Vec4 Color0 = [1, 0.539999843, 0, 0.999899983],
+		Vec4 Color1 = [1, 0.539999843, 0, 0.685000002],
+		Vec4 Color2 = [0.600000024, 0.458099991, 0.342000008, 0.485000014],
+		Vec4 Color3 = [0.699999988, 0.539874971, 0.4375, 0.230000019],
+		Vec4 Color4 = [0.24000001, 0.24000001, 0.24000001, 0],
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "White",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, -0.0406513214, -1],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			SpriteParticleSystem = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = false,
+				SystemChildMode ChildMode = Independent,
+				SystemSpace SystemSpace = WorldSpace,
+				uint DrawOrder = 0,
+				Vec4 Tint = [0.899999976, 0.490499973, 0.490499973, 1],
+				float WarmUpTime = 0,
+				ParticleGeometry GeometryMode = Billboarded,
+				ParticleRenderMode RenderMode = Additive,
+				ParticleSortMode SortMode = Youngest,
+				ParticleAnimation ParticleAnimation = Single,
+				string Texture = "5274db4c2e7c11f9:Circle",
+				float VelocityScale = 1.90015507,
+				float LengthScale = 1,
+				float MaxParticleSize = 100,
+				Vec3 SystemSize = [4, 4, 4],
+			},
+			SphericalParticleEmitter = 
+			{
+				bool Active = true,
+				uint EmitCount = 100,
+				float EmitRate = 1000,
+				float EmitVariance = 0,
+				float Size = 0.200000003,
+				float SizeVariance = 0.100000001,
+				float Lifetime = 0.100000001,
+				float LifetimeVariance = 0.200000003,
+				float Spin = 0,
+				float SpinVariance = 50,
+				bool RandomSpin = true,
+				float Fill = 1,
+				float EmitterVelocityPercent = 0,
+				Vec3 StartVelocity = [0, 0, 0],
+				Vec3 RandomVelocity = [10, 10, 10],
+				Vec3 TangentVelocity = [0, 0, 0],
+				Vec3 EmitterSize = [0, 0, 0],
+				bool FastMovingEmitter = false,
+			},
+			LinearParticleAnimator = 
+			{
+				Vec3 Force = [0, 0, 0],
+				Vec3 RandomForce = [0, 0, 0],
+				float Torque = 0,
+				float Growth = 0,
+				float Dampening = -9,
+				Vec3 Twist = [0, 0, 0],
+			},
+			ParticleColorAnimator = 
+			{
+				Vec4 Color0 = [1, 1, 1, 0],
+				Vec4 Color1 = [1, 1, 1, 1],
+				Vec4 Color2 = [1, 1, 1, 1],
+				Vec4 Color3 = [1, 1, 1, 1],
+				Vec4 Color4 = [1, 1, 1, 0],
+			},
+			AffectedByNormal = 
+			{
+				float Magnitude = 7,
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Named = 
+			{
+				string Name = "Beams",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, -9.53674316e-07, 0],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			SpriteParticleSystem = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = false,
+				SystemChildMode ChildMode = Independent,
+				SystemSpace SystemSpace = WorldSpace,
+				uint DrawOrder = 0,
+				Vec4 Tint = [1, 0, 0.000599861145, 1],
+				float WarmUpTime = 0,
+				ParticleGeometry GeometryMode = Beam,
+				ParticleRenderMode RenderMode = Additive,
+				ParticleSortMode SortMode = Youngest,
+				ParticleAnimation ParticleAnimation = Single,
+				string Texture = "5274db4c2e7c11f9:Circle",
+				float VelocityScale = 1.90015507,
+				float LengthScale = 1,
+				float MaxParticleSize = 100,
+				Vec3 SystemSize = [4, 4, 4],
+			},
+			SphericalParticleEmitter = 
+			{
+				bool Active = true,
+				uint EmitCount = 50,
+				float EmitRate = 200,
+				float EmitVariance = 0,
+				float Size = 0.200000003,
+				float SizeVariance = 0.100000001,
+				float Lifetime = 0.100000001,
+				float LifetimeVariance = 0.200000003,
+				float Spin = 0,
+				float SpinVariance = 50,
+				bool RandomSpin = true,
+				float Fill = 1,
+				float EmitterVelocityPercent = 0,
+				Vec3 StartVelocity = [0, 0, 0],
+				Vec3 RandomVelocity = [10, 10, 10],
+				Vec3 TangentVelocity = [0, 0, 0],
+				Vec3 EmitterSize = [0, 0, 0],
+				bool FastMovingEmitter = false,
+			},
+			LinearParticleAnimator = 
+			{
+				Vec3 Force = [0, 0, 0],
+				Vec3 RandomForce = [0, 0, 0],
+				float Torque = 0,
+				float Growth = 0,
+				float Dampening = -9,
+				Vec3 Twist = [0, 0, 0],
+			},
+			ParticleColorAnimator = 
+			{
+				Vec4 Color0 = [1, 1, 1, 0],
+				Vec4 Color1 = [1, 1, 1, 1],
+				Vec4 Color2 = [1, 1, 1, 1],
+				Vec4 Color3 = [1, 1, 1, 1],
+				Vec4 Color4 = [1, 1, 1, 0],
+			},
+		},
+	},
+},

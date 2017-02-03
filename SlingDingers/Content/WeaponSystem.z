@@ -86,7 +86,7 @@ class WeaponSystem : ZilchComponent
             this.CurrentWepaon = this.DefaultWeapon;
             if(previousWeapon != this.DefaultWeapon)
             {
-                Console.WriteLine("Oboi");                
+                Console.WriteLine("Oboi");
                 this.Equip();
             }
         }

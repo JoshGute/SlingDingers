@@ -39,6 +39,12 @@ class BulletScript : ZilchComponent
     {
         if(this.Type == WeaponType.Type_Laser) return;
         
+        if(event.OtherObject.CharacterController != null)
+        {
+            this.Burst(event.FirstPoint.WorldNormalTowardsOther);
+            return;
+        }
+        
         if(this.Type == WeaponType.Type_Dunk)
         {
             event.OtherObject.DispatchEvent(Events.BlockDestroy, new BlockDestroy(this.Owner.Transform.Translation - event.OtherObject.Transform.Translation, 10));

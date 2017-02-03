@@ -42,4 +42,6 @@ class VictoryEvent : ZilchEvent
     {
         this.WinningPlayer = player;
     }
+    
+    sends VictoryEvent:VictoryEvent;
 }
