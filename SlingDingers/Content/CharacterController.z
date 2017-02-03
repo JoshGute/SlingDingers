@@ -1,0 +1,236 @@
+class DeathEvent : ZilchEvent
+{
+    var Player : Real = 0;
+    
+    constructor() : base()
+    {
+    }
+}
+
+
+struct PInput
+{
+    var Right : Keys;
+    var Left : Keys;
+    var Attack : Keys;
+    var Jump : Keys;
+    var FastFall : Keys;
+}
+
+enum ControlScheme
+{
+    Gamepad,
+    Keyboard
+}
+
+class CharacterController : ZilchComponent
+{
+    ////////////////////////////////////////////////////////////
+    
+    [Property]
+    var Scheme : ControlScheme;
+    
+    [Property]
+    var DeathSpawn : Archetype;
+    
+    [Property]
+    var PNumberData : Integer = 0;
+    var PNumber : Integer
+    {
+        get { return this.PNumberData; }
+        set
+        {
+            this.PNumberData = value;
+            this.Controller = Zero.Gamepads.GetGamePad(this.PNumber);
+        }
+    }
+    var InputScheme : PInput;
+    
+    var Controller : Gamepad = null;
+    
+    ////////////////////////////////////////////////////////////
+    
+    var Sprite : Real = 1;
+    
+    var PlayerStand : SpriteSource = null;
+    var PlayerHold : SpriteSource = null;
+    var PlayerWalk : SpriteSource = null;
+    var PlayerJump : SpriteSource = null;
+    
+    ////////////////////////////////////////////////////////////
+    
+    var Starting_Point : Real3;
+    
+    var TutorialText : Cog = null;
+    
+    var GameEnd : Boolean = false;
+    
+    var Camera : Cog;
+    var Mouse : Cog;
+    
+    var InputDelay : Integer = 0;    
+    
+    var HitStunned : Boolean = false;
+    var Dead : Boolean = false;
+    
+    ////////////////////////////////////////////////////////////
+    
+    sends PlayerDeath : DeathEvent;
+    sends KnockBackStarted : Event;
+    sends KnockBackEnded : Event;
+    
+    function Initialize(init : CogInitializer)
+    {
+        if(this.PNumberData == 0)
+        {
+            this.Owner.Sprite.Color = Real4(0,1,1,1);
+        }
+        
+        if(this.PNumberData == 1)
+        {
+            this.Owner.Sprite.Color = Real4(1,0.2,0.2,1);
+        }
+        
+        this.Controller = Zero.Gamepads.GetGamePad(this.PNumberData);
+        
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+        Zero.Connect(this.Owner, Events.CollisionEnded, this.OnCollisionEnded);
+        Zero.Connect(this.Owner, Events.CollisionPersisted, this.OnCollisionPersisted);
+        
+        Zero.Connect(this.Owner, Events.KnockBackStarted, this.OnKnockBackStarted);
+        Zero.Connect(this.Owner, Events.KnockBackEnded, this.OnKnockBackEnded);
+        
+        
+        //Sets all important referenced objects
+        this.TutorialText = this.Owner.FindChildByName("Text");
+        this.Camera = this.Space.FindObjectByName("Camera");
+        
+        //TO ensure she wins in overlaps
+        this.Owner.Transform.Translation += Real3(0,0,0.6);
+        
+        //Spawn location
+        this.Starting_Point = this.Owner.Transform.Translation;
+        
+    }
+    
+    function OnKnockBackStarted(event : Event)
+    {
+        this.HitStunned = true;
+    }
+    
+    function OnKnockBackEnded(event : Event)
+    {
+        this.HitStunned = false;
+    }
+    
+    
+    ////////////////////////////////////////////////////////////
+    
+    function InputDelayer(dir : Integer)
+    {
+        var seq = Actions.Sequence(this.Owner.Actions);
+        
+        Action.Property(seq, @this.InputDelay, dir, 0, Ease.SinOut);
+        Action.Delay(seq,0.35);
+        Action.Property(seq, @this.InputDelay, 0, 0, Ease.SinOut);
+    }
+    
+    
+    ////////////////////////////////////////////////////////////
+    
+    function OnCollisionPersisted(event : CollisionEvent)
+    {
+        
+    }
+    
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        
+    }
+    
+    function OnCollisionEnded(event : CollisionEvent)
+    {
+        
+    }
+    
+    ////////////////////////////////////////////////////////////
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(this.Dead)
+        {
+            return;
+        }
+        
+        else
+        {
+            this.ManageMove(event);
+        }
+    }
+    
+    ////////////////////////////////////////////////////////////
+    
+    var SentMoveEvent : Boolean = false;
+    
+    
+    ////////////////////////////////////////////////////////////
+    
+    function ManageMove(event : UpdateEvent)
+    {
+        
+        this.Owner.Platforming.MoveHorizontal(this.Controller.LeftStick.X);
+        
+        if(this.Controller.LeftStick.X != 0 && !this.SentMoveEvent)
+        {
+            this.SentMoveEvent = true;
+            this.Owner.DispatchEvent("Moved", ZilchEvent());
+        }
+        
+        if(this.Controller.IsButtonPressed(Buttons.LeftShoulder))
+        {
+            if(Math.Abs(this.Controller.LeftStick.X) < 0.2)
+            {
+                return;
+            }
+            
+            if(this.InputDelay == 0)
+            {
+                this.InputDelayer(2);
+                
+                if(this.Controller.LeftStick.X < 0)
+                {
+                    
+                    this.Owner.CharacterController.Controller.Vibrate(0.1, 0.5, 0.5);
+                    this.Owner.Platforming.Dash(Real3(-1,0,0));
+                }
+                else
+                {
+                    
+                    this.Owner.CharacterController.Controller.Vibrate(0.1, 0.5, 0.5);
+                    this.Owner.Platforming.Dash(Real3(1,0,0));
+                }
+            }
+        }
+        
+        if(this.Controller.LeftStick.Y < -0.7)
+        {
+            this.Owner.Platforming.FastFall(this.Controller.LeftStick.Y + 0.5);
+        }
+        
+        if(this.Controller.IsButtonPressed(Buttons.A))
+        {
+            this.Owner.Platforming.Jump();
+        }
+        
+        /*if(this.Controller.IsButtonPressed(Buttons.Back))
+        {
+            this.Space.ReloadLevel();
+        }*/
+        
+        if(this.Controller.IsButtonPressed(Buttons.RightShoulder) || this.Controller.IsButtonPressed(Buttons.X))
+        {
+            //FIRE
+        }
+    }
+}

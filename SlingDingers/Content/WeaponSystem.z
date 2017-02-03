@@ -45,6 +45,8 @@ class WeaponSystem : ZilchComponent
         {
             this.CurrentWepaon = event.OtherObject.PowerUp.Weapon;
             this.Equip();
+            
+            event.OtherObject.Destroy();
         }
     }
     
@@ -86,9 +88,11 @@ class WeaponSystem : ZilchComponent
         --this.Ammo;
         
         this.Delay = 0;
-        var bulletObj = this.Space.CreateAtPosition(this.CurrentWepaon, this.Owner.Transform.Translation);
+        var bulletObj = this.Space.CreateAtPosition(this.CurrentWepaon, Real3((this.Owner.Transform.Translation + (vec)).XY, 0));
         
         bulletObj.BulletScript.Propell(vec, bulletObj.BulletScript.Type);
+        
+        this.Owner.Movement.Vibrate(0.25,0.25);
         
         if(bulletObj.BulletScript.Type == WeaponType.Type_Dunk) bulletObj.RigidBody.Velocity += Real3(0,-50,0);
     }
