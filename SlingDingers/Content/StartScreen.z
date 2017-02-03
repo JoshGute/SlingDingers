@@ -1,0 +1,19 @@
+class StartScreen : ZilchComponent
+{
+    [Property]
+    var OpacityCurve : SampleCurve;
+    
+    function Initialize(init : CogInitializer)
+    {
+        var seq = Actions.Sequence(this.Owner.Actions);
+        
+        Actions.Property(seq, @this.Owner.Sprite.Color, Real4(0, 0, 0, 0), 6, this.OpacityCurve);
+
+        Actions.Call(seq, this.Owner.Destroy);
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+    }
+}

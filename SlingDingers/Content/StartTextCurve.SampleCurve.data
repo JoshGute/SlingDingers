@@ -1,0 +1,65 @@
+SampleCurve = 
+{
+	Vec2 WidthRange = [0, 1],
+	Vec2 HeightRange = [0, 1],
+	float Error = 0.00999999978,
+	Array ControlPoints = 
+	[
+		{
+			float Time = 0,
+			float Value = -0,
+			Vec2 TangentIn = [-0.0469201729, -0.00891802367],
+			Vec2 TangentOut = [0.0469201729, 0.00891802367],
+			uint EditorFlags = 0,
+		},
+		{
+			float Time = 0.140760511,
+			float Value = 0.496774197,
+			Vec2 TangentIn = [-0.069455564, -0.000346273184],
+			Vec2 TangentOut = [0.069455564, 0.000346273184],
+			uint EditorFlags = 0,
+		},
+		{
+			float Time = 0.349127173,
+			float Value = 0.5,
+			Vec2 TangentIn = [-0.069455564, -0.000336974859],
+			Vec2 TangentOut = [0.069455564, 0.000336974859],
+			uint EditorFlags = 0,
+		},
+		{
+			float Time = 0.469451368,
+			float Value = 1,
+			Vec2 TangentIn = [-0.090575695, -0.00182199478],
+			Vec2 TangentOut = [0.090575695, 0.00182199478],
+			uint EditorFlags = 0,
+		},
+		{
+			float Time = 0.537406504,
+			float Value = 1,
+			Vec2 TangentIn = [-0.0663732886, 9.28640366e-05],
+			Vec2 TangentOut = [0.0663732886, -9.28640366e-05],
+			uint EditorFlags = 0,
+		},
+		{
+			float Time = 0.648379028,
+			float Value = 0.501618147,
+			Vec2 TangentIn = [-0.0369907618, -0.000680923462],
+			Vec2 TangentOut = [0.0369907618, 0.000680923462],
+			uint EditorFlags = 0,
+		},
+		{
+			float Time = 0.873248816,
+			float Value = 0.503225803,
+			Vec2 TangentIn = [-0.0749565363, 0.00035816431],
+			Vec2 TangentOut = [0.0749565363, -0.00035816431],
+			uint EditorFlags = 0,
+		},
+		{
+			float Time = 1,
+			float Value = -0,
+			Vec2 TangentIn = [-0.0422503352, 0.00135301158],
+			Vec2 TangentOut = [0.0422503352, -0.00135301158],
+			uint EditorFlags = 0,
+		},
+	],
+},
