@@ -76,6 +76,7 @@ class Timer : ZilchComponent
     
     function LargeBumpOn()
     {
+        this.Owner.SoundEmitter.PlayCue(SoundCue.Warning);
         var seq = Actions.Sequence(this.Owner.Actions);
         var group = Actions.Group(seq);
         Actions.Property(group, @this.Owner.Transform.Scale, this.LargePop, 0.25, Ease.QuadOut);

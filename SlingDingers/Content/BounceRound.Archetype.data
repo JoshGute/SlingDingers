@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [6.48220921, 8.69110012, 5.72138648e-09],
+		Vec3 Translation = [0, -6540.50244, 0],
 		Vec3 Scale = [0.574451447, 0.574451447, 0.574451447],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -52,10 +52,10 @@ Cog =
 		bool Asleep = false,
 		bool Kinematic = false,
 		bool RotationLocked = false,
-		bool Mode2D = true,
+		bool Mode2D = false,
 		bool AllowSleep = true,
 		bool Inherit2DMode = true,
-		Vec3 Velocity = [0, 0, 0],
+		Vec3 Velocity = [0, -526.338684, 0],
 		Vec3 AngularVelocity = [0, 0, 0],
 	},
 	BulletScript = 
@@ -67,6 +67,10 @@ Cog =
 		float RoF = 0.899999976,
 		int Ammo = 5,
 		string BurstEffect = "585fc9cdd476fa0b:Burst_Bounce",
+		string BulletBounceSound = "581fb010b5d0abe2:BombHit",
+		string BulletHitCharSound = "581fb010b5d33c6d:BombHitTarget",
+		string BulletEndSound = "581fb010b5d1ea6e:BombExplode",
+		string BulletFireSound = "581fb010b5d3e573:BombLaunch",
 		float NumBounces = 1,
 	},
 	IgnoreSpaceEffects = 
@@ -92,5 +96,14 @@ Cog =
 		bool LocalSpaceDirection = false,
 		float Strength = 20,
 		Vec3 Direction = [0, -1, 0],
+	},
+	SoundEmitter = 
+	{
+		float Volume = 1,
+		float Pitch = 0,
+		float PitchSemitones = 0,
+		bool UsePitchSemitones = true,
+		bool Positional = true,
+		int Version = 1,
 	},
 },

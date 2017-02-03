@@ -21,11 +21,25 @@ class BulletScript : ZilchComponent
     [Property]
     var BurstEffect : Archetype;
     
+    [Property]
+    var BulletBounceSound : SoundCue;
+    [Property]
+    var BulletHitCharSound : SoundCue;
+    [Property]
+    var BulletEndSound : SoundCue;
+    [Property]
+    var BulletFireSound : SoundCue;
+    
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         Zero.Connect(this.Owner, Events.CollisionEnded, this.OnCollisionEnded);
         Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+        
+        if(this.Owner.SoundEmitter == null)
+            this.Owner.AddComponentByName("SoundEmitter");
+        
+        this.Owner.SoundEmitter.PlayCue(this.BulletFireSound);
     }
     
     [Property]
@@ -61,7 +75,7 @@ class BulletScript : ZilchComponent
         {
             if(this.BouncedThisLife >= this.NumBounces)
             {
-                this.Space.PhysicsSpace.DispatchWithinSphere(this.Owner.Transform.Translation, 2, Events.BlockDestroy, new BlockDestroy(this.Owner.Transform.Translation - event.OtherObject.Transform.Translation, 1));
+                this.Space.PhysicsSpace.DispatchWithinSphere(this.Owner.Transform.Translation, 3, Events.BlockDestroy, new BlockDestroy(this.Owner.Transform.Translation - event.OtherObject.Transform.Translation, 1));
                 
                 this.Burst(event.FirstPoint.WorldNormalTowardsOther);
             }
@@ -134,7 +148,8 @@ class BulletScript : ZilchComponent
     
     function Burst(normal : Real3)
     {
-        //Effect
+        //Effect    
+        this.Space.SoundSpace.PlayCueAt(this.BulletEndSound, this.Owner.Transform.Translation);
         
         var obj = this.Space.CreateAtPosition(this.BurstEffect, this.Owner.Transform.Translation);
         

@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [4.42936325, 8.69110012, 5.72138648e-09],
+		Vec3 Translation = [32.5468636, 28.207056, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -67,6 +67,10 @@ Cog =
 		float RoF = 0.899999976,
 		int Ammo = 0,
 		string BurstEffect = "585f2ebf19812654:Burst_Sudden",
+		string BulletBounceSound = "581fb010b5d1ea6e:BombExplode",
+		string BulletHitCharSound = "581fb010b5d1ea6e:BombExplode",
+		string BulletEndSound = "581fb010b5d1ea6e:BombExplode",
+		string BulletFireSound = "",
 		float NumBounces = 0,
 	},
 	IgnoreSpaceEffects = 
