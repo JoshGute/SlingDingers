@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "TestSwap",
+		uint64 ResourceId = 5822ae474fa1c641,
+	},
+},
