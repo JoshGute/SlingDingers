@@ -1,0 +1,41 @@
+class SuddenDeathSpawner : ZilchComponent
+{
+    [Property]
+    var Bomb : Archetype;
+    
+    var Active : Boolean = false;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Space, Events.SuddenDeath, this.OnSuddenDeath);
+    }
+
+    function OnSuddenDeath(event : Event)
+    {
+        this.Active = true;
+    }
+    
+    var Time : Real = 1;
+    var Timer : Real = 0;
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(!this.Active) return;
+        
+        this.Timer += event.Dt;
+        
+        if(this.Timer >= this.Time)
+        {
+            this.Timer = 0;
+            
+            if(this.Time >= 0.2) this.Time -= 0.1;
+            
+            var rand = new Random();
+            
+            var locX = rand.DieRoll(50) - 25;
+            
+            this.Space.CreateAtPosition(this.Bomb, Real3(locX, this.Owner.Transform.Translation.Y, 0));
+        }
+    }
+}

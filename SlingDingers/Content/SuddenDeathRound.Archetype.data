@@ -60,7 +60,8 @@ Cog =
 	},
 	BulletScript = 
 	{
-		Enum Type = Type_Arc,
+		Enum Type = Type_Projectile,
+		Enum GunType = Pistol,
 		float Speed = 25,
 		float RoF = 0.899999976,
 		int Ammo = 0,
@@ -90,5 +91,9 @@ Cog =
 		bool LocalSpaceDirection = false,
 		float Strength = 20,
 		Vec3 Direction = [0, -1, 0],
+	},
+	TimedDestroy = 
+	{
+		float Time = 5,
 	},
 },
