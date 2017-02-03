@@ -1,0 +1,90 @@
+class Movement : ZilchComponent
+{
+    [Property]
+    var Speed : Real = 10;
+    [Property]
+    var MaxSpeed : Real = 20;
+    
+    [Property]
+    var JumpSpeed : Real = 1;
+    var MaxJumps : Integer = 1;
+    var CurrentJumps : Integer = 0;
+    
+    //this is the controls variable Leo and Jesse asked for. 
+    var Controls : Real = 1;
+    
+    //index of the controller. change to 1 in editor for second player
+    [Property]
+    var PlayerIndex : Integer = 0;
+    
+    var Controller : Gamepad = null;
+    var RB : RigidBody = null;
+    
+    //left stick and right stick;
+    var AxisLeft : Real2 = Real2(0,0);
+    var AxisRight : Real2 = Real2(0,0);
+    
+    //states of left and right triggers
+    var PrevLeftTrigger : Real = 0;
+    var LeftTrigger : Real = 0;
+    
+    var PrevRightTrigger : Real = 0;
+    var RightTrigger : Real = 0;
+
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        
+        this.Controller = Zero.Gamepads.GetGamePad(this.PlayerIndex);
+        this.RB = this.Owner.RigidBody;
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(this.Controller.IsActive)
+        {
+            this.AxisLeft = this.Controller.LeftStick.XY;
+            this.AxisRight = this.Controller.RightStick.XY;
+            
+            this.PrevLeftTrigger = this.LeftTrigger;
+            this.LeftTrigger = this.Controller.LeftTrigger;
+            
+            this.PrevRightTrigger = this.RightTrigger;
+            this.RightTrigger = this.Controller.RightTrigger;
+            
+            if(this.AxisLeft.X != 0)
+            {
+                this.RB.Velocity = Real3(this.AxisLeft.X * this.Speed * this.Controls, this.RB.Velocity.Y, this.RB.Velocity.Z);
+            }
+            
+            if(this.LeftTrigger == 0 && this.PrevLeftTrigger == 1)
+            {
+                this.Jump(this.JumpSpeed);
+            }
+            
+            if(this.RightTrigger == 0 && this.PrevRightTrigger == 1)
+            {
+                this.Shoot();
+            }
+        }
+    }
+    
+    function Jump(jumpSpeed_ : Real)
+    {
+        if(this.CurrentJumps < this.MaxJumps)
+        {
+            this.RB.ApplyForce(Real3 (0,jumpSpeed_ * 100,0));
+            ++this.CurrentJumps;
+        }
+    }
+    
+    function Shoot()
+    {
+        this.Vibrate(0.25,0.25);
+    }
+    
+    function Vibrate(vibrationStrength : Real, vibrationLength : Real)
+    {
+        this.Controller.Vibrate(vibrationLength, vibrationStrength, vibrationStrength);
+    }
+}
