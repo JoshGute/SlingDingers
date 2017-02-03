@@ -182,7 +182,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0.0007478185, -1.45206201, 48.9980011],
+			Vec3 Translation = [1.48238492, 4.78640985, 48.9980011],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278471e-08, 0, 1],
 		},
@@ -202,7 +202,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [0.0007478185, -1.45206201, -1.00200081],
+			Vec3 LookTarget = [1.48238492, 4.78640985, -1.00200081],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -357,6 +357,15 @@ Level =
 			Vec4 DefaultColor = [1, 1, 1, 1],
 			Vec3 SmallPop = [1.10000002, 1.10000002, 1.10000002],
 			Vec3 LargePop = [1.25, 1.25, 1.25],
+		},
+		SoundEmitter = 
+		{
+			float Volume = 1,
+			float Pitch = 0,
+			float PitchSemitones = 0,
+			bool UsePitchSemitones = false,
+			bool Positional = true,
+			int Version = 1,
 		},
 	},
 	Cog = 
