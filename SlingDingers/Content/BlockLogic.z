@@ -24,7 +24,7 @@ class BlockLogic : ZilchComponent
         
         var seq = Actions.Sequence(this.Owner.Actions);
         
-        Actions.Property(seq, @this.Owner.Sprite.Color, Real4(0, 0, 0, 0), 0.3, Ease.QuadOut);
+        Actions.Property(seq, @this.Owner.MultiSprite.Color, Real4(0, 0, 0, 0), 0.3, Ease.QuadOut);
         Actions.Call(seq, this.Owner.Destroy);
     }
 
