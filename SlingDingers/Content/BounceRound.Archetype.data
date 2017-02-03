@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-4.58115101, 0.157068059, 5.72138648e-09],
+		Vec3 Translation = [-4.58115101, 8.69110012, 5.72138648e-09],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -63,7 +63,9 @@ Cog =
 		Enum Type = Type_Arc,
 		float Speed = 25,
 		float RoF = 0.899999976,
+		int Ammo = 5,
 		string BurstEffect = "585fab2a9168efce:GenericEffect",
+		float NumBounces = 2,
 	},
 	IgnoreSpaceEffects = 
 	{
