@@ -34,6 +34,7 @@ class Movement : ZilchComponent
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, Events.FootEvent, this.OnFootCollide);
         
         this.Controller = Zero.Gamepads.GetGamePad(this.PlayerIndex);
         this.RB = this.Owner.RigidBody;
@@ -86,5 +87,11 @@ class Movement : ZilchComponent
     function Vibrate(vibrationStrength : Real, vibrationLength : Real)
     {
         this.Controller.Vibrate(vibrationLength, vibrationStrength, vibrationStrength);
+    }
+    
+    function OnFootCollide(event : FootEvent)
+    {
+        this.CurrentJumps = 0;
+        this.RB.Velocity = Real3(0,0,0);
     }
 }
