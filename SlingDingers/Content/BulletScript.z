@@ -1,0 +1,83 @@
+class BulletScript : ZilchComponent
+{
+    [Property]
+    var Type : WeaponType;
+    
+    [Property]
+    var Speed : Real;
+    
+    [Property]
+    var RoF : Real;
+    
+    [Property]
+    var BurstEffect : Archetype;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, Events.CollisionEnded, this.OnCollisionEnded);
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+        
+        
+    }
+    
+    var NumBounces : Real = 0;
+
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        if(this.Type != WeaponType.Type_Arc)
+        {
+            event.OtherObject.DispatchEvent("BlockDestroy", new ZilchEvent());
+            
+            this.Burst();
+        }
+        else
+        {
+            if(this.NumBounces >= 2)
+            {
+                this.Space.PhysicsSpace.DispatchWithinSphere(this.Owner.Transform.Translation, 1, "BlockDestroy", new ZilchEvent());
+                
+                this.Burst();
+            }
+            
+            this.NumBounces += 1;
+        }
+    }
+
+    function OnCollisionEnded(event : CollisionEvent)
+    {
+        
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(Zero.Keyboard.KeyIsPressed(Keys.Space))
+        {
+            
+        }
+    }
+     
+    function Propell(vec : Real3, wepType : WeaponType)
+    {
+        vec = Math.Normalize(vec);
+        
+        if(wepType == WeaponType.Type_Laser) this.LaserFire();
+        
+        this.Owner.RigidBody.Velocity = vec * this.Speed;
+    }
+    
+    function LaserFire()
+    {
+        //raycaststuff
+        //send events to objects it hits
+    }
+    
+    function Burst()
+    {
+        //Effect
+        
+        this.Space.CreateAtPosition(this.BurstEffect, this.Owner.Transform.Translation);
+        
+        this.Owner.Destroy();
+    }
+}

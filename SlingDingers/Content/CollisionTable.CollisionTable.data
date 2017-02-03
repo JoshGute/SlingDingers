@@ -1,0 +1,23 @@
+CollisionTable = 
+{
+	Array RegisteredGroups = 
+	[
+		"585f97b5ed0234eb:World",
+		"4e740859314e5515:DefaultGroup",
+		"585f97b8ecc4e9b1:Projectile",
+	],
+	Array CollisionFilters = 
+	[
+		{
+			string TypeA = "585f97b8ecc4e9b1:Projectile",
+			string TypeB = "585f97b8ecc4e9b1:Projectile",
+			bool SkipResolution = false,
+			bool SkipDetectingCollision = true,
+			bool StartEvent = false,
+			bool EndEvent = false,
+			bool PersistedEvent = false,
+			bool PreSolveEvent = false,
+		},
+	],
+	bool AutoRegister = true,
+},
