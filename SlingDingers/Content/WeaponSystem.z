@@ -1,0 +1,52 @@
+
+enum WeaponType
+{
+    Type_Projectile,
+    Type_Dunk,
+    Type_Laser,
+    Type_Arc
+}
+
+class WeaponSystem : ZilchComponent
+{
+    [Property]
+    var CurrentWepaon : Archetype;
+    
+    var RoF : Real;
+    var Delay : Real = 10;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        this.Equip();
+    }
+    
+    function Equip()
+    {
+        var bulletObj = this.Space.CreateAtPosition(this.CurrentWepaon, Real3(0,-200,0));
+        this.RoF = bulletObj.BulletScript.RoF;
+        bulletObj.Destroy();
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.Delay += event.Dt;
+        
+        if(Zero.Keyboard.KeyIsDown(Keys.Space))
+        {
+            this.Fire(Real3(1,1,1));
+        }
+    }
+    
+    function Fire(vec : Real3)
+    {
+        if(this.Delay <= this.RoF) return;
+        
+        this.Delay = 0;
+        var bulletObj = this.Space.CreateAtPosition(this.CurrentWepaon, this.Owner.Transform.Translation);
+        
+        bulletObj.BulletScript.Propell(vec, bulletObj.BulletScript.Type);
+        
+        if(bulletObj.BulletScript.Type == WeaponType.Type_Dunk) bulletObj.RigidBody.Velocity += Real3(0,-50,0);
+    }
+}
