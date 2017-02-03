@@ -61,6 +61,8 @@ Cog =
 	BulletScript = 
 	{
 		Enum Type = Type_Projectile,
+		Enum GunType = Pistol,
+		string Sprite = "5822fcde4d7c55ec:pistolImage",
 		float Speed = 40,
 		float RoF = 0.300000012,
 		int Ammo = 0,

@@ -30,11 +30,11 @@ class HUDController : ZilchComponent
         if(this.VictoryTriggered == false)
         {
             this.VictoryTriggered = true;
-            if(event.WinningPlayer == 1)
+            if(event.WinningPlayer == 0)
             {
                 this.VictoryScreen.Cog.FindChildByName("WinnerText").SpriteText.Text = "Player One Wins!";
             }
-            else if(event.WinningPlayer == 2)
+            else if(event.WinningPlayer == 1)
             {
                 this.VictoryScreen.Cog.FindChildByName("WinnerText").SpriteText.Text = "Player Two Wins!";
             }
@@ -72,11 +72,11 @@ class HUDController : ZilchComponent
     
     function MachineGunHUD(playerNum : Integer, currentAmmo : Integer, maxAmmo : Integer)
     {
-        if(playerNum == 1)
+        if(playerNum == 0)
         {
-            if(this.MyState1 != HUDState.Bomb)
+            if(this.MyState1 != HUDState.AR)
             {
-                this.MyState1 = HUDState.Bomb;
+                this.MyState1 = HUDState.AR;
                 this.Space.FindObjectByName("Player1Ammo").SpriteText.Visible = true;
                 this.Space.FindObjectByName("Player1AmmoShadow").SpriteText.Visible = true;
                 this.Space.FindObjectByName("Player1Ammo").SpriteText.Text = "`currentAmmo`/`maxAmmo`";
@@ -98,11 +98,11 @@ class HUDController : ZilchComponent
                 this.ShootShake1();
             }
         }
-        else if(playerNum == 2)
+        else if(playerNum == 1)
         {
-            if(this.MyState1 != HUDState.Bomb)
+            if(this.MyState1 != HUDState.AR)
             {
-                this.MyState1 = HUDState.Bomb;
+                this.MyState2 = HUDState.AR;
                 this.Space.FindObjectByName("Player2Ammo").SpriteText.Visible = true;
                 this.Space.FindObjectByName("Player2AmmoShadow").SpriteText.Visible = true;
                 this.Space.FindObjectByName("Player2Ammo").SpriteText.Text = "`currentAmmo`/`maxAmmo`";
@@ -128,7 +128,7 @@ class HUDController : ZilchComponent
     
     function LaserHUD(playerNum : Integer, currentAmmo : Integer, maxAmmo : Integer)
     {
-        if(playerNum == 1)
+        if(playerNum == 0)
         {
             if(this.MyState1 != HUDState.Bomb)
             {
@@ -154,11 +154,11 @@ class HUDController : ZilchComponent
                 this.ShootShake1();
             }
         }
-        else if(playerNum == 2)
+        else if(playerNum == 1)
         {
             if(this.MyState1 != HUDState.Bomb)
             {
-                this.MyState1 = HUDState.Bomb;
+                this.MyState2 = HUDState.Bomb;
                 this.Space.FindObjectByName("Player2Ammo").SpriteText.Visible = true;
                 this.Space.FindObjectByName("Player2AmmoShadow").SpriteText.Visible = true;
                 this.Space.FindObjectByName("Player2Ammo").SpriteText.Text = "`currentAmmo`/`maxAmmo`";
@@ -184,11 +184,11 @@ class HUDController : ZilchComponent
     
     function DunkerHUD(playerNum : Integer, currentAmmo : Integer, maxAmmo : Integer)
     {
-        if(playerNum == 1)
+        if(playerNum == 0)
         {
-            if(this.MyState1 != HUDState.Bomb)
+            if(this.MyState1 != HUDState.Dunker)
             {
-                this.MyState1 = HUDState.Bomb;
+                this.MyState1 = HUDState.Dunker;
                 this.Space.FindObjectByName("Player1Ammo").SpriteText.Visible = true;
                 this.Space.FindObjectByName("Player1AmmoShadow").SpriteText.Visible = true;
                 this.Space.FindObjectByName("Player1Ammo").SpriteText.Text = "`currentAmmo`/`maxAmmo`";
@@ -210,11 +210,11 @@ class HUDController : ZilchComponent
                 this.ShootShake1();
             }
         }
-        else if(playerNum == 2)
+        else if(playerNum == 1)
         {
-            if(this.MyState1 != HUDState.Bomb)
+            if(this.MyState1 != HUDState.Dunker)
             {
-                this.MyState1 = HUDState.Bomb;
+                this.MyState2 = HUDState.Dunker;
                 this.Space.FindObjectByName("Player2Ammo").SpriteText.Visible = true;
                 this.Space.FindObjectByName("Player2AmmoShadow").SpriteText.Visible = true;
                 this.Space.FindObjectByName("Player2Ammo").SpriteText.Text = "`currentAmmo`/`maxAmmo`";
@@ -240,7 +240,7 @@ class HUDController : ZilchComponent
     
     function PistolHUD(playerNum : Integer, currentAmmo : Integer, maxAmmo : Integer)
     {
-        if(playerNum == 1)
+        if(playerNum == 0)
         {
             if(this.MyState1 != HUDState.Base)
             {
@@ -262,7 +262,7 @@ class HUDController : ZilchComponent
                 this.ShootShake1();
             }
         }
-        else if(playerNum == 2)
+        else if(playerNum == 1)
         {
             if(this.MyState2 != HUDState.Base)
             {
@@ -288,7 +288,7 @@ class HUDController : ZilchComponent
     
     function BombHUD(playerNum : Integer, currentAmmo : Integer, maxAmmo : Integer)
     {
-        if(playerNum == 1)
+        if(playerNum == 0)
         {
             if(this.MyState1 != HUDState.Bomb)
             {
@@ -314,11 +314,11 @@ class HUDController : ZilchComponent
                 this.ShootShake1();
             }
         }
-        else if(playerNum == 2)
+        else if(playerNum == 1)
         {
             if(this.MyState1 != HUDState.Bomb)
             {
-                this.MyState1 = HUDState.Bomb;
+                this.MyState2 = HUDState.Bomb;
                 this.Space.FindObjectByName("Player2Ammo").SpriteText.Visible = true;
                 this.Space.FindObjectByName("Player2AmmoShadow").SpriteText.Visible = true;
                 this.Space.FindObjectByName("Player2Ammo").SpriteText.Text = "`currentAmmo`/`maxAmmo`";
@@ -393,4 +393,4 @@ class HUDController : ZilchComponent
     }
 }
 
-enum HUDState {Base, Laser, Bomb, Dunker}
+enum HUDState {Base, Laser, Bomb, Dunker, AR}

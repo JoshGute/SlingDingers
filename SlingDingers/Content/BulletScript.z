@@ -7,6 +7,9 @@ class BulletScript : ZilchComponent
     var GunType : WeaponName;
     
     [Property]
+    var Sprite : SpriteSource;
+    
+    [Property]
     var Speed : Real;
     
     [Property]
@@ -26,7 +29,7 @@ class BulletScript : ZilchComponent
     }
     
     [Property]
-    var NumBounces : Real = 2;
+    var NumBounces : Real = 1;
     var BouncedThisLife : Real = 0;
 
     var BounceDelay : Real = 0.5;

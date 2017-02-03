@@ -62,6 +62,7 @@ Cog =
 	{
 		Enum Type = Type_Dunk,
 		Enum GunType = Dunker,
+		string Sprite = "58228ebda3e2539e:TheDunker",
 		float Speed = 0,
 		float RoF = 0.600000024,
 		int Ammo = 3,

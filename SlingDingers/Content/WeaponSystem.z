@@ -60,10 +60,12 @@ class WeaponSystem : ZilchComponent
         this.GunType = bulletObj.BulletScript.GunType;
         bulletObj.Destroy();
         
+        this.Owner.CharacterController.Gun.FindChildByName("Reticule").Sprite.SpriteSource = bulletObj.BulletScript.Sprite;
+        
         //TODO: fix player sent when players exist
         //TODO: send to HUD instead of space maybe
         var hud = this.GameSession.FindSpaceByName("HudSpace");
-        hud.DispatchEvent(Events.AmmoUpdate, new AmmoEvent(1, this.GunType, this.Ammo, this.MaxAmmo));
+        hud.DispatchEvent(Events.AmmoUpdate, new AmmoEvent(this.Owner.CharacterController.PNumberData, this.GunType, this.Ammo, this.MaxAmmo));
     }
 
     function OnLogicUpdate(event : UpdateEvent)
@@ -78,7 +80,6 @@ class WeaponSystem : ZilchComponent
     
     function Fire(vec : Real3)
     {
-                Console.WriteLine(this.Ammo);
         if(this.Ammo <= 0) 
         {
             var previousWeapon = this.CurrentWepaon;
@@ -97,7 +98,7 @@ class WeaponSystem : ZilchComponent
         --this.Ammo;
         
         var hud = this.GameSession.FindSpaceByName("HudSpace");
-        hud.DispatchEvent(Events.AmmoUpdate, new AmmoEvent(1, this.GunType, this.Ammo, this.MaxAmmo));
+        hud.DispatchEvent(Events.AmmoUpdate, new AmmoEvent(this.Owner.CharacterController.PNumberData, this.GunType, this.Ammo, this.MaxAmmo));
         
         this.Delay = 0;
         var bulletObj = this.Space.CreateAtPosition(this.CurrentWepaon, Real3((this.Owner.Transform.Translation + (vec)).XY, 0));

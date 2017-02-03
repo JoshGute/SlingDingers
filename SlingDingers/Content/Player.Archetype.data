@@ -123,7 +123,7 @@ Cog =
 					Transform = 
 					{
 						Vec3 Translation = [0.745800257, 0, 0],
-						Vec3 Scale = [0.400000006, 0.400000006, 1],
+						Vec3 Scale = [1.70000005, 1.70000005, 1.70000005],
 						Quat Rotation = [0, 0, 0, 1],
 					},
 					Sprite = 
@@ -136,7 +136,7 @@ Cog =
 						BlendMode BlendMode = Alpha,
 						SpriteGeometryMode GeometryMode = ZPlane,
 						string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-						string SpriteSource = "5275aa4d802dd6dc:Square",
+						string SpriteSource = "5822fcde4d7c55ec:pistolImage",
 						bool RenderMask = false,
 						bool FlipX = false,
 						bool FlipY = false,
