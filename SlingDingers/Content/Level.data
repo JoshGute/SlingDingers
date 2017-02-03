@@ -295,7 +295,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0.130890056, 6.01300907, 5.72138648e-09],
+			Vec3 Translation = [3.17487454, 6.01300907, 5.72138648e-09],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -384,13 +384,31 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-1.9834522, 3.30653214, -1],
+			Vec3 Translation = [4.03657055, 3.30653214, -1],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		Named = 
 		{
 			string Name = "DestructionParticleEffect",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "585fed0c8501862f:Pickup_AR",
+		LinkId = 
+		{
+			uint Id = 15,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-4.21640635, 4.14476824, -0.999999642],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Pickup_AR",
 		},
 	},
 },
