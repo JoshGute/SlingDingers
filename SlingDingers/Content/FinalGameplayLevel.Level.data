@@ -142,7 +142,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-12.6784029, 5.4329443, 50],
+			Vec3 Translation = [-13.4455061, 7.45263624, 50],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278471e-08, 0, 1],
 		},
@@ -154,7 +154,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 36.7879639,
+			float Size = 16.3323421,
 		},
 		EditorCameraController = 
 		{
@@ -162,7 +162,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [-12.6784029, 5.4329443, -6.19757884e-07],
+			Vec3 LookTarget = [-13.4455061, 7.45263624, -6.53288964e-07],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -33656,7 +33656,7 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [0, 0, 0],
+					Vec3 Translation = [0, 0, 0.100000001],
 					Vec3 Scale = [1, 1, 1],
 					Quat Rotation = [0, 0, 0, 1],
 				},
@@ -33864,7 +33864,7 @@ Level =
 				},
 				Transform = 
 				{
-					Vec3 Translation = [0, 0, 0],
+					Vec3 Translation = [0, 0, 0.100000001],
 					Vec3 Scale = [1, 1, 1],
 					Quat Rotation = [0, 0, 0, 1],
 				},
@@ -34125,22 +34125,35 @@ Level =
 			string Name = "SuddenDeathManager",
 		},
 	},
-	ArchetypeInstance = 
+	Cog = 
 	{
-		string Name = "581f59d2f468593e:PickupBomb",
 		LinkId = 
 		{
-			uint Id = 622,
-		},
-		Transform = 
-		{
-			Vec3 Translation = [17.1081085, 8.44903278, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
+			uint Id = 606,
 		},
 		Named = 
 		{
-			string Name = "Pickup_Bomb",
+			string Name = "SoundManager",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-0.99419558, 13.959259, -1.09024903e-07],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		SoundEmitter = 
+		{
+			float Volume = 1,
+			float Pitch = 0,
+			float PitchSemitones = 0,
+			bool UsePitchSemitones = true,
+			bool Positional = false,
+			int Version = 1,
+		},
+		SimpleSound = 
+		{
+			bool StartPlaying = true,
+			string CueName = "4e1bd44008b4dc2a:DefaultCue",
 		},
 	},
 },

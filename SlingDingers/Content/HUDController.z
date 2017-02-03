@@ -16,6 +16,12 @@ class HUDController : ZilchComponent
     [Property]
     var VictoryScreen : CogPath;
     
+    [Property]
+    var P1Color : Real4;
+    
+    [Property]
+    var P2Color : Real4;
+    
     var VictoryTriggered : Boolean = false;
     
     function Initialize(init : CogInitializer)
@@ -33,10 +39,12 @@ class HUDController : ZilchComponent
             if(event.WinningPlayer == 0)
             {
                 this.VictoryScreen.Cog.FindChildByName("WinnerText").SpriteText.Text = "Player One Wins!";
+                this.VictoryScreen.Cog.FindChildByName("WinnerText").SpriteText.Color = this.P1Color;
             }
             else if(event.WinningPlayer == 1)
             {
                 this.VictoryScreen.Cog.FindChildByName("WinnerText").SpriteText.Text = "Player Two Wins!";
+                this.VictoryScreen.Cog.FindChildByName("WinnerText").SpriteText.Color = this.P2Color;
             }
             this.VictoryScreenBounce();
         }

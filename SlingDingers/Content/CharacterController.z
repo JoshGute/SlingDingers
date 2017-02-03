@@ -85,12 +85,12 @@ class CharacterController : ZilchComponent
         
         if(this.PNumberData == 0)
         {
-            this.Owner.Sprite.Color = Real4(0,1,1,1);
+            this.Owner.Sprite.Color = Real4(1,0.2,0.2,1);
         }
         
         if(this.PNumberData == 1)
         {
-            this.Owner.Sprite.Color = Real4(1,0.2,0.2,1);
+            this.Owner.Sprite.Color = Real4(0,1,1,1);
         }
         
         this.Controller = Zero.Gamepads.GetGamePad(this.PNumberData);
