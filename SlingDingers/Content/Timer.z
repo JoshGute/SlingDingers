@@ -13,6 +13,9 @@ class Timer : ZilchComponent
     var DefaultColor : Real4;
     
     [Property]
+    var VictoryColor : Real4;
+    
+    [Property]
     var SmallPop : Real3;
     
     [Property]
@@ -22,14 +25,24 @@ class Timer : ZilchComponent
     
     var Bumpin : Boolean = false;
     
+    var GameStarted : Boolean = false;
+    
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Space, Events.GameStart, this.OnGameStart);
+        Zero.Connect(this.Space, "VictoryEvent", this.OnVictoryEvent);
+    }
+        
+
+    function OnGameStart(event : GameStart)
+    {
+        this.GameStarted = true;
     }
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        if(this.StartTime > 0.00)
+        if(this.StartTime > 0.00 && this.GameStarted)
         {
             this.StartTime -= event.Dt;
             var localTime = this.StartTime;
@@ -54,7 +67,7 @@ class Timer : ZilchComponent
                 this.Owner.SpriteText.Text = "`localTime`";
             }
         }
-        else
+        else if(this.GameStarted && this.StartTime <= 0.00)
         {
             if(this.Bumpin == false)
             {
@@ -108,5 +121,12 @@ class Timer : ZilchComponent
         Actions.Property(group, @this.Owner.Transform.Scale, this.NormalSize, 0.75, Ease.Linear);
         Actions.Property(group, @this.Owner.SpriteText.Color, this.SuddenDeathColor, 0.75, Ease.Linear);
         Actions.Call(seq, this.ConstantBumpOn);
+    }
+
+    function OnVictoryEvent(event : Event)
+    {
+        this.GameStarted = false;
+        this.Owner.SpriteText.Text = "Match Set";
+        this.Owner.SpriteText.Color = this.VictoryColor;
     }
 }

@@ -28,7 +28,9 @@ class StartGameText : ZilchComponent
     function StartGame()
     {
         this.Space.DispatchEvent(Events.GameStart, new GameStart());
+        this.GameSession.FindSpaceByName("HudSpace").DispatchEvent(Events.GameStart, new GameStart());
     }
+    
 
     function OnLogicUpdate(event : UpdateEvent)
     {
