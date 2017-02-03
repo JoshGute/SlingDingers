@@ -12,7 +12,8 @@ enum WeaponName
     Pistol,
     MachineGun,
     Dunker,
-    Laser
+    Laser,
+    Bomb
 }
 
 class WeaponSystem : ZilchComponent

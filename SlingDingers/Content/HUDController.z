@@ -1,0 +1,37 @@
+class HUDController : ZilchComponent
+{
+    var MyState : HUDState = HUDState.Base;
+    
+    function Initialize(init : CogInitializer)
+    {
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Space, Events.AmmoUpdate, this.OnAmmoUpdate);
+    }
+
+    function OnAmmoUpdate(event : AmmoEvent)
+    {
+        if(event.GunType == WeaponName.MachineGun)
+        {
+            
+        }
+        else if(event.GunType == WeaponName.Laser)
+        {
+            
+        }
+        else if(event.GunType == WeaponName.Dunker)
+        {
+            
+        }
+        else if(event.GunType == WeaponName.Pistol)
+        {
+            
+        }
+        //else if(
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+    }
+}
+
+enum HUDState {Base, Laser, Bomb, Dunker}
