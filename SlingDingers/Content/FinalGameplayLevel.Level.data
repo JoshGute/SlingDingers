@@ -35034,4 +35034,22 @@ Level =
 			string Name = "SuddenDeathManager",
 		},
 	},
+	ArchetypeInstance = 
+	{
+		string Name = "581f59d2f468593e:PickupBomb",
+		LinkId = 
+		{
+			uint Id = 622,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [17.1081085, 8.44903278, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Pickup_Bomb",
+		},
+	},
 },

@@ -6,15 +6,15 @@ Cog =
 	},
 	Named = 
 	{
-		string Name = "Pickup_Bomb",
+		string Name = "PickupAR",
 	},
 	Archetyped = 
 	{
-		string Name = "581f59d2f468593e:Pickup_Bomb",
+		string Name = "585fed0c8501862f:PickupAR",
 	},
 	Transform = 
 	{
-		Vec3 Translation = [0.577643752, 7.64221668, 0],
+		Vec3 Translation = [0, 0, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -24,7 +24,7 @@ Cog =
 		bool VisibilityCulling = true,
 		bool VisibilityEvents = true,
 		bool CastShadows = false,
-		Vec4 Color = [0.975000024, 0.404625058, 0.404625058, 1],
+		Vec4 Color = [0.915000021, 0.731999993, 0.182999969, 1],
 		BlendMode BlendMode = Alpha,
 		SpriteGeometryMode GeometryMode = ZPlane,
 		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
@@ -48,6 +48,7 @@ Cog =
 	},
 	PowerUp = 
 	{
-		string Weapon = "585f903389d922a0:BounceRound",
+		string Weapon = "585feefa1b00b9dc:ARRound",
+		Enum GunType = Pistol,
 	},
 },
