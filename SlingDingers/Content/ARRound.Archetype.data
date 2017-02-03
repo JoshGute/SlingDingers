@@ -6,15 +6,15 @@ Cog =
 	},
 	Named = 
 	{
-		string Name = "PistolRound",
+		string Name = "ARRound",
 	},
 	Archetyped = 
 	{
-		string Name = "585f9ee48b5c1a4d:PistolRound",
+		string Name = "585feefa1b00b9dc:ARRound",
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-9.12498093, 8.47660542, 5.72138648e-09],
+		Vec3 Translation = [-10.7006283, 8.47660542, 5.72138648e-09],
 		Vec3 Scale = [0.467888206, 0.467888206, 0.467888206],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -24,7 +24,7 @@ Cog =
 		bool VisibilityCulling = true,
 		bool VisibilityEvents = true,
 		bool CastShadows = false,
-		Vec4 Color = [1, 1, 1, 1],
+		Vec4 Color = [1, 0.801549971, 0.595000029, 1],
 		BlendMode BlendMode = Alpha,
 		SpriteGeometryMode GeometryMode = ZPlane,
 		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
@@ -61,9 +61,9 @@ Cog =
 	BulletScript = 
 	{
 		Enum Type = Type_Projectile,
-		float Speed = 40,
-		float RoF = 0.300000012,
-		int Ammo = 0,
+		float Speed = 60,
+		float RoF = 0.150000006,
+		int Ammo = 20,
 		string BurstEffect = "585fc69037750ac5:Burst_Pistol",
 		float NumBounces = 2,
 	},
@@ -110,7 +110,7 @@ Cog =
 				SystemChildMode ChildMode = Independent,
 				SystemSpace SystemSpace = WorldSpace,
 				uint DrawOrder = 0,
-				Vec4 Tint = [1, 1, 1, 1],
+				Vec4 Tint = [1, 0.800000072, 0.596078455, 1],
 				float WarmUpTime = 0,
 				ParticleGeometry GeometryMode = Billboarded,
 				ParticleRenderMode RenderMode = Blended,

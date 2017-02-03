@@ -4,6 +4,9 @@ class BulletScript : ZilchComponent
     var Type : WeaponType;
     
     [Property]
+    var GunType : WeaponName;
+    
+    [Property]
     var Speed : Real;
     
     [Property]
@@ -31,6 +34,8 @@ class BulletScript : ZilchComponent
 
     function OnCollisionStarted(event : CollisionEvent)
     {
+        if(this.Type == WeaponType.Type_Laser) return;
+        
         if(this.Type == WeaponType.Type_Dunk)
         {
             event.OtherObject.DispatchEvent(Events.BlockDestroy, new BlockDestroy(this.Owner.Transform.Translation - event.OtherObject.Transform.Translation, 10));
@@ -77,16 +82,46 @@ class BulletScript : ZilchComponent
     {
         vec = Math.Normalize(vec);
         
-        if(wepType == WeaponType.Type_Laser) this.LaserFire();
+        if(wepType == WeaponType.Type_Laser)
+        {
+            //this.LaserFire();
+            return;
+        }
         
         this.Owner.RigidBody.Velocity = vec * this.Speed;
     }
     
+    /*
     function LaserFire()
     {
         //raycaststuff
         //send events to objects it hits
-    }
+        var ray = Ray();
+        ray.Start = this.Owner.Transform.Translation;
+        
+        var dir = Real3(1,1,0);
+        ray.Direction = dir;
+            
+        var newDir = Math.Normalize(Real3(dir.Y, -dir.X, 0));
+        
+        for(var i = -1; i <= 1; ++i)
+        {
+            ray.Direction = dir;
+            var count = 50;
+
+            var results = this.Space.PhysicsSpace.CastRayResults(ray, count);
+            
+            var newObj = this.Space.CreateAtPosition(Archetype.Laser_Sprite, this.Owner.Transform.Translation);
+            newObj.Transform.Scale *= Real3(100,3,1);
+            
+            newObj.Orientation.LookAtDirection(dir);
+            
+            foreach(var result in results)
+            {
+                result.ObjectHit.DispatchEvent(Events.BlockDestroy, new BlockDestroy(Real3(), 10));
+            }
+        }
+    }*/
     
     function Burst(normal : Real3)
     {
