@@ -60,6 +60,7 @@ class BulletScript : ZilchComponent
         if(event.OtherObject.CharacterController != null)
         {
             if(this.Type == WeaponType.Type_Arc) this.Space.PhysicsSpace.DispatchWithinSphere(this.Owner.Transform.Translation, 3, Events.BlockDestroy, new BlockDestroy(this.Owner.Transform.Translation - event.OtherObject.Transform.Translation, 1));
+            if(this.Type == WeaponType.Type_Dunk) this.Space.PhysicsSpace.DispatchWithinSphere(this.Owner.Transform.Translation, 2, Events.BlockDestroy, new BlockDestroy(this.Owner.Transform.Translation - event.OtherObject.Transform.Translation, 1));
                 
             
             this.Burst(event.FirstPoint.WorldNormalTowardsOther);
