@@ -217,7 +217,7 @@ class CharacterController : ZilchComponent
     
     function CheckLegalHit(event : CollisionEvent) : Boolean
     {
-        return (event.OtherObject.BulletScript != null &&
+        return (event.OtherObject.BulletScript != null && event.OtherObject.BulletScript.Source != this.Owner &&
                !this.Owner.CharacterController.Dead &&
                !this.TakingDamage);
     }

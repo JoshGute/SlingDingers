@@ -30,6 +30,8 @@ class BulletScript : ZilchComponent
     [Property]
     var BulletFireSound : SoundCue;
     
+    var Source : Cog;
+    
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
@@ -51,6 +53,8 @@ class BulletScript : ZilchComponent
 
     function OnCollisionStarted(event : CollisionEvent)
     {
+        if(this.Source == event.OtherObject) return;
+        
         if(this.Type == WeaponType.Type_Laser) return;
         
         if(event.OtherObject.CharacterController != null)

@@ -14,8 +14,8 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [0, -6540.50244, 0],
-		Vec3 Scale = [0.574451447, 0.574451447, 0.574451447],
+		Vec3 Translation = [0, -2125.03931, 0],
+		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
 	Sprite = 
@@ -38,7 +38,7 @@ Cog =
 	},
 	SphereCollider = 
 	{
-		bool Ghost = false,
+		bool Ghost = true,
 		bool SendsMessages = true,
 		bool Seamless = true,
 		string MaterialName = "585f9636d969b21b:Bouncy",
@@ -55,7 +55,7 @@ Cog =
 		bool Mode2D = false,
 		bool AllowSleep = true,
 		bool Inherit2DMode = true,
-		Vec3 Velocity = [0, -526.338684, 0],
+		Vec3 Velocity = [0, -601.667419, 0],
 		Vec3 AngularVelocity = [0, 0, 0],
 	},
 	BulletScript = 
@@ -71,7 +71,7 @@ Cog =
 		string BulletHitCharSound = "581fb010b5d33c6d:BombHitTarget",
 		string BulletEndSound = "581fb010b5d1ea6e:BombExplode",
 		string BulletFireSound = "581fb010b5d3e573:BombLaunch",
-		float NumBounces = 1,
+		float NumBounces = 0,
 	},
 	IgnoreSpaceEffects = 
 	{
