@@ -33,7 +33,7 @@ class SuddenDeathSpawner : ZilchComponent
             
             var rand = new Random();
             
-            var locX = rand.DieRoll(50) - 25;
+            var locX = rand.DieRoll(70) - 35;
             
             this.Space.CreateAtPosition(this.Bomb, Real3(locX, this.Owner.Transform.Translation.Y, 0));
         }

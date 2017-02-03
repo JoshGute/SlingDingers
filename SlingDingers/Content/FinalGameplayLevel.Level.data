@@ -124,6 +124,11 @@ Level =
 				CogPathPreference PathPreference2 = Absolute,
 			},
 		},
+		HudCreator = 
+		{
+			string HudLevel = "5822fceb42746b85:GameHUD",
+			string SpaceArchetype = "554cea0f94af6dc4:Space",
+		},
 	},
 	Cog = 
 	{
@@ -137,7 +142,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [20.668684, 6.19270229, 50],
+			Vec3 Translation = [-2.01972532, 21.9885044, 50],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278471e-08, 0, 1],
 		},
@@ -149,7 +154,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 40.6570053,
+			float Size = 67.0320358,
 		},
 		EditorCameraController = 
 		{
@@ -157,7 +162,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [20.668684, 6.19270229, 0],
+			Vec3 LookTarget = [-2.01972532, 21.9885044, -9.91741899e-07],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -34457,7 +34462,7 @@ Level =
 		string Name = "58ea037ae90d1afa:Player",
 		LinkId = 
 		{
-			uint Id = 3,
+			uint Id = 608,
 		},
 		Transform = 
 		{
@@ -34474,7 +34479,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 4,
+			uint Id = 609,
 		},
 		Named = 
 		{
@@ -34531,7 +34536,7 @@ Level =
 		WeaponSystem = 
 		{
 			string DefaultWeapon = "585f9ee48b5c1a4d:PistolRound",
-			string CurrentWepaon = "585f9ee48b5c1a4d:PistolRound",
+			string CurrentWepaon = "585f903389d922a0:BounceRound",
 		},
 		SphereCollider = 
 		{
@@ -34561,7 +34566,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 608,
+					uint Id = 610,
 				},
 				Named = 
 				{
@@ -34586,7 +34591,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 609,
+							uint Id = 611,
 						},
 						Named = 
 						{
@@ -34595,7 +34600,7 @@ Level =
 						Transform = 
 						{
 							Vec3 Translation = [0.745800257, 0, 0],
-							Vec3 Scale = [0.400000006, 0.400000006, 1],
+							Vec3 Scale = [1.70000005, 1.70000005, 1.70000005],
 							Quat Rotation = [0, 0, 0, 1],
 						},
 						Sprite = 
@@ -34608,7 +34613,7 @@ Level =
 							BlendMode BlendMode = Alpha,
 							SpriteGeometryMode GeometryMode = ZPlane,
 							string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-							string SpriteSource = "5275aa4d802dd6dc:Square",
+							string SpriteSource = "5822fcde4d7c55ec:pistolImage",
 							bool RenderMask = false,
 							bool FlipX = false,
 							bool FlipY = false,
@@ -34623,7 +34628,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 610,
+					uint Id = 612,
 				},
 				Named = 
 				{
@@ -34674,7 +34679,7 @@ Level =
 		string Name = "585f063a68c70028:Lava",
 		LinkId = 
 		{
-			uint Id = 611,
+			uint Id = 613,
 		},
 		Transform = 
 		{
@@ -34696,7 +34701,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 612,
+			uint Id = 614,
 		},
 		Named = 
 		{
@@ -34716,7 +34721,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 613,
+			uint Id = 615,
 		},
 		Named = 
 		{
@@ -34736,7 +34741,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 614,
+			uint Id = 616,
 		},
 		Named = 
 		{
@@ -34756,7 +34761,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 615,
+			uint Id = 617,
 		},
 		Named = 
 		{
@@ -34776,7 +34781,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 616,
+			uint Id = 618,
 		},
 		Named = 
 		{
@@ -34796,7 +34801,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 617,
+			uint Id = 619,
 		},
 		Named = 
 		{
@@ -34810,6 +34815,24 @@ Level =
 		},
 		PowerUpSpawn = 
 		{
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "585fe7368a9b6a95:SuddenDeathManager",
+		LinkId = 
+		{
+			uint Id = 620,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0.459539294, 47.5157776, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "SuddenDeathManager",
 		},
 	},
 },
