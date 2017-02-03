@@ -3,9 +3,12 @@ class PowerupSpawnManager : ZilchComponent
     [Property]var  Player1 : CogPath;
     [Property]var  Player2 : CogPath;
     
+    var TimeBetweenPowerups : Real = 8;
+    var TimeCurrent : Real = 0;
+    
     function Initialize(init : CogInitializer)
     {
-        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         Zero.Connect(Zero.Keyboard, Events.KeyDown, this.OnKeyDown);
     }
 
@@ -19,6 +22,13 @@ class PowerupSpawnManager : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
+        this.TimeCurrent -= event.Dt;
+        
+        if(this.TimeCurrent <= 0)
+        {
+            this.TimeCurrent = this.TimeBetweenPowerups;
+            this.PowerupTime();
+        }
     }
     
     function PowerupTime()
@@ -38,7 +48,7 @@ class PowerupSpawnManager : ZilchComponent
             Console.WriteLine("`distDiff`");
         }
         
-        if(chosenOne != null)
+        if(chosenOne != null && chosenOne.CurPowerup.Cog == null)
         {
             chosenOne.SpawnPowerup();
         }
