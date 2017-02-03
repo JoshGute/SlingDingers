@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-6.08650684, 2.11481047, -1.00099945],
+		Vec3 Translation = [-8.63732815, 2.11481047, -1.00099945],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -122,7 +122,7 @@ Cog =
 					},
 					Transform = 
 					{
-						Vec3 Translation = [0.688481569, 0, 0],
+						Vec3 Translation = [0.745800257, 0, 0],
 						Vec3 Scale = [0.400000006, 0.400000006, 1],
 						Quat Rotation = [0, 0, 0, 1],
 					},
@@ -187,7 +187,7 @@ Cog =
 				bool SendsMessages = true,
 				bool Seamless = true,
 				string MaterialName = "58ea7ad736b8f14d:Slippidy",
-				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+				string SerializedGroupName = "585f97b8ecc4e9b1:Projectile",
 				Vec3 Offset = [0, 0, 0],
 				Vec3 Size = [0.5, 0.5, 0.5],
 			},
