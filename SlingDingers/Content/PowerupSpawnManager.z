@@ -10,6 +10,18 @@ class PowerupSpawnManager : ZilchComponent
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         Zero.Connect(Zero.Keyboard, Events.KeyDown, this.OnKeyDown);
+        //Zero.Connect(this.GameSession, Events.LevelStarted, this.OnLevelStarted);
+        Zero.Connect(this.Space, Events.VictoryEvent, this.OnVictoryEvent);
+    }
+
+    function OnVictoryEvent(event : Event)
+    {
+        PowerUpSpawn.AllPowerupSpawners.Clear();
+    }
+
+    function OnLevelStarted(event : GameEvent)
+    {
+        PowerUpSpawn.AllPowerupSpawners.Clear();
     }
 
     function OnKeyDown(event : KeyboardEvent)
@@ -37,15 +49,21 @@ class PowerupSpawnManager : ZilchComponent
         
         var chosenOne : PowerUpSpawn = null;
         
+        if(this.Player1.Cog == null || this.Player2.Cog == null || PowerUpSpawn.AllPowerupSpawners.Count == 0)
+            return;
+            
         foreach(var i in PowerUpSpawn.AllPowerupSpawners)
         {
-            var distDiff = i.CompareDists(this.Player1.Cog.Transform.Translation, this.Player2.Cog.Transform.Translation);
-            if(distDiff < minDist)
+            if(i != null)
             {
-                minDist = distDiff;
-                chosenOne = i;
+                var distDiff = i.CompareDists(this.Player1.Cog.Transform.Translation, this.Player2.Cog.Transform.Translation);
+                if(distDiff < minDist)
+                {
+                    minDist = distDiff;
+                    chosenOne = i;
+                }
+                //Console.WriteLine("`distDiff`");
             }
-            Console.WriteLine("`distDiff`");
         }
         
         if(chosenOne != null && chosenOne.CurPowerup.Cog == null)

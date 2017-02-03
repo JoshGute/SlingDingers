@@ -6,7 +6,7 @@ class PowerUpSpawn : ZilchComponent
     function Initialize(init : CogInitializer)
     {
         PowerUpSpawn.AllPowerupSpawners.Add(this);
-        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);s.o
     }
     
     function CompareDists(location1 : Real3, location2 : Real3) : Real
@@ -29,15 +29,15 @@ class PowerUpSpawn : ZilchComponent
         
         if(randomInt == 0)
         {
-            whatArchetype = Archetype.Pickup_AR;
+            whatArchetype = Archetype.PickupAR;
         }
         else if(randomInt == 1)
         {
-            whatArchetype = Archetype.Pickup_Bomb;
+            whatArchetype = Archetype.PickupBomb;
         }
         else if(randomInt == 2)
         {
-            whatArchetype = Archetype.Pickup_Dunker;
+            whatArchetype = Archetype.PickupDunker;
         }
         
         this.CurPowerup.Cog = this.Space.CreateAtPosition(whatArchetype, this.Owner.Transform.Translation);

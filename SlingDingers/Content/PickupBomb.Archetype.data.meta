@@ -2,8 +2,8 @@ DataContent =
 {
 	DataBuilder = 
 	{
-		string Name = "Pickup_AR",
-		uint64 ResourceId = 585fed0c8501862f,
+		string Name = "PickupBomb",
+		uint64 ResourceId = 581f59d2f468593e,
 		string LoaderType = "Cog",
 		uint Version = 0,
 		bool ShowInEditor = true,
