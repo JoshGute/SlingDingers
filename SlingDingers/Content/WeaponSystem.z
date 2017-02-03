@@ -92,7 +92,7 @@ class WeaponSystem : ZilchComponent
         
         bulletObj.BulletScript.Propell(vec, bulletObj.BulletScript.Type);
         
-        this.Owner.Movement.Vibrate(0.25,0.25);
+        this.Owner.CharacterController.Vibrate(0.25,0.25);
         
         if(bulletObj.BulletScript.Type == WeaponType.Type_Dunk) bulletObj.RigidBody.Velocity += Real3(0,-50,0);
     }
