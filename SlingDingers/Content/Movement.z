@@ -13,6 +13,11 @@ class Movement : ZilchComponent
     //this is the controls variable Leo and Jesse asked for. 
     var Controls : Real = 1;
     
+    //gun and reticule rotation
+    [Property]
+    var GunPath : CogPath = null;
+    var Gun : Cog = null;
+    
     //index of the controller. change to 1 in editor for second player
     [Property]
     var PlayerIndex : Integer = 0;
@@ -30,15 +35,24 @@ class Movement : ZilchComponent
     
     var PrevRightTrigger : Real = 0;
     var RightTrigger : Real = 0;
+    
+    var LeftInputMagnitude : Real = 0;
 
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         Zero.Connect(this.Owner, Events.FootEvent, this.OnFootCollide);
+        //Zero.Connect(this.Owner, Events.CollisionPersisted, this.OnCollisionPersisted);
         
         this.Controller = Zero.Gamepads.GetGamePad(this.PlayerIndex);
         this.RB = this.Owner.RigidBody;
+        this.Gun = this.GunPath.Cog;
     }
+
+    //function OnCollisionPersisted(event : CollisionEvent)
+    //{
+    //    this.Owner.Transform.Translation += event.FirstPoint.WorldNormalTowardsOther * event.FirstPoint.Penetration * 2;
+    //}
 
     function OnLogicUpdate(event : UpdateEvent)
     {
@@ -53,15 +67,38 @@ class Movement : ZilchComponent
             this.PrevRightTrigger = this.RightTrigger;
             this.RightTrigger = this.Controller.RightTrigger;
             
-            if(this.AxisLeft.X != 0)
+            if(this.AxisLeft.X > 0.1 || this.AxisLeft.X < 0.1)
             {
                 this.RB.Velocity = Real3(this.AxisLeft.X * this.Speed * this.Controls, this.RB.Velocity.Y, this.RB.Velocity.Z);
             }
             
-            if(this.LeftTrigger <= 0.5 && this.PrevLeftTrigger >= 0.5)
+            if(this.AxisRight.XY != Real2(0,0))
+            {
+                this.Gun.Orientation.LookAtPoint(this.Owner.Transform.Translation + Math.Normalize(Real3(this.AxisRight.X, this.AxisRight.Y, 0)));
+            }
+            
+            //if(this.LeftTrigger > 0.1 && this.LeftTrigger > this.LeftInputMagnitude)
+            //{
+            //    this.LeftInputMagnitude = this.LeftTrigger;
+            //}
+            
+            //if(this.LeftTrigger >= 0.1 && this.PrevLeftTrigger < 0.1)
+            //{
+            //    this.Jump(this.JumpSpeed * this.LeftInputMagnitude);
+            //    this.LeftInputMagnitude = 0;
+                
+            //}
+            
+            if(this.LeftTrigger > 0.1)
             {
                 this.Jump(this.JumpSpeed);
             }
+            
+            //if(this.LeftTrigger >= 0.1 && this.PrevLeftTrigger < 0.1)
+            //{
+            //    this.Jump(this.JumpSpeed * this.LeftInputMagnitude);
+            //    this.LeftInputMagnitude = 0;
+            //}
             
             if(this.RightTrigger <= 0.5 && this.PrevRightTrigger >= 0.5)
             {
@@ -79,6 +116,15 @@ class Movement : ZilchComponent
         }
     }
     
+    function KnockBack(knockBackStrength : Real, knockBackDirection : Real2, stunTime : Real)
+    {
+        //knockback
+        this.RB.ApplyForce(Real3(knockBackDirection.X, knockBackDirection.Y, 0) * knockBackStrength);
+        
+        //this.Controls = whatever Jesse wanted to do.
+        
+    }
+    
     function Shoot()
     {
         this.Vibrate(0.25,0.25);
@@ -92,6 +138,6 @@ class Movement : ZilchComponent
     function OnFootCollide(event : FootEvent)
     {
         this.CurrentJumps = 0;
-        this.RB.Velocity = Real3(0,0,0);
+        this.RB.Velocity = Real3(this.RB.Velocity.X,0,this.RB.Velocity.Z);
     }
 }

@@ -1,0 +1,14 @@
+class PowerUp : ZilchComponent
+{
+    [Property]
+    var Weapon : Archetype;
+    
+    function Initialize(init : CogInitializer)
+    {
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+    }
+}

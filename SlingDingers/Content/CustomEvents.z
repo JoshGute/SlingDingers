@@ -29,3 +29,8 @@ class AmmoEvent : ZilchEvent
     var MaxAmmo : Integer;
     var GunType : WeaponName;
 }
+
+class SuddenDeath : ZilchEvent
+{
+    sends SuddenDeath : SuddenDeath;
+}

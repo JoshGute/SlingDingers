@@ -104,7 +104,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-2.24596953, 4.14476824, 49],
+			Vec3 Translation = [0.125506297, 35.6749496, 48.9990005],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278471e-08, 0, 1],
 		},
@@ -116,7 +116,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 13.3717899,
+			float Size = 26.9274483,
 		},
 		EditorCameraController = 
 		{
@@ -124,7 +124,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [-2.24596953, 4.14476824, -0.999999642],
+			Vec3 LookTarget = [0.125506297, 35.6749496, -1.00099981],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -295,7 +295,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0.130890056, 6.01300907, 5.72138648e-09],
+			Vec3 Translation = [3.17487454, 6.01300907, 5.72138648e-09],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -384,13 +384,49 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-1.9834522, 3.30653214, -1],
+			Vec3 Translation = [4.03657055, 3.30653214, -1],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
 		Named = 
 		{
 			string Name = "DestructionParticleEffect",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "585fed0c8501862f:Pickup_AR",
+		LinkId = 
+		{
+			uint Id = 15,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-4.21640635, 4.14476824, -0.999999642],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "Pickup_AR",
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "585fe7368a9b6a95:SuddenDeathManager",
+		LinkId = 
+		{
+			uint Id = 16,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0.125506312, 35.6749496, -0.999999762],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Named = 
+		{
+			string Name = "SuddenDeathManager",
 		},
 	},
 },
