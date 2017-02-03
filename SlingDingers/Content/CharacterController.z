@@ -112,6 +112,8 @@ class CharacterController : ZilchComponent
         //Spawn location
         this.Starting_Point = this.Owner.Transform.Translation;
         
+        this.Gun = this.Owner.FindChildByName("Gun");
+        
     }
     
     function OnKnockBackStarted(event : Event)
@@ -173,6 +175,8 @@ class CharacterController : ZilchComponent
     
     var SentMoveEvent : Boolean = false;
     
+    var Gun : Cog;
+    
     
     ////////////////////////////////////////////////////////////
     
@@ -181,13 +185,19 @@ class CharacterController : ZilchComponent
         
         this.Owner.Platforming.MoveHorizontal(this.Controller.LeftStick.X);
         
+    
+        if(this.Controller.RightStick.XY != Real2(0,0))
+        {
+            this.Gun.Orientation.LookAtPoint(this.Owner.Transform.Translation + Math.Normalize(Real3(this.Controller.RightStick.XY, 0)));
+        }
+        
         if(this.Controller.LeftStick.X != 0 && !this.SentMoveEvent)
         {
             this.SentMoveEvent = true;
             this.Owner.DispatchEvent("Moved", ZilchEvent());
         }
         
-        if(this.Controller.IsButtonPressed(Buttons.LeftShoulder))
+        if(this.Controller.IsButtonPressed(Buttons.A))
         {
             if(Math.Abs(this.Controller.LeftStick.X) < 0.2)
             {
@@ -218,7 +228,7 @@ class CharacterController : ZilchComponent
             this.Owner.Platforming.FastFall(this.Controller.LeftStick.Y + 0.5);
         }
         
-        if(this.Controller.IsButtonPressed(Buttons.A))
+        if(this.Controller.IsButtonPressed(Buttons.LeftShoulder))
         {
             this.Owner.Platforming.Jump();
         }
@@ -228,9 +238,22 @@ class CharacterController : ZilchComponent
             this.Space.ReloadLevel();
         }*/
         
-        if(this.Controller.IsButtonPressed(Buttons.RightShoulder) || this.Controller.IsButtonPressed(Buttons.X))
+        if(this.Controller.IsButtonHeld(Buttons.RightShoulder) || this.Controller.IsButtonPressed(Buttons.X))
         {
-            //FIRE
+            this.Shoot();
         }
     }
+    
+    
+    function Vibrate(vibrationStrength : Real, vibrationLength : Real)
+    {
+        this.Controller.Vibrate(vibrationLength, vibrationStrength, vibrationStrength);
+    }
+    
+    
+    function Shoot()
+    {
+        this.Owner.WeaponSystem.Fire(this.Gun.FindChildByName("Reticule").Transform.WorldTranslation - this.Owner.Transform.WorldTranslation);
+    }
+    
 }
