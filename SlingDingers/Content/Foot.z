@@ -52,7 +52,7 @@ class Foot : ZilchComponent
     
     function OnCollisionEnded(event : CollisionEvent)
     {
-        if(!event.OtherObject.Collider.Ghost)
+        if(event.OtherObject.Collider != null && !event.OtherObject.Collider.Ghost)
         {
             this.Actor.Platforming.Grounded = false;
             if(this.Owner.Parent.FindChildByName("Skid") != null)

@@ -113,7 +113,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-4.96697426, 4.17397499, 48.9990005],
+			Vec3 Translation = [-5.49974585, -6.73405409, 48.9990005],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278471e-08, 0, 1],
 		},
@@ -125,7 +125,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 16.3323421,
+			float Size = 40.171093,
 		},
 		EditorCameraController = 
 		{
@@ -133,7 +133,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [-4.96697426, 4.17397499, -1.00099969],
+			Vec3 LookTarget = [-5.49974585, -6.73405409, -1.00099993],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -4038,6 +4038,29 @@ Level =
 			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 			Vec3 Offset = [0, 0, 0],
 			Vec3 Size = [0.5, 0.5, 500],
+		},
+	},
+	ArchetypeInstance = 
+	{
+		string Name = "585f063a68c70028:Lava",
+		LinkId = 
+		{
+			uint Id = 81,
+		},
+		Transform = 
+		{
+			Vec3 Translation = [0.550579071, -26.4068871, -1.00099945],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Area = 
+		{
+			Vec2 Size = [90, 35],
+			Location Origin = Center,
+		},
+		Named = 
+		{
+			string Name = "Lava",
 		},
 	},
 },

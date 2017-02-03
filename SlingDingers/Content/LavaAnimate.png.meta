@@ -1,0 +1,20 @@
+ImageContent = 
+{
+	SpriteSourceBuilder = 
+	{
+		string Name = "LavaAnimate",
+		uint64 ResourceId = 585f018b1762d97b,
+		uint64 AtlasId = 5274cf95e4a661fd,
+		uint FrameSizeX = 12,
+		uint FrameSizeY = 12,
+		uint FrameCount = 3,
+		float FrameDelay = 0.25,
+		float OriginX = 6,
+		float OriginY = 6,
+		float PixelsPerUnit = 4,
+		bool Smoothing = false,
+		bool Looping = true,
+		Vec4 Slices = [0, 0, 0, 0],
+		SpriteFill Fill = Tiled,
+	},
+},
