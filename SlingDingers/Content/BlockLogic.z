@@ -1,0 +1,19 @@
+class BlockLogic : ZilchComponent
+{
+    sends OnBlockDestroy : OnBlockDestroy;
+    
+    function Initialize(init : CogInitializer)
+    {
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, Events.OnBlockDestroy, this.OnOnBlockDestroy);
+    }
+
+    function OnOnBlockDestroy(event : Event)
+    {
+        
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+    }
+}
