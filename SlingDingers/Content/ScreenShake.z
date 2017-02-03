@@ -17,7 +17,7 @@ class ScreenShake : ZilchComponent
     function Initialize(init : CogInitializer)
     {
         this.StartingPos = this.Owner.Transform.Translation;
-        Zero.Connect(this.Space, Events.MouseDown, this.OnMouseDown);
+        //Zero.Connect(this.Space, Events.MouseDown, this.OnMouseDown);
     }
 
     function OnMouseDown(event : ViewportMouseEvent)
