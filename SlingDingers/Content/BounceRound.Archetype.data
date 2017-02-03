@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-4.58115101, 8.69110012, 5.72138648e-09],
+		Vec3 Translation = [6.48220921, 8.69110012, 5.72138648e-09],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -24,8 +24,8 @@ Cog =
 		bool VisibilityCulling = true,
 		bool VisibilityEvents = true,
 		bool CastShadows = false,
-		Vec4 Color = [1, 0.379999995, 0.379999995, 1],
-		BlendMode BlendMode = Alpha,
+		Vec4 Color = [0.860000014, 0.266600013, 0.266600013, 1],
+		BlendMode BlendMode = Additive,
 		SpriteGeometryMode GeometryMode = ZPlane,
 		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
 		string SpriteSource = "5274db4c2e7c11f9:Circle",
@@ -61,11 +61,13 @@ Cog =
 	BulletScript = 
 	{
 		Enum Type = Type_Arc,
+		Enum GunType = Bomb,
+		string Sprite = "582285ffb591adfa:Bomb",
 		float Speed = 25,
 		float RoF = 0.899999976,
 		int Ammo = 5,
 		string BurstEffect = "585fc9cdd476fa0b:Burst_Bounce",
-		float NumBounces = 2,
+		float NumBounces = 1,
 	},
 	IgnoreSpaceEffects = 
 	{

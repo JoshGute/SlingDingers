@@ -100,6 +100,11 @@ Level =
 			bool Glow = true,
 			float GlowThreshold = 0.600000024,
 		},
+		HudCreator = 
+		{
+			string HudLevel = "5822fceb42746b85:GameHUD",
+			string SpaceArchetype = "554cea0f94af6dc4:Space",
+		},
 	},
 	Cog = 
 	{
@@ -113,7 +118,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-2.39969778, -1.3270098, 48.9990005],
+			Vec3 Translation = [-1.54264271, 4.05477381, 48.9990005],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278471e-08, 0, 1],
 		},
@@ -125,7 +130,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 80.8945923,
+			float Size = 14.7781296,
 		},
 		EditorCameraController = 
 		{
@@ -133,7 +138,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [-2.39969778, -1.3270098, -1.00099981],
+			Vec3 LookTarget = [-1.54264271, 4.05477381, -1.00099921],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -259,12 +264,19 @@ Level =
 			string Name = "BounceRound",
 		},
 	},
-	ArchetypeInstance = 
+	Cog = 
 	{
-		string Name = "585fac28698068cb:SuddenDeathRound",
 		LinkId = 
 		{
 			uint Id = 8,
+		},
+		Named = 
+		{
+			string Name = "SuddenDeathRound",
+		},
+		Archetyped = 
+		{
+			string Name = "585fac28698068cb:SuddenDeathRound",
 		},
 		Transform = 
 		{
@@ -272,9 +284,84 @@ Level =
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
-		Named = 
+		Sprite = 
 		{
-			string Name = "SuddenDeathRound",
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [0.715000033, 0.0536249876, 0.0536249876, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5274db4c2e7c11f9:Circle",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		SphereCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "585f9636d969b21b:Bouncy",
+			string SerializedGroupName = "585f97b8ecc4e9b1:Projectile",
+			Vec3 Offset = [0, 0, 0],
+			float Radius = 0.5,
+		},
+		RigidBody = 
+		{
+			bool Static = false,
+			bool Asleep = false,
+			bool Kinematic = false,
+			bool RotationLocked = false,
+			bool Mode2D = true,
+			bool AllowSleep = true,
+			bool Inherit2DMode = true,
+			Vec3 Velocity = [0, 0, 0],
+			Vec3 AngularVelocity = [0, 0, 0],
+		},
+		BulletScript = 
+		{
+			Enum Type = Type_Projectile,
+			Enum GunType = Pistol,
+			string Sprite = "54418ac449b82c20:ArrowLeft1",
+			float Speed = 25,
+			float RoF = 0.899999976,
+			int Ammo = 0,
+			string BurstEffect = "585fab2a9168efce:GenericEffect",
+			float NumBounces = 0,
+		},
+		IgnoreSpaceEffects = 
+		{
+			bool Drag = true,
+			bool Flow = false,
+			bool Force = false,
+			bool Gravity = false,
+			bool Thrust = false,
+			bool Vortex = false,
+			bool Wind = false,
+			bool Invalid = false,
+			bool Torque = false,
+			bool PointGravity = false,
+			bool PointForce = false,
+			bool Buoyancy = false,
+			bool Custom = false,
+		},
+		GravityEffect = 
+		{
+			bool Active = true,
+			bool WakeUpOnChange = true,
+			bool LocalSpaceDirection = false,
+			float Strength = 20,
+			Vec3 Direction = [0, -1, 0],
+		},
+		TimedDestroy = 
+		{
+			float Time = 5,
 		},
 	},
 	ArchetypeInstance = 
@@ -482,7 +569,7 @@ Level =
 		WeaponSystem = 
 		{
 			string DefaultWeapon = "585f9ee48b5c1a4d:PistolRound",
-			string CurrentWepaon = "585f9ee48b5c1a4d:PistolRound",
+			string CurrentWepaon = "585f903389d922a0:BounceRound",
 		},
 		SphereCollider = 
 		{
@@ -546,7 +633,7 @@ Level =
 						Transform = 
 						{
 							Vec3 Translation = [0.745800257, 0, 0],
-							Vec3 Scale = [0.400000006, 0.400000006, 1],
+							Vec3 Scale = [1.70000005, 1.70000005, 1.70000005],
 							Quat Rotation = [0, 0, 0, 1],
 						},
 						Sprite = 
@@ -559,7 +646,7 @@ Level =
 							BlendMode BlendMode = Alpha,
 							SpriteGeometryMode GeometryMode = ZPlane,
 							string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-							string SpriteSource = "5275aa4d802dd6dc:Square",
+							string SpriteSource = "5822fcde4d7c55ec:pistolImage",
 							bool RenderMask = false,
 							bool FlipX = false,
 							bool FlipY = false,

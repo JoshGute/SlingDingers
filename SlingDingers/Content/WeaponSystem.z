@@ -36,7 +36,7 @@ class WeaponSystem : ZilchComponent
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
-        this.Equip();
+        //this.Equip();
     }
 
     function OnCollisionStarted(event : CollisionEvent)
@@ -44,6 +44,7 @@ class WeaponSystem : ZilchComponent
         if(event.OtherObject.PowerUp != null)
         {
             this.CurrentWepaon = event.OtherObject.PowerUp.Weapon;
+            this.GunType = event.OtherObject.PowerUp.GunType;
             this.Equip();
             
             event.OtherObject.Destroy();
@@ -55,12 +56,16 @@ class WeaponSystem : ZilchComponent
         var bulletObj = this.Space.CreateAtPosition(this.CurrentWepaon, Real3(0,-200,0));
         this.RoF = bulletObj.BulletScript.RoF;
         this.Ammo = bulletObj.BulletScript.Ammo;
+        this.MaxAmmo = bulletObj.BulletScript.Ammo;
         this.GunType = bulletObj.BulletScript.GunType;
         bulletObj.Destroy();
         
+        this.Owner.CharacterController.Gun.FindChildByName("Reticule").Sprite.SpriteSource = bulletObj.BulletScript.Sprite;
+        
         //TODO: fix player sent when players exist
         //TODO: send to HUD instead of space maybe
-        this.Space.DispatchEvent(Events.AmmoUpdate, new AmmoEvent(1, this.GunType, this.Ammo, this.MaxAmmo));
+        var hud = this.GameSession.FindSpaceByName("HudSpace");
+        hud.DispatchEvent(Events.AmmoUpdate, new AmmoEvent(this.Owner.CharacterController.PNumberData, this.GunType, this.Ammo, this.MaxAmmo));
     }
 
     function OnLogicUpdate(event : UpdateEvent)
@@ -77,8 +82,13 @@ class WeaponSystem : ZilchComponent
     {
         if(this.Ammo <= 0) 
         {
+            var previousWeapon = this.CurrentWepaon;
             this.CurrentWepaon = this.DefaultWeapon;
-            this.Equip();
+            if(previousWeapon != this.DefaultWeapon)
+            {
+                Console.WriteLine("Oboi");                
+                this.Equip();
+            }
         }
         
         if(this.Delay <= this.RoF) return;
@@ -86,6 +96,9 @@ class WeaponSystem : ZilchComponent
         this.LevelSettings.CameraViewport.Camera.ScreenShake.ShakeLeoApproved(this.Owner.Transform.Translation);
         
         --this.Ammo;
+        
+        var hud = this.GameSession.FindSpaceByName("HudSpace");
+        hud.DispatchEvent(Events.AmmoUpdate, new AmmoEvent(this.Owner.CharacterController.PNumberData, this.GunType, this.Ammo, this.MaxAmmo));
         
         this.Delay = 0;
         var bulletObj = this.Space.CreateAtPosition(this.CurrentWepaon, Real3((this.Owner.Transform.Translation + (vec)).XY, 0));
