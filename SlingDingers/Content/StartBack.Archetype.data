@@ -8,10 +8,19 @@ Cog =
 	{
 		string Name = "StartBack",
 	},
+	Archetyped = 
+	{
+		string Name = "581fb1f3bf5c4498:StartBack",
+	},
+	EditorFlags = 
+	{
+		bool Locked = true,
+		bool Hidden = false,
+	},
 	Transform = 
 	{
-		Vec3 Translation = [3.51119041, 8.49304581, 20],
-		Vec3 Scale = [64.9466782, 34.9598465, 31.6016979],
+		Vec3 Translation = [-2.85997772, 7.31104088, 0],
+		Vec3 Scale = [105.157135, 69.3649826, 31.6016979],
 		Quat Rotation = [0, 0, 0, 1],
 	},
 	Sprite = 
@@ -20,7 +29,7 @@ Cog =
 		bool VisibilityCulling = true,
 		bool VisibilityEvents = true,
 		bool CastShadows = false,
-		Vec4 Color = [1, 1, 1, 1],
+		Vec4 Color = [1, 1, 1, 0.999899983],
 		BlendMode BlendMode = Alpha,
 		SpriteGeometryMode GeometryMode = ZPlane,
 		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
