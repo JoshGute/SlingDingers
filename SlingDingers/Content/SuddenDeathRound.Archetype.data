@@ -6,15 +6,15 @@ Cog =
 	},
 	Named = 
 	{
-		string Name = "DunkRound",
+		string Name = "SuddenDeathRound",
 	},
 	Archetyped = 
 	{
-		string Name = "585fab63a868685d:DunkRound",
+		string Name = "585fac28698068cb:SuddenDeathRound",
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-2.98429298, 8.69110012, 5.72138648e-09],
+		Vec3 Translation = [-6.63399696, 8.69110012, 5.72138648e-09],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -24,7 +24,7 @@ Cog =
 		bool VisibilityCulling = true,
 		bool VisibilityEvents = true,
 		bool CastShadows = false,
-		Vec4 Color = [0.625, 0.318749905, 0, 1],
+		Vec4 Color = [0.715000033, 0.0536249876, 0.0536249876, 1],
 		BlendMode BlendMode = Alpha,
 		SpriteGeometryMode GeometryMode = ZPlane,
 		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
@@ -60,12 +60,12 @@ Cog =
 	},
 	BulletScript = 
 	{
-		Enum Type = Type_Dunk,
-		float Speed = 0,
-		float RoF = 0.600000024,
-		int Ammo = 3,
+		Enum Type = Type_Arc,
+		float Speed = 25,
+		float RoF = 0.899999976,
+		int Ammo = 0,
 		string BurstEffect = "585fab2a9168efce:GenericEffect",
-		float NumBounces = 2,
+		float NumBounces = 0,
 	},
 	IgnoreSpaceEffects = 
 	{

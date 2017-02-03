@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [0.0261789858, 1.49214697, 3.4328318e-09],
+		Vec3 Translation = [0.0261789858, 2.47580528, 3.4328318e-09],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -38,6 +38,7 @@ Cog =
 	},
 	WeaponSystem = 
 	{
+		string DefaultWeapon = "585f9ee48b5c1a4d:PistolRound",
 		string CurrentWepaon = "585fab63a868685d:DunkRound",
 	},
 },

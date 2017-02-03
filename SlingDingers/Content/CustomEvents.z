@@ -1,3 +1,22 @@
 class OnBlockDestroy : ZilchEvent
 {
 }
+
+class AmmoEvent : ZilchEvent
+{
+    constructor(player : Integer, currentAmmo : Integer, maxAmmo : Integer) : base()
+    {
+        this.Player = player;
+        this.CurrentAmmo = currentAmmo;
+        this.MaxAmmo = maxAmmo;
+    }
+    
+    constructor() : base()
+    {
+        
+    }
+    
+    var Player : Integer;
+    var CurrentAmmo : Integer;
+    var MaxAmmo : Integer;
+}

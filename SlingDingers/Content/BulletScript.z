@@ -10,6 +10,9 @@ class BulletScript : ZilchComponent
     var RoF : Real;
     
     [Property]
+    var Ammo : Integer;
+    
+    [Property]
     var BurstEffect : Archetype;
     
     function Initialize(init : CogInitializer)
@@ -17,11 +20,11 @@ class BulletScript : ZilchComponent
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         Zero.Connect(this.Owner, Events.CollisionEnded, this.OnCollisionEnded);
         Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
-        
-        
     }
     
-    var NumBounces : Real = 0;
+    [Property]
+    var NumBounces : Real = 2;
+    var BouncedThisLife : Real = 0;
 
     function OnCollisionStarted(event : CollisionEvent)
     {
@@ -33,14 +36,14 @@ class BulletScript : ZilchComponent
         }
         else
         {
-            if(this.NumBounces >= 2)
+            if(this.BouncedThisLife >= this.NumBounces)
             {
                 this.Space.PhysicsSpace.DispatchWithinSphere(this.Owner.Transform.Translation, 1, "BlockDestroy", new ZilchEvent());
                 
                 this.Burst();
             }
             
-            this.NumBounces += 1;
+            this.BouncedThisLife += 1;
         }
     }
 

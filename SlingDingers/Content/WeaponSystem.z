@@ -10,9 +10,14 @@ enum WeaponType
 class WeaponSystem : ZilchComponent
 {
     [Property]
+    var DefaultWeapon : Archetype;
+    
+    [Property]
     var CurrentWepaon : Archetype;
     
     var RoF : Real;
+    var MaxAmmo : Integer;
+    var Ammo : Integer;
     var Delay : Real = 10;
     
     function Initialize(init : CogInitializer)
@@ -25,7 +30,12 @@ class WeaponSystem : ZilchComponent
     {
         var bulletObj = this.Space.CreateAtPosition(this.CurrentWepaon, Real3(0,-200,0));
         this.RoF = bulletObj.BulletScript.RoF;
+        this.Ammo = bulletObj.BulletScript.Ammo;
         bulletObj.Destroy();
+        
+        //TODO: fix player sent when players exist
+        //TODO: send to HUD instead of space maybe
+        this.Space.DispatchEvent("AmmoUpdate", new AmmoEvent(1, this.Ammo, this.MaxAmmo));
     }
 
     function OnLogicUpdate(event : UpdateEvent)
@@ -40,7 +50,15 @@ class WeaponSystem : ZilchComponent
     
     function Fire(vec : Real3)
     {
+        if(this.Ammo <= 0) 
+        {
+            this.CurrentWepaon = this.DefaultWeapon;
+            this.Equip();
+        }
+        
         if(this.Delay <= this.RoF) return;
+        
+        --this.Ammo;
         
         this.Delay = 0;
         var bulletObj = this.Space.CreateAtPosition(this.CurrentWepaon, this.Owner.Transform.Translation);
