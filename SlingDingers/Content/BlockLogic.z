@@ -6,10 +6,10 @@ class BlockLogic : ZilchComponent
     {
         //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         Zero.Connect(this.Owner, Events.BlockDestroy, this.OnBlockDestroy);
-        Zero.Connect(this.Space, Events.MouseDown, this.OnMouseDown);
+        Zero.Connect(this.Space, Events.MouseEnter, this.OnMouseOver);
     }
 
-    function OnMouseDown(event : ViewportMouseEvent)
+    function OnMouseOver(event : ViewportMouseEvent)
     {
         if(event.HitObject != null && event.HitObject == this.Owner)
         {

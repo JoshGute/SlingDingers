@@ -34,11 +34,12 @@ class ScreenShake : ZilchComponent
     {
         var mousePos = event.ToWorldViewPlane(40);
         var direction = this.Owner.Transform.Translation - mousePos;
-        this.ShakeParam(0.015, 0.2, 19.0, direction, 0);// event.ToWorldViewPlane(40);
+        //this.ShakeParam(0.015, 0.2, 19.0, direction, 0);// event.ToWorldViewPlane(40);
     }
     
     function Shake()
     {
+        Console.WriteLine("Why? `this.Displacement`"); 
         this.Direction = Math.Normalize(this.Direction);
         
         var seq = Action.Sequence(this.Owner.Actions);
@@ -46,7 +47,7 @@ class ScreenShake : ZilchComponent
         
         for(var i = 0.0; i < this.Time; i += interval)
         {
-            var newPos = this.Direction * this.Displacement;
+            var newPos = this.StartingPos + (this.Direction * this.Displacement);
             var displacePart = this.Displacement / 5;
             newPos += Real3(this.Rand.Range(-displacePart, displacePart), this.Rand.Range(-displacePart, displacePart), 0);
             
