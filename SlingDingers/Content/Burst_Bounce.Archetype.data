@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-2.20378232, 14.7733126, 0],
+		Vec3 Translation = [-6.46073437, 26.5809135, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -66,7 +66,7 @@ Cog =
 		Vec3 RandomForce = [0, 90, 0],
 		float Torque = 0,
 		float Growth = 0,
-		float Dampening = 15,
+		float Dampening = 9,
 		Vec3 Twist = [0, 0, 0],
 	},
 	ParticleColorAnimator = 
