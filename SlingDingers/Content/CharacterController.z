@@ -71,7 +71,7 @@ class CharacterController : ZilchComponent
     var InputDelay : Integer = 0;    
     
     var HitStunned : Boolean = false;
-    var Dead : Boolean = false;
+    var Dead : Boolean = true;
     
     ////////////////////////////////////////////////////////////
     
@@ -99,6 +99,7 @@ class CharacterController : ZilchComponent
         Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
         Zero.Connect(this.Owner, Events.CollisionEnded, this.OnCollisionEnded);
         Zero.Connect(this.Owner, Events.CollisionPersisted, this.OnCollisionPersisted);
+        Zero.Connect(this.Space, Events.GameStart, this.OnGameStart);
         
         
         //Sets all important referenced objects
@@ -113,6 +114,11 @@ class CharacterController : ZilchComponent
         
         this.Gun = this.Owner.FindChildByName("Gun");
         
+    }
+
+    function OnGameStart(event : GameStart)
+    {
+        this.Dead = false;
     }
     
     function KnockBackStarted()
