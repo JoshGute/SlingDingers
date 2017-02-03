@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "PowerUpSpawn",
+		uint64 ResourceId = 581f5cf509f82d41,
+	},
+},
