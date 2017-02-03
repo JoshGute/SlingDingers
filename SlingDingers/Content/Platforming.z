@@ -1,0 +1,165 @@
+class Platforming : ZilchComponent
+{
+    
+    
+    ////////////////////////////////////////////////////////////
+    
+    [Property]
+    var JumpStrength : Real;
+    
+    [Property]
+    var Speed : Real;
+    
+    [Property]
+    var Stride : Real = 2.5;
+    var CurStride : Real = 0;
+    
+    ////////////////////////////////////////////////////////////
+    
+    var Drag : Real = 10;
+    var Grounded : Boolean = false;
+    var Moving : Boolean = false;
+    var AirDodgeSpent : Boolean = false;
+    
+    var JumpsLeft : Integer = 1;
+    
+    ////////////////////////////////////////////////////////////
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    
+    ////////////////////////////////////////////////////////////
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        //Manages Drag
+        var drag = this.Drag;
+        this.Owner.RigidBody.Velocity *= Real3((1 - (drag * event.Dt)), 1,1);
+        
+        if(this.Grounded)
+        {
+            this.CurStride += Math.Abs(this.Owner.RigidBody.Velocity.X) * event.Dt;
+            if(this.CurStride >= this.Stride)
+            {
+                
+                this.CurStride = 0;
+                
+                var seq = Action.Sequence(this.Owner.Actions);
+                
+                //Action.Property(seq, @this.Owner.FindChildByName("Step").SphericalParticleEmitter.Active, true, 0, Ease.Linear);
+                Action.Delay(seq, 0.01);
+                //Action.Property(seq, @this.Owner.FindChildByName("Step").SphericalParticleEmitter.Active, false, 0, Ease.Linear);
+            }
+        }
+    }
+    
+    ////////////////////////////////////////////////////////////
+    
+    function MoveHorizontal(dir : Real)
+    {
+        var movement = Real3(dir,0,0);
+        var drag = this.Drag;
+        
+        this.Owner.RigidBody.ApplyForce(movement * this.Speed);
+    }
+    
+    ////////////////////////////////////////////////////////////
+    
+    function FastFall(dir : Real)
+    {
+        var movement = Real3(0,dir,0);
+        var drag = this.Drag;
+        
+        this.Owner.RigidBody.ApplyForce(movement * this.Speed);
+    }
+    
+    ////////////////////////////////////////////////////////////
+    
+    function Jump()
+    {
+        if(this.Grounded)
+        {
+            this.Grounded = false;
+            this.Owner.RigidBody.ApplyForce(Real3(0,1,0) * this.JumpStrength);
+            
+            /*var jump = this.Space.CreateAtPosition(Archetype.Find("JumpParticle"), 
+                                                  Real3(this.Owner.Transform.WorldTranslation.X, this.Owner.Transform.WorldTranslation.Y - (this.Owner.Transform.Scale.Y)/2, 5));
+            
+            
+            */
+        }
+        else
+        {
+            if(this.JumpsLeft > 0)
+            {
+                this.Owner.RigidBody.Velocity = Real3(this.Owner.RigidBody.Velocity.X, 0, this.Owner.RigidBody.Velocity.Z);
+                
+                --this.JumpsLeft;
+                
+                this.Owner.RigidBody.ApplyForce(Real3(0,1,0) * this.JumpStrength);
+            
+                /*var jump = this.Space.CreateAtPosition(Archetype.Find("JumpParticle"), 
+                                                      Real3(this.Owner.Transform.WorldTranslation.X, this.Owner.Transform.WorldTranslation.Y - (this.Owner.Transform.Scale.Y)/2, 5));
+                
+                
+                jump.SpriteParticleSystem.Tint = Real4(0.5,0.5,1,0.5);*/
+                
+            }
+        }
+    }
+    
+    ////////////////////////////////////////////////////////////
+    
+    function Dash(dir : Real3)
+    {
+        var newDir = dir * 200;
+        
+        var seq = Actions.Sequence(this.Owner.Actions);
+        
+        var skid = this.Owner.FindChildByName("Skid");
+        var airDodge = this.Owner.FindChildByName("AirDodge");
+        
+        if(skid != null && this.Grounded)
+        {
+            
+            
+            this.Owner.RigidBody.Velocity = Real3();
+            this.Owner.RigidBody.ApplyForce(Real3(newDir.X, 0.0, 0.0));
+            
+            skid.SphericalParticleEmitter.Active = true;
+            
+            Action.Delay(seq, 0.1);
+                        
+            Action.Property(seq,
+                            @skid.SphericalParticleEmitter.Active, 
+                            false, 
+                            0, 
+                            Ease.Linear);
+                            
+        }
+        else if(airDodge != null && !this.Grounded && !this.AirDodgeSpent)
+        {
+            
+            this.Owner.RigidBody.Velocity = Real3();
+            this.Owner.RigidBody.ApplyForce(Real3(newDir.X, 30.0, 0.0));
+            
+            this.AirDodgeSpent = true;
+            
+            airDodge.SphericalParticleEmitter.Active = true;
+            
+            airDodge.SphericalParticleEmitter.StartVelocity = -dir * 5;
+            
+            Action.Delay(seq, 0.1);
+                        
+            Action.Property(seq,
+                            @airDodge.SphericalParticleEmitter.Active, 
+                            false, 
+                            0, 
+                            Ease.Linear);
+                            
+            
+        }
+    }
+}

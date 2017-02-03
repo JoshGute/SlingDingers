@@ -1,0 +1,64 @@
+class Foot : ZilchComponent
+{
+    var Actor : Cog = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+        Zero.Connect(this.Owner, Events.CollisionPersisted, this.OnCollisionPersisted);
+        Zero.Connect(this.Owner, Events.CollisionEnded, this.OnCollisionEnded);
+        
+        this.Actor = this.Owner.Parent;
+    }
+    
+    function FixGroundHit(event : CollisionEvent)
+    {
+        this.Owner.Parent.Platforming.AirDodgeSpent = false;
+        this.Owner.Parent.Platforming.Grounded = true;
+        
+        this.Owner.Parent.Platforming.JumpsLeft = 1;
+        
+        if(event.OtherObject.RigidBody != null)
+        {
+            this.Actor.RigidBody.Velocity = Real3( this.Actor.RigidBody.Velocity.X,
+                                                    event.OtherObject.RigidBody.Velocity.Y, 0);
+        }
+        else
+        {
+            this.Actor.RigidBody.Velocity = Real3(this.Actor.RigidBody.Velocity.X, 0, 0);
+        }
+    }
+    
+    function OnCollisionStarted(event : CollisionEvent)
+    {
+        if(!event.OtherObject.Collider.Ghost)
+        {
+            this.FixGroundHit(event);
+        }
+    }
+    
+    function OnCollisionPersisted(event : CollisionEvent)
+    {
+        /*if(!event.OtherObject.Collider.Ghost)
+        {
+            if(this.Actor.Platforming.Grounded)
+            {
+                this.FixGroundHit(event);
+            }
+            
+            this.Actor.Platforming.Grounded = true;
+        }*/
+    }
+    
+    function OnCollisionEnded(event : CollisionEvent)
+    {
+        if(!event.OtherObject.Collider.Ghost)
+        {
+            this.Actor.Platforming.Grounded = false;
+            if(this.Owner.Parent.FindChildByName("Skid") != null)
+            {
+                this.Owner.Parent.FindChildByName("Skid").SphericalParticleEmitter.Active = false;
+            }
+        }
+    }
+}

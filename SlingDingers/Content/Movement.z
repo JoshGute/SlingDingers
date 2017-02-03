@@ -100,7 +100,7 @@ class Movement : ZilchComponent
             //    this.LeftInputMagnitude = 0;
             //}
             
-            if(this.RightTrigger <= 0.5 && this.PrevRightTrigger >= 0.5)
+            if(this.RightTrigger >= 0.5)
             {
                 this.Shoot();
             }
@@ -111,7 +111,7 @@ class Movement : ZilchComponent
     {
         if(this.CurrentJumps < this.MaxJumps)
         {
-            this.RB.ApplyForce(Real3 (0,jumpSpeed_ * 100,0));
+            this.RB.ApplyForce(Real3 (0,jumpSpeed_ * 10,0));
             ++this.CurrentJumps;
         }
     }
@@ -127,7 +127,7 @@ class Movement : ZilchComponent
     
     function Shoot()
     {
-        this.Vibrate(0.25,0.25);
+        this.Owner.WeaponSystem.Fire(this.Gun.FindChildByName("Reticule").Transform.WorldTranslation - this.Owner.Transform.WorldTranslation);
     }
     
     function Vibrate(vibrationStrength : Real, vibrationLength : Real)

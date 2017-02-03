@@ -14,9 +14,21 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-5.5, 11.5, 0],
-		Vec3 Scale = [2, 2, 2],
+		Vec3 Translation = [-6.08650684, 2.11481047, -1.00099945],
+		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
+	},
+	RigidBody = 
+	{
+		bool Static = false,
+		bool Asleep = false,
+		bool Kinematic = false,
+		bool RotationLocked = true,
+		bool Mode2D = true,
+		bool AllowSleep = false,
+		bool Inherit2DMode = true,
+		Vec3 Velocity = [0, 0, 0],
+		Vec3 AngularVelocity = [0, 0, 0],
 	},
 	Sprite = 
 	{
@@ -36,40 +48,6 @@ Cog =
 		float AnimationSpeed = 1,
 		uint StartFrame = 0,
 	},
-	RigidBody = 
-	{
-		bool Static = false,
-		bool Asleep = false,
-		bool Kinematic = false,
-		bool RotationLocked = true,
-		bool Mode2D = true,
-		bool AllowSleep = false,
-		bool Inherit2DMode = true,
-		Vec3 Velocity = [0, 0, 0],
-		Vec3 AngularVelocity = [0, 0, 0],
-	},
-	Movement = 
-	{
-		float Speed = 12,
-		float MaxSpeed = 20,
-		float JumpSpeed = 120,
-		CogPath GunPath = 
-		{
-			string Path = "Gun",
-			bool ErrorOnResolveToNull = false,
-			bool ErrorOnPathCantCompute = false,
-			bool ErrorOnDirectLinkFail = false,
-			bool UpdateCogOnPathChange = true,
-			bool UpdatePathOnCogChange = true,
-			bool UpdateCogOnInitialize = true,
-			bool ResolvedNullErrorOccurred = false,
-			uint ResolvedCog = 2,
-			CogPathPreference PathPreference0 = CogRelative,
-			CogPathPreference PathPreference1 = SpaceRelative,
-			CogPathPreference PathPreference2 = Absolute,
-		},
-		int PlayerIndex = 0,
-	},
 	GravityEffect = 
 	{
 		bool Active = true,
@@ -78,15 +56,32 @@ Cog =
 		float Strength = 30,
 		Vec3 Direction = [0, -1, 0],
 	},
+	WeaponSystem = 
+	{
+		string DefaultWeapon = "585f9ee48b5c1a4d:PistolRound",
+		string CurrentWepaon = "585f9ee48b5c1a4d:PistolRound",
+	},
 	SphereCollider = 
 	{
 		bool Ghost = false,
 		bool SendsMessages = true,
 		bool Seamless = true,
-		string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+		string MaterialName = "58ea7ad736b8f14d:Slippidy",
 		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 		Vec3 Offset = [0, 0, 0],
 		float Radius = 0.5,
+	},
+	Platforming = 
+	{
+		float JumpStrength = 1000,
+		float Speed = 70,
+		float Stride = 2.5,
+	},
+	CharacterController = 
+	{
+		Enum Scheme = Gamepad,
+		string DeathSpawn = "",
+		int PNumberData = 0,
 	},
 	Hierarchy = 
 	{
@@ -123,11 +118,11 @@ Cog =
 					},
 					Named = 
 					{
-						string Name = "Reticule ",
+						string Name = "Reticule",
 					},
 					Transform = 
 					{
-						Vec3 Translation = [1.3499999, 0, 0],
+						Vec3 Translation = [0.688481569, 0, 0],
 						Vec3 Scale = [0.400000006, 0.400000006, 1],
 						Quat Rotation = [0, 0, 0, 1],
 					},
@@ -164,8 +159,8 @@ Cog =
 			},
 			Transform = 
 			{
-				Vec3 Translation = [0, -0.5, 0],
-				Vec3 Scale = [0.200000003, 0.300000012, 1],
+				Vec3 Translation = [0, -0.48650372, 0],
+				Vec3 Scale = [0.842259586, 0.0928380117, 1],
 				Quat Rotation = [0, 0, 0, 1],
 			},
 			Sprite = 
@@ -191,163 +186,13 @@ Cog =
 				bool Ghost = true,
 				bool SendsMessages = true,
 				bool Seamless = true,
-				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+				string MaterialName = "58ea7ad736b8f14d:Slippidy",
 				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
 				Vec3 Offset = [0, 0, 0],
 				Vec3 Size = [0.5, 0.5, 0.5],
 			},
-			FootScript = 
+			Foot = 
 			{
-				CogPath PlayerPath = 
-				{
-					string Path = "..",
-					bool ErrorOnResolveToNull = false,
-					bool ErrorOnPathCantCompute = false,
-					bool ErrorOnDirectLinkFail = false,
-					bool UpdateCogOnPathChange = true,
-					bool UpdatePathOnCogChange = true,
-					bool UpdateCogOnInitialize = true,
-					bool ResolvedNullErrorOccurred = false,
-					uint ResolvedCog = 1,
-					CogPathPreference PathPreference0 = CogRelative,
-					CogPathPreference PathPreference1 = SpaceRelative,
-					CogPathPreference PathPreference2 = Absolute,
-				},
-			},
-		},
-		Cog = 
-		{
-			LinkId = 
-			{
-				uint Id = 5,
-			},
-			Named = 
-			{
-				string Name = "Top",
-			},
-			Transform = 
-			{
-				Vec3 Translation = [0, 0.5, 0],
-				Vec3 Scale = [0.479999989, 0.150000006, 1],
-				Quat Rotation = [0, 0, 0, 1],
-			},
-			Sprite = 
-			{
-				bool Visible = true,
-				bool VisibilityCulling = true,
-				bool VisibilityEvents = true,
-				bool CastShadows = false,
-				Vec4 Color = [1, 0, 0, 0.25],
-				BlendMode BlendMode = Alpha,
-				SpriteGeometryMode GeometryMode = ZPlane,
-				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-				string SpriteSource = "5275aa4d802dd6dc:Square",
-				bool RenderMask = false,
-				bool FlipX = false,
-				bool FlipY = false,
-				bool AnimationActive = true,
-				float AnimationSpeed = 1,
-				uint StartFrame = 0,
-			},
-			BoxCollider = 
-			{
-				bool Ghost = true,
-				bool SendsMessages = true,
-				bool Seamless = true,
-				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-				Vec3 Offset = [0, 0, 0],
-				Vec3 Size = [0.5, 0.5, 0.5],
-			},
-		},
-		Cog = 
-		{
-			LinkId = 
-			{
-				uint Id = 6,
-			},
-			Named = 
-			{
-				string Name = "Left",
-			},
-			Transform = 
-			{
-				Vec3 Translation = [-0.5, 0, 0],
-				Vec3 Scale = [0.150000006, 0.479999989, 1],
-				Quat Rotation = [0, 0, 0, 1],
-			},
-			Sprite = 
-			{
-				bool Visible = true,
-				bool VisibilityCulling = true,
-				bool VisibilityEvents = true,
-				bool CastShadows = false,
-				Vec4 Color = [1, 0, 0, 0.25],
-				BlendMode BlendMode = Alpha,
-				SpriteGeometryMode GeometryMode = ZPlane,
-				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-				string SpriteSource = "5275aa4d802dd6dc:Square",
-				bool RenderMask = false,
-				bool FlipX = false,
-				bool FlipY = false,
-				bool AnimationActive = true,
-				float AnimationSpeed = 1,
-				uint StartFrame = 0,
-			},
-			BoxCollider = 
-			{
-				bool Ghost = true,
-				bool SendsMessages = true,
-				bool Seamless = true,
-				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-				Vec3 Offset = [0, 0, 0],
-				Vec3 Size = [0.5, 0.5, 0.5],
-			},
-		},
-		Cog = 
-		{
-			LinkId = 
-			{
-				uint Id = 7,
-			},
-			Named = 
-			{
-				string Name = "right",
-			},
-			Transform = 
-			{
-				Vec3 Translation = [0.5, 0, 0],
-				Vec3 Scale = [0.150000006, 0.479999989, 1],
-				Quat Rotation = [0, 0, 0, 1],
-			},
-			Sprite = 
-			{
-				bool Visible = true,
-				bool VisibilityCulling = true,
-				bool VisibilityEvents = true,
-				bool CastShadows = false,
-				Vec4 Color = [1, 0, 0, 0.25],
-				BlendMode BlendMode = Alpha,
-				SpriteGeometryMode GeometryMode = ZPlane,
-				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-				string SpriteSource = "5275aa4d802dd6dc:Square",
-				bool RenderMask = false,
-				bool FlipX = false,
-				bool FlipY = false,
-				bool AnimationActive = true,
-				float AnimationSpeed = 1,
-				uint StartFrame = 0,
-			},
-			BoxCollider = 
-			{
-				bool Ghost = true,
-				bool SendsMessages = true,
-				bool Seamless = true,
-				string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-				string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-				Vec3 Offset = [0, 0, 0],
-				Vec3 Size = [0.5, 0.5, 0.5],
 			},
 		},
 	},

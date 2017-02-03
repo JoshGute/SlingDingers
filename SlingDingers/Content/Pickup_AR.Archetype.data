@@ -48,6 +48,6 @@ Cog =
 	},
 	PowerUp = 
 	{
-		string Weapon = "585feefa1b00b9dc:ARRound",
+		string Weapon = "585f903389d922a0:BounceRound",
 	},
 },

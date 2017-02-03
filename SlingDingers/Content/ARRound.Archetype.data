@@ -61,9 +61,10 @@ Cog =
 	BulletScript = 
 	{
 		Enum Type = Type_Projectile,
+		Enum GunType = Pistol,
 		float Speed = 60,
 		float RoF = 0.150000006,
-		int Ammo = 20,
+		int Ammo = 30,
 		string BurstEffect = "585fc69037750ac5:Burst_Pistol",
 		float NumBounces = 2,
 	},
