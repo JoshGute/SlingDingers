@@ -10,6 +10,7 @@ class BlockLogic : ZilchComponent
 
     function OnOnBlockDestroy(event : Event)
     {
+        this.Space.CreateAtPosition(Archetype.DestructionParticleEffect, this.Owner.Transform.Translation);
         
     }
 
