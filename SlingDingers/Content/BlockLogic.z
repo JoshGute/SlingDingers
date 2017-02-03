@@ -6,6 +6,15 @@ class BlockLogic : ZilchComponent
     {
         //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         Zero.Connect(this.Owner, Events.OnBlockDestroy, this.OnOnBlockDestroy);
+        Zero.Connect(this.Space, Events.MouseDown, this.OnMouseDown);
+    }
+
+    function OnMouseDown(event : ViewportMouseEvent)
+    {
+        if(event.HitObject != null && event.HitObject == this.Owner)
+        {
+            this.Owner.DispatchEvent(Events.OnBlockDestroy, new OnBlockDestroy());
+        }
     }
 
     function OnOnBlockDestroy(event : Event)
