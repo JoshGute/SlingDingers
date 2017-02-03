@@ -1,0 +1,44 @@
+class PowerUpSpawn : ZilchComponent
+{
+    var Rand    : Random = Random();
+    [Static] var AllPowerupSpawners : Array[PowerUpSpawn] = new Array[PowerUpSpawn]();
+    function Initialize(init : CogInitializer)
+    {
+        PowerUpSpawn.AllPowerupSpawners.Add(this);
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    
+    function CompareDists(location1 : Real3, location2 : Real3) : Real
+    {
+        var tween1 = this.Owner.Transform.Translation - location1;
+        var tween2 = this.Owner.Transform.Translation - location2;
+        
+        return Math.Abs((Math.Abs(Math.Length(tween1))) - (Math.Abs(Math.Length(tween2))));
+    }
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+    }
+    
+    function SpawnPowerup()
+    {
+        var randomInt = this.Rand.Integer() % 3;
+        
+        var whatArchetype : Archetype = null;
+        
+        if(randomInt == 0)
+        {
+            whatArchetype = Archetype.Pickup_AR;
+        }
+        else if(randomInt == 1)
+        {
+            whatArchetype = Archetype.Pickup_Bomb;
+        }
+        else if(randomInt == 2)
+        {
+            whatArchetype = Archetype.Pickup_Dunker;
+        }
+        
+        this.Space.CreateAtPosition(whatArchetype, this.Owner.Transform.Translation);
+    }
+}

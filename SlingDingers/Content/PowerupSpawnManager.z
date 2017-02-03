@@ -1,0 +1,46 @@
+class PowerupSpawnManager : ZilchComponent
+{
+    [Property]var  Player1 : CogPath;
+    [Property]var  Player2 : CogPath;
+    
+    function Initialize(init : CogInitializer)
+    {
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(Zero.Keyboard, Events.KeyDown, this.OnKeyDown);
+    }
+
+    function OnKeyDown(event : KeyboardEvent)
+    {
+        if(event.Key == Keys.Space)
+        {
+            this.PowerupTime();
+        }
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+    }
+    
+    function PowerupTime()
+    {
+        var minDist = 1000000000.0;
+        
+        var chosenOne : PowerUpSpawn = null;
+        
+        foreach(var i in PowerUpSpawn.AllPowerupSpawners)
+        {
+            var distDiff = i.CompareDists(this.Player1.Cog.Transform.Translation, this.Player2.Cog.Transform.Translation);
+            if(distDiff < minDist)
+            {
+                minDist = distDiff;
+                chosenOne = i;
+            }
+            Console.WriteLine("`distDiff`");
+        }
+        
+        if(chosenOne != null)
+        {
+            chosenOne.SpawnPowerup();
+        }
+    }
+}
