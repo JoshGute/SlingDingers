@@ -173,8 +173,10 @@ class CharacterController : ZilchComponent
     {
         this.Space.CreateAtPosition(Archetype.Burst_Death, this.Owner.Transform.Translation);
         
+        this.Owner.Sprite.Color = Real4(0,0,0,1);
+        
         //ADD ALL THE FANCY SHITE
-        this.Owner.Destroy();
+        this.Dead = true;
     }
     
     function KnockBack(event : CollisionEvent)
@@ -234,6 +236,20 @@ class CharacterController : ZilchComponent
     
     function OnLogicUpdate(event : UpdateEvent)
     {
+        
+        if(this.Controller.IsButtonPressed(Buttons.A))
+        {
+            if(CharacterController.GameEnded)
+                this.Space.ReloadLevel();
+        }
+        
+        if(this.Controller.IsButtonPressed(Buttons.B))
+        {
+            if(CharacterController.GameEnded)
+                this.GameSession.Quit();
+        }
+        
+        
         if(this.Dead)
         {
             return;
@@ -271,19 +287,6 @@ class CharacterController : ZilchComponent
             this.SentMoveEvent = true;
             this.Owner.DispatchEvent("Moved", ZilchEvent());
         }
-        
-        if(this.Controller.IsButtonPressed(Buttons.A))
-        {
-            if(CharacterController.GameEnded)
-                this.Space.ReloadLevel();
-        }
-        
-        if(this.Controller.IsButtonPressed(Buttons.B))
-        {
-            if(CharacterController.GameEnded)
-                this.GameSession.Quit();
-        }
-        
         if(this.Controller.LeftStick.Y < -0.7)
         {
             this.Owner.Platforming.FastFall(this.Controller.LeftStick.Y + 0.5);
