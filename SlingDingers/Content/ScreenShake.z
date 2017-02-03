@@ -74,6 +74,11 @@ class ScreenShake : ZilchComponent
         this.Shake();
     }
     
+    function ShakeLeoApproved(loc : Real3)
+    {
+        this.ShakeParam(0.015, 0.45, 19.0, this.Owner.Transform.Translation - loc, 1);
+    }
+    
     function ShakeFromLocation(source : Real3)
     {
         

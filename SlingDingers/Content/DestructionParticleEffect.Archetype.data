@@ -42,12 +42,12 @@ Cog =
 	SphericalParticleEmitter = 
 	{
 		bool Active = true,
-		uint EmitCount = 7,
+		uint EmitCount = 2,
 		float EmitRate = 70,
 		float EmitVariance = 0,
 		float Size = 0.400000006,
 		float SizeVariance = 0.300000012,
-		float Lifetime = 4,
+		float Lifetime = 1,
 		float LifetimeVariance = 0.200000003,
 		float Spin = 0,
 		float SpinVariance = 50,
@@ -72,9 +72,9 @@ Cog =
 	ParticleColorAnimator = 
 	{
 		Vec4 Color0 = [1, 1, 1, 0.999899983],
-		Vec4 Color1 = [1, 1, 1, 1],
-		Vec4 Color2 = [1, 1, 1, 1],
-		Vec4 Color3 = [1, 1, 1, 1],
+		Vec4 Color1 = [1, 1, 1, 0.754999995],
+		Vec4 Color2 = [1, 1, 1, 0.569999993],
+		Vec4 Color3 = [1, 1, 1, 0.25],
 		Vec4 Color4 = [1, 1, 1, 0],
 	},
 },

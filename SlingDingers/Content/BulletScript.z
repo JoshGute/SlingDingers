@@ -26,11 +26,20 @@ class BulletScript : ZilchComponent
     var NumBounces : Real = 2;
     var BouncedThisLife : Real = 0;
 
+    var BounceDelay : Real = 0.5;
+    var BounceDelayCounter : Real = 0;
+
     function OnCollisionStarted(event : CollisionEvent)
     {
+        if(this.Type == WeaponType.Type_Dunk)
+        {
+            event.OtherObject.DispatchEvent(Events.BlockDestroy, new BlockDestroy(this.Owner.Transform.Translation - event.OtherObject.Transform.Translation, 10));
+            return;
+        }
+        
         if(this.Type != WeaponType.Type_Arc)
         {
-            event.OtherObject.DispatchEvent("BlockDestroy", new ZilchEvent());
+            event.OtherObject.DispatchEvent(Events.BlockDestroy, new BlockDestroy(this.Owner.Transform.Translation - event.OtherObject.Transform.Translation, 10));
             
             this.Burst(event.FirstPoint.WorldNormalTowardsOther);
         }
@@ -38,12 +47,18 @@ class BulletScript : ZilchComponent
         {
             if(this.BouncedThisLife >= this.NumBounces)
             {
-                this.Space.PhysicsSpace.DispatchWithinSphere(this.Owner.Transform.Translation, 1, "BlockDestroy", new ZilchEvent());
+                this.Space.PhysicsSpace.DispatchWithinSphere(this.Owner.Transform.Translation, 2, Events.BlockDestroy, new BlockDestroy(this.Owner.Transform.Translation - event.OtherObject.Transform.Translation, 1));
                 
                 this.Burst(event.FirstPoint.WorldNormalTowardsOther);
             }
             
-            this.BouncedThisLife += 1;
+            this.LevelSettings.CameraViewport.Camera.ScreenShake.ShakeLeoApproved(this.Owner.Transform.Translation);
+            
+            if(this.BounceDelayCounter >= this.BounceDelay)
+            {
+                this.BouncedThisLife += 1;
+                this.BounceDelayCounter = 0;
+            }
         }
     }
 
@@ -54,10 +69,8 @@ class BulletScript : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        if(Zero.Keyboard.KeyIsPressed(Keys.Space))
-        {
-            
-        }
+        this.BounceDelayCounter += event.Dt;
+        
     }
      
     function Propell(vec : Real3, wepType : WeaponType)
