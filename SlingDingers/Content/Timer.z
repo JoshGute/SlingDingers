@@ -1,0 +1,110 @@
+class Timer : ZilchComponent
+{
+    [Property]
+    var StartTime : Real = 99.99;
+    
+    [Property]
+    var SuddenDeathColor : Real4;
+    
+    [Property]
+    var DarkSuddenDeathColor : Real4;
+    
+    [Property]
+    var DefaultColor : Real4;
+    
+    [Property]
+    var SmallPop : Real3;
+    
+    [Property]
+    var LargePop : Real3;
+    
+    var NormalSize : Real3 = Real3(1, 1, 1);
+    
+    var Bumpin : Boolean = false;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(this.StartTime > 0.00)
+        {
+            this.StartTime -= event.Dt;
+            var localTime = this.StartTime;
+            localTime *= 10;
+            localTime = Math.Round(localTime);
+            localTime /= 10;
+            var intCast : Integer = localTime as Integer;
+            if(intCast > 0 && localTime/intCast == 1)
+            {
+                this.Owner.SpriteText.Text = "`localTime`.0";
+                if(this.StartTime > 10)
+                {
+                    this.SmallBump();
+                }
+                else
+                {
+                    this.LargeBumpOn();
+                }
+            }
+            else
+            {
+                this.Owner.SpriteText.Text = "`localTime`";
+            }
+        }
+        else
+        {
+            if(this.Bumpin == false)
+            {
+                this.Bumpin = true;
+                this.Owner.SpriteText.Text = "SUDDEN DEATH";
+                this.Owner.SpriteText.Color = this.SuddenDeathColor;
+                this.ConstantBumpOn();
+            }
+        }
+    }
+    
+    function SmallBump()
+    {
+        var seq = Actions.Sequence(this.Owner.Actions);
+        Actions.Property(seq, @this.Owner.Transform.Scale, this.SmallPop, 0.1, Ease.QuadOut);
+        Actions.Property(seq, @this.Owner.Transform.Scale, this.NormalSize, 0.1, Ease.QuadIn);
+    }
+    
+    function LargeBumpOn()
+    {
+        var seq = Actions.Sequence(this.Owner.Actions);
+        var group = Actions.Group(seq);
+        Actions.Property(group, @this.Owner.Transform.Scale, this.LargePop, 0.25, Ease.QuadOut);
+        Actions.Property(group, @this.Owner.SpriteText.Color, this.SuddenDeathColor, 0.25, Ease.Linear);
+        Actions.Call(seq, this.LargeBumpOff);
+    }
+    
+    function LargeBumpOff()
+    {
+        var seq = Actions.Sequence(this.Owner.Actions);
+        var group = Actions.Group(seq);
+        Actions.Property(group, @this.Owner.Transform.Scale, this.NormalSize, 0.25, Ease.QuadIn);
+        Actions.Property(group, @this.Owner.SpriteText.Color, this.DefaultColor, 0.25, Ease.Linear);
+    }
+    
+    function ConstantBumpOn()
+    {
+        var seq = Actions.Sequence(this.Owner.Actions);
+        var group = Actions.Group(seq);
+        Actions.Property(group, @this.Owner.Transform.Scale, this.LargePop, 0.75, Ease.Linear);
+        Actions.Property(group, @this.Owner.SpriteText.Color, this.DarkSuddenDeathColor, 0.75, Ease.Linear);
+        Actions.Call(seq, this.ConstantBumpOff);
+    }
+    
+    function ConstantBumpOff()
+    {
+        var seq = Actions.Sequence(this.Owner.Actions);
+        var group = Actions.Group(seq);
+        Actions.Property(group, @this.Owner.Transform.Scale, this.NormalSize, 0.75, Ease.Linear);
+        Actions.Property(group, @this.Owner.SpriteText.Color, this.SuddenDeathColor, 0.75, Ease.Linear);
+        Actions.Call(seq, this.ConstantBumpOn);
+    }
+}
