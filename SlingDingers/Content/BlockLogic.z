@@ -1,11 +1,11 @@
 class BlockLogic : ZilchComponent
 {
-    sends OnBlockDestroy : OnBlockDestroy;
+    sends BlockDestroy : BlockDestroy;
     
     function Initialize(init : CogInitializer)
     {
         //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
-        Zero.Connect(this.Owner, Events.OnBlockDestroy, this.OnOnBlockDestroy);
+        Zero.Connect(this.Owner, Events.BlockDestroy, this.OnBlockDestroy);
         Zero.Connect(this.Space, Events.MouseDown, this.OnMouseDown);
     }
 
@@ -13,18 +13,21 @@ class BlockLogic : ZilchComponent
     {
         if(event.HitObject != null && event.HitObject == this.Owner)
         {
-            this.Owner.DispatchEvent(Events.OnBlockDestroy, new OnBlockDestroy());
+            this.Owner.DispatchEvent(Events.BlockDestroy, new BlockDestroy(Real3(0, 0, 0),0));
         }
     }
 
-    function OnOnBlockDestroy(event : Event)
+    function OnBlockDestroy(event : BlockDestroy)
     {
-        this.Space.CreateAtPosition(Archetype.DestructionParticleEffect, this.Owner.Transform.Translation);
+        var particle : CogPath = new CogPath();
+        particle.Cog = this.Space.CreateAtPosition(Archetype.DestructionParticleEffect, this.Owner.Transform.Translation);
+        
+        particle.Cog.SphericalParticleEmitter.StartVelocity += (Math.Normalize(event.Direction) * event.Magnitude);
         this.LevelSettings.CameraViewport.Camera.ScreenShake.ShakeParam(0.015, 0.2, 19.0, this.LevelSettings.CameraViewport.Camera.Transform.Translation - this.Owner.Transform.Translation, 0);
         
         var seq = Actions.Sequence(this.Owner.Actions);
         
-        Actions.Property(seq, @this.Owner.Sprite.Color, Real4(0, 0, 0, 0), 0.3, Ease.QuadOut);
+        Actions.Property(seq, @this.Owner.MultiSprite.Color, Real4(0, 0, 0, 0), 0.3, Ease.QuadOut);
         Actions.Call(seq, this.Owner.Destroy);
     }
 

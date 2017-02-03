@@ -1,5 +1,12 @@
-class OnBlockDestroy : ZilchEvent
+class BlockDestroy : ZilchEvent
 {
+    var Magnitude : Real;
+    var Direction : Real3;
+    constructor(vector : Real3, mag : Real) : base()
+    {
+        this.Direction = vector;
+        this.Magnitude = mag;
+    }
 }
 
 class AmmoEvent : ZilchEvent
