@@ -57,12 +57,12 @@ class Movement : ZilchComponent
                 this.RB.Velocity = Real3(this.AxisLeft.X * this.Speed * this.Controls, this.RB.Velocity.Y, this.RB.Velocity.Z);
             }
             
-            if(this.LeftTrigger == 0 && this.PrevLeftTrigger == 1)
+            if(this.LeftTrigger <= 0.5 && this.PrevLeftTrigger >= 0.5)
             {
                 this.Jump(this.JumpSpeed);
             }
             
-            if(this.RightTrigger == 0 && this.PrevRightTrigger == 1)
+            if(this.RightTrigger <= 0.5 && this.PrevRightTrigger >= 0.5)
             {
                 this.Shoot();
             }
