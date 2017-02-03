@@ -60,6 +60,8 @@ class WeaponSystem : ZilchComponent
         
         if(this.Delay <= this.RoF) return;
         
+        this.LevelSettings.CameraViewport.Camera.ScreenShake.ShakeParam(0.015, 0.45, 19.0, this.LevelSettings.CameraViewport.Camera.Transform.Translation - this.Owner.Transform.Translation, 1);
+        
         --this.Ammo;
         
         this.Delay = 0;

@@ -64,7 +64,7 @@ Cog =
 		float Speed = 25,
 		float RoF = 0.899999976,
 		int Ammo = 5,
-		string BurstEffect = "585fab2a9168efce:GenericEffect",
+		string BurstEffect = "585fc9cdd476fa0b:Burst_Bounce",
 		float NumBounces = 2,
 	},
 	IgnoreSpaceEffects = 
