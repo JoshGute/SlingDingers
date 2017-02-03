@@ -45,3 +45,8 @@ class VictoryEvent : ZilchEvent
     
     sends VictoryEvent:VictoryEvent;
 }
+
+class GameStart : ZilchEvent
+{
+    sends GameStart : GameStart;
+}

@@ -19,6 +19,15 @@ class StartGameText : ZilchComponent
         //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);]
         Actions.Delay(seq, 3);
         Actions.Call(seq, this.Owner.Destroy);
+        
+        var seq2 = Actions.Sequence(grp);
+        Actions.Delay(seq2, 4.5);
+        Actions.Call(seq2, this.StartGame);
+    }
+    
+    function StartGame()
+    {
+        this.Space.DispatchEvent(Events.GameStart, new GameStart());
     }
 
     function OnLogicUpdate(event : UpdateEvent)
