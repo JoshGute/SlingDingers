@@ -14,8 +14,8 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-9.45026207, 7.85340309, 5.72138648e-09],
-		Vec3 Scale = [1, 1, 1],
+		Vec3 Translation = [-9.12498093, 8.47660542, 5.72138648e-09],
+		Vec3 Scale = [0.467888206, 0.467888206, 0.467888206],
 		Quat Rotation = [0, 0, 0, 1],
 	},
 	Sprite = 
@@ -64,7 +64,7 @@ Cog =
 		float Speed = 40,
 		float RoF = 0.200000003,
 		int Ammo = 0,
-		string BurstEffect = "585fab2a9168efce:GenericEffect",
+		string BurstEffect = "585fc69037750ac5:Burst_Pistol",
 		float NumBounces = 2,
 	},
 	IgnoreSpaceEffects = 
@@ -82,5 +82,84 @@ Cog =
 		bool PointForce = false,
 		bool Buoyancy = false,
 		bool Custom = false,
+	},
+	Hierarchy = 
+	{
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Named = 
+			{
+				string Name = "BasicParticleEffect",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [0, 0, 0],
+				Vec3 Scale = [1.45034909, 1.45034909, 1.45034909],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			SpriteParticleSystem = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = false,
+				SystemChildMode ChildMode = Independent,
+				SystemSpace SystemSpace = WorldSpace,
+				uint DrawOrder = 0,
+				Vec4 Tint = [1, 1, 1, 1],
+				float WarmUpTime = 0,
+				ParticleGeometry GeometryMode = Billboarded,
+				ParticleRenderMode RenderMode = Blended,
+				ParticleSortMode SortMode = Youngest,
+				ParticleAnimation ParticleAnimation = Single,
+				string Texture = "5274db4c2e7c11f9:Circle",
+				float VelocityScale = 1,
+				float LengthScale = 1,
+				float MaxParticleSize = 100,
+				Vec3 SystemSize = [4, 4, 4],
+			},
+			SphericalParticleEmitter = 
+			{
+				bool Active = true,
+				uint EmitCount = 0,
+				float EmitRate = 2000,
+				float EmitVariance = 0,
+				float Size = 0.300000012,
+				float SizeVariance = 0,
+				float Lifetime = 0.0799999982,
+				float LifetimeVariance = 0,
+				float Spin = 0,
+				float SpinVariance = 50,
+				bool RandomSpin = true,
+				float Fill = 1,
+				float EmitterVelocityPercent = 0,
+				Vec3 StartVelocity = [0, 0, 0],
+				Vec3 RandomVelocity = [0, 0, 0],
+				Vec3 TangentVelocity = [0, 0, 0],
+				Vec3 EmitterSize = [0, 0, 0],
+				bool FastMovingEmitter = true,
+			},
+			LinearParticleAnimator = 
+			{
+				Vec3 Force = [0, 0, 0],
+				Vec3 RandomForce = [0, 0, 0],
+				float Torque = 0,
+				float Growth = -4,
+				float Dampening = 0,
+				Vec3 Twist = [0, 0, 0],
+			},
+			ParticleColorAnimator = 
+			{
+				Vec4 Color0 = [1, 1, 1, 0.999899983],
+				Vec4 Color1 = [1, 1, 1, 0.999899983],
+				Vec4 Color2 = [1, 1, 1, 0.999899983],
+				Vec4 Color3 = [1, 1, 1, 0.999899983],
+				Vec4 Color4 = [1, 1, 1, 0.999899983],
+			},
+		},
 	},
 },

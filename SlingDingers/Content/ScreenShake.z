@@ -8,6 +8,16 @@ class ScreenShake : ZilchComponent
     [Property] var StartWithShake : Boolean = false;
     [Property] var Direction : Real3 = Real3(0, 1, 0); 
     [Property] var Rotation : Real = 0.0;
+    [Property] var StartingRot : Real = 0.0;
+    
+    var CameraRotation : Real
+    {
+        get{ return this.Owner.Transform.Rotation.Z; }
+        set
+        {
+            this.Owner.Transform.Rotation = Math.Euler(Real3(this.Owner.Transform.Rotation.X, this.Owner.Transform.Rotation.Y, value));
+        }
+    }
     
     var StartingPos : Real3 = Real3();
     var Tracker : Cog = null;
@@ -24,11 +34,12 @@ class ScreenShake : ZilchComponent
     {
         var mousePos = event.ToWorldViewPlane(40);
         var direction = this.Owner.Transform.Translation - mousePos;
-        this.ShakeParam(0.015, 0.2, 19.0, direction, 0);// event.ToWorldViewPlane(40);
+        //this.ShakeParam(0.015, 0.2, 19.0, direction, 0);// event.ToWorldViewPlane(40);
     }
     
     function Shake()
     {
+        Console.WriteLine("Why? `this.Displacement`"); 
         this.Direction = Math.Normalize(this.Direction);
         
         var seq = Action.Sequence(this.Owner.Actions);
@@ -36,20 +47,21 @@ class ScreenShake : ZilchComponent
         
         for(var i = 0.0; i < this.Time; i += interval)
         {
-            var newPos = this.Direction * this.Displacement;
+            var newPos = this.StartingPos + (this.Direction * this.Displacement);
             var displacePart = this.Displacement / 5;
             newPos += Real3(this.Rand.Range(-displacePart, displacePart), this.Rand.Range(-displacePart, displacePart), 0);
             
             newPos.Z = this.StartingPos.Z;
             
+            
             var grp = Actions.Group(seq);
             Action.Property(grp, @this.Transform.Translation, newPos, interval, Ease.QuadInOut);
-            //Action.Property(grp, @this.Parent.Transform.Rotation, newRot, interval, Ease.QuadIn);
+            Action.Property(grp, @this.CameraRotation, this.CameraRotation + (this.Rand.Range(-this.Rotation, this.Rotation) * 0.0031), interval, Ease.QuadIn);
         }
         
         // Reset the position at the end
         Action.Property(seq, @this.Transform.Translation, this.StartingPos, interval, Ease.QuadOut);
-    
+        Action.Property(seq, @this.CameraRotation, this.StartingRot, interval, Ease.QuadOut);
     }
     
     function ShakeParam(time : Real, displacement : Real, frequency : Real, direction : Real3, rotation : Real)
@@ -60,6 +72,11 @@ class ScreenShake : ZilchComponent
         this.Rotation = rotation;
         this.Direction = direction;
         this.Shake();
+    }
+    
+    function ShakeLeoApproved(loc : Real3)
+    {
+        this.ShakeParam(0.015, 0.45, 19.0, this.Owner.Transform.Translation - loc, 1);
     }
     
     function ShakeFromLocation(source : Real3)

@@ -38,7 +38,7 @@ Cog =
 	},
 	SphereCollider = 
 	{
-		bool Ghost = false,
+		bool Ghost = true,
 		bool SendsMessages = true,
 		bool Seamless = true,
 		string MaterialName = "585f9636d969b21b:Bouncy",
@@ -90,5 +90,12 @@ Cog =
 		bool LocalSpaceDirection = false,
 		float Strength = 20,
 		Vec3 Direction = [0, -1, 0],
+	},
+	TimedDestroy = 
+	{
+		float Time = 3,
+	},
+	Hierarchy = 
+	{
 	},
 },

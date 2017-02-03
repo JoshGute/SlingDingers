@@ -1,0 +1,23 @@
+class FootScript : ZilchComponent
+{
+    [Property]
+    var PlayerPath : CogPath = null;
+    var Player : Cog = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+
+        this.Player = this.PlayerPath.Cog;
+        Zero.Connect(this.Owner, Events.CollisionStarted, this.OnCollisionStarted);
+    }
+
+    function OnCollisionStarted(event :CollisionEvent)
+    {
+        this.Player.DispatchEvent(Events.FootEvent, new FootEvent());
+    }
+}
+
+class FootEvent : ZilchEvent
+{
+    sends FootEvent : FootEvent;
+}

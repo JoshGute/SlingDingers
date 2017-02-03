@@ -1,0 +1,5 @@
+class AffectedByNormal : ZilchComponent
+{
+   [Property]
+   var Magnitude  : Real = 0;
+}

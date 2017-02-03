@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "AffectedByNormal",
+		uint64 ResourceId = 585fc19e1e2be06e,
+	},
+},
