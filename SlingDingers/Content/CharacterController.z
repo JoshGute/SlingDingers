@@ -155,6 +155,9 @@ class CharacterController : ZilchComponent
         }
         if(event.OtherObject.DeathBox != null)
         {
+            this.LevelSettings.CameraViewport.Camera.ScreenShake.ShakeParam(2,4,20,this.LevelSettings.CameraViewport.Camera.Transform.Translation - this.Owner.Transform.Translation,1);
+            
+            
             if(!CharacterController.GameEnded)
             {
                 var hud = this.GameSession.FindSpaceByName("HudSpace");
@@ -168,6 +171,8 @@ class CharacterController : ZilchComponent
     
     function Die()
     {
+        this.Space.CreateAtPosition(Archetype.Burst_Death, this.Owner.Transform.Translation);
+        
         //ADD ALL THE FANCY SHITE
         this.Owner.Destroy();
     }
@@ -269,28 +274,14 @@ class CharacterController : ZilchComponent
         
         if(this.Controller.IsButtonPressed(Buttons.A))
         {
-            if(Math.Abs(this.Controller.LeftStick.X) < 0.2)
-            {
-                return;
-            }
-            
-            if(this.InputDelay == 0)
-            {
-                this.InputDelayer(2);
-                
-                if(this.Controller.LeftStick.X < 0)
-                {
-                    
-                    this.Owner.CharacterController.Controller.Vibrate(0.1, 0.5, 0.5);
-                    this.Owner.Platforming.Dash(Real3(-1,0,0));
-                }
-                else
-                {
-                    
-                    this.Owner.CharacterController.Controller.Vibrate(0.1, 0.5, 0.5);
-                    this.Owner.Platforming.Dash(Real3(1,0,0));
-                }
-            }
+            if(CharacterController.GameEnded)
+                this.Space.ReloadLevel();
+        }
+        
+        if(this.Controller.IsButtonPressed(Buttons.B))
+        {
+            if(CharacterController.GameEnded)
+                this.GameSession.Quit();
         }
         
         if(this.Controller.LeftStick.Y < -0.7)
