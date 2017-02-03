@@ -3,15 +3,20 @@ class HUDController : ZilchComponent
     var MyState1 : HUDState = HUDState.Base;
     var MyState2 : HUDState = HUDState.Base;
     
-    var CurrentGun : CogPath = null;
-    var CurrentGunShadow : CogPath = null;
+    [Property]
+    var CurrentGun1 : CogPath;
+    [Property]
+    var CurrentGunShadow1 : CogPath;
+    
+    [Property]
+    var CurrentGun2 : CogPath;
+    [Property]
+    var CurrentGunShadow2 : CogPath;
     
     function Initialize(init : CogInitializer)
     {
         //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         Zero.Connect(this.Space, Events.AmmoUpdate, this.OnAmmoUpdate);
-        this.CurrentGun.Cog = this.Space.FindObjectByName("P1GunSprite");
-        this.CurrentGunShadow.Cog = this.Space.FindObjectByName("P1GunSpriteShadow");
     }
 
     function OnAmmoUpdate(event : AmmoEvent)
@@ -107,12 +112,12 @@ class HUDController : ZilchComponent
                 this.Space.FindObjectByName("Player1AmmoShadow").SpriteText.Text = "`currentAmmo`/`maxAmmo`";
                 this.Space.FindObjectByName("P1Infinity").Sprite.Visible = false;
                 this.Space.FindObjectByName("P1InfinityShadow").Sprite.Visible = false;
-                this.CurrentGun.Cog.Sprite.Visible = false;
-                this.CurrentGunShadow.Cog.Sprite.Visible = false;
-                this.CurrentGun.Cog = this.Space.FindObjectByName("Player1Laser");
-                this.CurrentGunShadow.Cog = this.Space.FindObjectByName("Player1LaserShadow");
-                this.CurrentGun.Cog.Sprite.Visible = true;
-                this.CurrentGunShadow.Cog.Sprite.Visible = true;
+                this.CurrentGun1.Cog.Sprite.Visible = false;
+                this.CurrentGunShadow1.Cog.Sprite.Visible = false;
+                this.CurrentGun1.Cog = this.Space.FindObjectByName("Player1Laser");
+                this.CurrentGunShadow1.Cog = this.Space.FindObjectByName("Player1LaserShadow");
+                this.CurrentGun1.Cog.Sprite.Visible = true;
+                this.CurrentGunShadow1.Cog.Sprite.Visible = true;
             }
             else
             {
@@ -131,12 +136,12 @@ class HUDController : ZilchComponent
                 this.Space.FindObjectByName("Player2AmmoShadow").SpriteText.Text = "`currentAmmo`/`maxAmmo`";
                 this.Space.FindObjectByName("P2Infinity").Sprite.Visible = false;
                 this.Space.FindObjectByName("P2InfinityShadow").Sprite.Visible = false;
-                this.CurrentGun.Cog.Sprite.Visible = false;
-                this.CurrentGunShadow.Cog.Sprite.Visible = false;
-                this.CurrentGun.Cog = this.Space.FindObjectByName("Player2Laser");
-                this.CurrentGunShadow.Cog = this.Space.FindObjectByName("Player2LaserShadow");
-                this.CurrentGun.Cog.Sprite.Visible = true;
-                this.CurrentGunShadow.Cog.Sprite.Visible = true;
+                this.CurrentGun2.Cog.Sprite.Visible = false;
+                this.CurrentGunShadow2.Cog.Sprite.Visible = false;
+                this.CurrentGun2.Cog = this.Space.FindObjectByName("Player2Laser");
+                this.CurrentGunShadow2.Cog = this.Space.FindObjectByName("Player2LaserShadow");
+                this.CurrentGun2.Cog.Sprite.Visible = true;
+                this.CurrentGunShadow2.Cog.Sprite.Visible = true;
             }
             else
             {
@@ -159,12 +164,12 @@ class HUDController : ZilchComponent
                 this.Space.FindObjectByName("Player1AmmoShadow").SpriteText.Text = "`currentAmmo`/`maxAmmo`";
                 this.Space.FindObjectByName("P1Infinity").Sprite.Visible = false;
                 this.Space.FindObjectByName("P1InfinityShadow").Sprite.Visible = false;
-                this.CurrentGun.Cog.Sprite.Visible = false;
-                this.CurrentGunShadow.Cog.Sprite.Visible = false;
-                this.CurrentGun.Cog = this.Space.FindObjectByName("Player1Dunker");
-                this.CurrentGunShadow.Cog = this.Space.FindObjectByName("Player1DunkerShadow");
-                this.CurrentGun.Cog.Sprite.Visible = true;
-                this.CurrentGunShadow.Cog.Sprite.Visible = true;
+                this.CurrentGun1.Cog.Sprite.Visible = false;
+                this.CurrentGunShadow1.Cog.Sprite.Visible = false;
+                this.CurrentGun1.Cog = this.Space.FindObjectByName("Player1Dunker");
+                this.CurrentGunShadow1.Cog = this.Space.FindObjectByName("Player1DunkerShadow");
+                this.CurrentGun1.Cog.Sprite.Visible = true;
+                this.CurrentGunShadow1.Cog.Sprite.Visible = true;
             }
             else
             {
@@ -183,12 +188,12 @@ class HUDController : ZilchComponent
                 this.Space.FindObjectByName("Player2AmmoShadow").SpriteText.Text = "`currentAmmo`/`maxAmmo`";
                 this.Space.FindObjectByName("P2Infinity").Sprite.Visible = false;
                 this.Space.FindObjectByName("P2InfinityShadow").Sprite.Visible = false;
-                this.CurrentGun.Cog.Sprite.Visible = false;
-                this.CurrentGunShadow.Cog.Sprite.Visible = false;
-                this.CurrentGun.Cog = this.Space.FindObjectByName("Player2Dunker");
-                this.CurrentGunShadow.Cog = this.Space.FindObjectByName("Player2DunkerShadow");
-                this.CurrentGun.Cog.Sprite.Visible = true;
-                this.CurrentGunShadow.Cog.Sprite.Visible = true;
+                this.CurrentGun2.Cog.Sprite.Visible = false;
+                this.CurrentGunShadow2.Cog.Sprite.Visible = false;
+                this.CurrentGun2.Cog = this.Space.FindObjectByName("Player2Dunker");
+                this.CurrentGunShadow2.Cog = this.Space.FindObjectByName("Player2DunkerShadow");
+                this.CurrentGun2.Cog.Sprite.Visible = true;
+                this.CurrentGunShadow2.Cog.Sprite.Visible = true;
             }
             else
             {
@@ -209,12 +214,12 @@ class HUDController : ZilchComponent
                 this.Space.FindObjectByName("Player1AmmoShadow").SpriteText.Visible = false;
                 this.Space.FindObjectByName("P1Infinity").Sprite.Visible = true;
                 this.Space.FindObjectByName("P1InfinityShadow").Sprite.Visible = true;
-                this.CurrentGun.Cog.Sprite.Visible = false;
-                this.CurrentGunShadow.Cog.Sprite.Visible = false;
-                this.CurrentGun.Cog = this.Space.FindObjectByName("P1GunSprite");
-                this.CurrentGunShadow.Cog = this.Space.FindObjectByName("P1GunSpriteShadow");
-                this.CurrentGun.Cog.Sprite.Visible = true;
-                this.CurrentGunShadow.Cog.Sprite.Visible = true;
+                this.CurrentGun1.Cog.Sprite.Visible = false;
+                this.CurrentGunShadow1.Cog.Sprite.Visible = false;
+                this.CurrentGun1.Cog = this.Space.FindObjectByName("P1GunSprite");
+                this.CurrentGunShadow1.Cog = this.Space.FindObjectByName("P1GunSpriteShadow");
+                this.CurrentGun1.Cog.Sprite.Visible = true;
+                this.CurrentGunShadow1.Cog.Sprite.Visible = true;
             }
         }
         else if(playerNum == 2)
@@ -226,12 +231,12 @@ class HUDController : ZilchComponent
                 this.Space.FindObjectByName("Player2AmmoShadow").SpriteText.Visible = false;
                 this.Space.FindObjectByName("P2Infinity").Sprite.Visible = true;
                 this.Space.FindObjectByName("P2InfinityShadow").Sprite.Visible = true;
-                this.CurrentGun.Cog.Sprite.Visible = false;
-                this.CurrentGunShadow.Cog.Sprite.Visible = false;
-                this.CurrentGun.Cog = this.Space.FindObjectByName("P2GunSprite");
-                this.CurrentGunShadow.Cog = this.Space.FindObjectByName("P2GunSpriteShadow");
-                this.CurrentGun.Cog.Sprite.Visible = true;
-                this.CurrentGunShadow.Cog.Sprite.Visible = true;
+                this.CurrentGun2.Cog.Sprite.Visible = false;
+                this.CurrentGunShadow2.Cog.Sprite.Visible = false;
+                this.CurrentGun2.Cog = this.Space.FindObjectByName("P2GunSprite");
+                this.CurrentGunShadow2.Cog = this.Space.FindObjectByName("P2GunSpriteShadow");
+                this.CurrentGun2.Cog.Sprite.Visible = true;
+                this.CurrentGunShadow2.Cog.Sprite.Visible = true;
             }
         }
     }
@@ -249,12 +254,12 @@ class HUDController : ZilchComponent
                 this.Space.FindObjectByName("Player1AmmoShadow").SpriteText.Text = "`currentAmmo`/`maxAmmo`";
                 this.Space.FindObjectByName("P1Infinity").Sprite.Visible = false;
                 this.Space.FindObjectByName("P1InfinityShadow").Sprite.Visible = false;
-                this.CurrentGun.Cog.Sprite.Visible = false;
-                this.CurrentGunShadow.Cog.Sprite.Visible = false;
-                this.CurrentGun.Cog = this.Space.FindObjectByName("Player1Bomb");
-                this.CurrentGunShadow.Cog = this.Space.FindObjectByName("Player1BombShadow");
-                this.CurrentGun.Cog.Sprite.Visible = true;
-                this.CurrentGunShadow.Cog.Sprite.Visible = true;
+                this.CurrentGun1.Cog.Sprite.Visible = false;
+                this.CurrentGunShadow1.Cog.Sprite.Visible = false;
+                this.CurrentGun1.Cog = this.Space.FindObjectByName("Player1Bomb");
+                this.CurrentGunShadow1.Cog = this.Space.FindObjectByName("Player1BombShadow");
+                this.CurrentGun1.Cog.Sprite.Visible = true;
+                this.CurrentGunShadow1.Cog.Sprite.Visible = true;
             }
             else
             {
@@ -273,12 +278,12 @@ class HUDController : ZilchComponent
                 this.Space.FindObjectByName("Player2AmmoShadow").SpriteText.Text = "`currentAmmo`/`maxAmmo`";
                 this.Space.FindObjectByName("P2Infinity").Sprite.Visible = false;
                 this.Space.FindObjectByName("P2InfinityShadow").Sprite.Visible = false;
-                this.CurrentGun.Cog.Sprite.Visible = false;
-                this.CurrentGunShadow.Cog.Sprite.Visible = false;
-                this.CurrentGun.Cog = this.Space.FindObjectByName("Player2Bomb");
-                this.CurrentGunShadow.Cog = this.Space.FindObjectByName("Player2BombShadow");
-                this.CurrentGun.Cog.Sprite.Visible = true;
-                this.CurrentGunShadow.Cog.Sprite.Visible = true;
+                this.CurrentGun2.Cog.Sprite.Visible = false;
+                this.CurrentGunShadow2.Cog.Sprite.Visible = false;
+                this.CurrentGun2.Cog = this.Space.FindObjectByName("Player2Bomb");
+                this.CurrentGunShadow2.Cog = this.Space.FindObjectByName("Player2BombShadow");
+                this.CurrentGun2.Cog.Sprite.Visible = true;
+                this.CurrentGunShadow2.Cog.Sprite.Visible = true;
             }
             else
             {
