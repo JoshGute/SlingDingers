@@ -62,6 +62,7 @@ class Timer : ZilchComponent
                 this.Owner.SpriteText.Text = "SUDDEN DEATH";
                 this.Owner.SpriteText.Color = this.SuddenDeathColor;
                 this.ConstantBumpOn();
+                this.GameSession.FindSpaceByName("Main").DispatchEvent(Events.SuddenDeath, new SuddenDeath());
             }
         }
     }

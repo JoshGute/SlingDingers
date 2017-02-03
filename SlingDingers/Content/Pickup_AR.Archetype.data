@@ -49,5 +49,6 @@ Cog =
 	PowerUp = 
 	{
 		string Weapon = "585f903389d922a0:BounceRound",
+		Enum GunType = Bomb,
 	},
 },

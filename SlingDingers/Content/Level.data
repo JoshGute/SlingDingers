@@ -91,6 +91,11 @@ Level =
 			int HilightInterval = 10,
 			bool FollowEditorCamera = false,
 		},
+		HudCreator = 
+		{
+			string HudLevel = "5822fceb42746b85:GameHUD",
+			string SpaceArchetype = "554cea0f94af6dc4:Space",
+		},
 	},
 	Cog = 
 	{
@@ -104,7 +109,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [21.3652573, 7.23919868, 48.9990005],
+			Vec3 Translation = [-1.94827402, 3.21827698, 48.9990005],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278471e-08, 0, 1],
 		},
@@ -116,7 +121,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 40.1710358,
+			float Size = 19.9483452,
 		},
 		EditorCameraController = 
 		{
@@ -124,7 +129,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [21.3652573, 7.23919868, -1.00099897],
+			Vec3 LookTarget = [-1.94827402, 3.21827698, -1.00099969],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -394,19 +399,12 @@ Level =
 			string Name = "SuddenDeathManager",
 		},
 	},
-	Cog = 
+	ArchetypeInstance = 
 	{
+		string Name = "58ea037ae90d1afa:Player",
 		LinkId = 
 		{
 			uint Id = 16,
-		},
-		Named = 
-		{
-			string Name = "Player",
-		},
-		Archetyped = 
-		{
-			string Name = "58ea037ae90d1afa:Player",
 		},
 		Transform = 
 		{
@@ -414,190 +412,16 @@ Level =
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
-		RigidBody = 
+		Named = 
 		{
-			bool Static = false,
-			bool Asleep = false,
-			bool Kinematic = false,
-			bool RotationLocked = true,
-			bool Mode2D = true,
-			bool AllowSleep = false,
-			bool Inherit2DMode = true,
-			Vec3 Velocity = [0, 0, 0],
-			Vec3 AngularVelocity = [0, 0, 0],
-		},
-		Sprite = 
-		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = true,
-			bool CastShadows = false,
-			Vec4 Color = [1, 1, 1, 1],
-			BlendMode BlendMode = Alpha,
-			SpriteGeometryMode GeometryMode = ZPlane,
-			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string SpriteSource = "5275aa4d802dd6dc:Square",
-			bool RenderMask = false,
-			bool FlipX = false,
-			bool FlipY = false,
-			bool AnimationActive = true,
-			float AnimationSpeed = 1,
-			uint StartFrame = 0,
-		},
-		GravityEffect = 
-		{
-			bool Active = true,
-			bool WakeUpOnChange = true,
-			bool LocalSpaceDirection = false,
-			float Strength = 30,
-			Vec3 Direction = [0, -1, 0],
-		},
-		WeaponSystem = 
-		{
-			string DefaultWeapon = "585f9ee48b5c1a4d:PistolRound",
-			string CurrentWepaon = "585f9ee48b5c1a4d:PistolRound",
-		},
-		SphereCollider = 
-		{
-			bool Ghost = false,
-			bool SendsMessages = true,
-			bool Seamless = true,
-			string MaterialName = "58ea7ad736b8f14d:Slippidy",
-			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
-			float Radius = 0.5,
-		},
-		Platforming = 
-		{
-			float JumpStrength = 1000,
-			float Speed = 70,
-			float Stride = 2.5,
-		},
-		CharacterController = 
-		{
-			Enum Scheme = Gamepad,
-			string DeathSpawn = "",
-			int PNumberData = 0,
-		},
-		Hierarchy = 
-		{
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 17,
-				},
-				Named = 
-				{
-					string Name = "Gun",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, 0, 0],
-					Vec3 Scale = [1, 1, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Orientation = 
-				{
-					Vec3 GlobalUp = [0, 1, 0],
-					Vec3 UpVector = [0, 1, 0],
-					Vec3 ForwardVector = [1, 0, 0],
-					OrientationBases DefaultBases = ForwardXUpY,
-				},
-				Hierarchy = 
-				{
-					Cog = 
-					{
-						LinkId = 
-						{
-							uint Id = 18,
-						},
-						Named = 
-						{
-							string Name = "Reticule",
-						},
-						Transform = 
-						{
-							Vec3 Translation = [0.745800257, 0, 0],
-							Vec3 Scale = [0.400000006, 0.400000006, 1],
-							Quat Rotation = [0, 0, 0, 1],
-						},
-						Sprite = 
-						{
-							bool Visible = true,
-							bool VisibilityCulling = true,
-							bool VisibilityEvents = true,
-							bool CastShadows = false,
-							Vec4 Color = [1, 1, 1, 1],
-							BlendMode BlendMode = Alpha,
-							SpriteGeometryMode GeometryMode = ZPlane,
-							string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-							string SpriteSource = "5275aa4d802dd6dc:Square",
-							bool RenderMask = false,
-							bool FlipX = false,
-							bool FlipY = false,
-							bool AnimationActive = true,
-							float AnimationSpeed = 1,
-							uint StartFrame = 0,
-						},
-					},
-				},
-			},
-			Cog = 
-			{
-				LinkId = 
-				{
-					uint Id = 19,
-				},
-				Named = 
-				{
-					string Name = "Foot",
-				},
-				Transform = 
-				{
-					Vec3 Translation = [0, -0.48650372, 0],
-					Vec3 Scale = [0.842259586, 0.0928380117, 1],
-					Quat Rotation = [0, 0, 0, 1],
-				},
-				Sprite = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					bool VisibilityEvents = true,
-					bool CastShadows = false,
-					Vec4 Color = [1, 0, 0, 0.25],
-					BlendMode BlendMode = Alpha,
-					SpriteGeometryMode GeometryMode = ZPlane,
-					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-					string SpriteSource = "5275aa4d802dd6dc:Square",
-					bool RenderMask = false,
-					bool FlipX = false,
-					bool FlipY = false,
-					bool AnimationActive = true,
-					float AnimationSpeed = 1,
-					uint StartFrame = 0,
-				},
-				BoxCollider = 
-				{
-					bool Ghost = true,
-					bool SendsMessages = true,
-					bool Seamless = true,
-					string MaterialName = "58ea7ad736b8f14d:Slippidy",
-					string SerializedGroupName = "585f97b8ecc4e9b1:Projectile",
-					Vec3 Offset = [0, 0, 0],
-					Vec3 Size = [0.5, 0.5, 0.5],
-				},
-				Foot = 
-				{
-				},
-			},
+			string Name = "Player",
 		},
 	},
 	Cog = 
 	{
 		LinkId = 
 		{
-			uint Id = 20,
+			uint Id = 17,
 		},
 		Named = 
 		{
@@ -654,7 +478,7 @@ Level =
 		WeaponSystem = 
 		{
 			string DefaultWeapon = "585f9ee48b5c1a4d:PistolRound",
-			string CurrentWepaon = "585f9ee48b5c1a4d:PistolRound",
+			string CurrentWepaon = "585f903389d922a0:BounceRound",
 		},
 		SphereCollider = 
 		{
@@ -684,7 +508,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 21,
+					uint Id = 18,
 				},
 				Named = 
 				{
@@ -709,7 +533,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 22,
+							uint Id = 19,
 						},
 						Named = 
 						{
@@ -746,7 +570,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 23,
+					uint Id = 20,
 				},
 				Named = 
 				{
@@ -796,7 +620,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 24,
+			uint Id = 21,
 		},
 		Named = 
 		{
@@ -853,7 +677,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 25,
+			uint Id = 22,
 		},
 		Named = 
 		{
@@ -866,6 +690,177 @@ Level =
 		Transform = 
 		{
 			Vec3 Translation = [-5.5, -0.5, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		BlockLogic = 
+		{
+		},
+		Reactive = 
+		{
+			bool Active = true,
+			bool CaptureMouse = false,
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5275aa4d802dd6dc:Square",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 500],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 23,
+		},
+		Named = 
+		{
+			string Name = "Block2",
+		},
+		Archetyped = 
+		{
+			string Name = "585ff0ae7121c6fb:Block2",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-4.5, -0.5, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		BlockLogic = 
+		{
+		},
+		Reactive = 
+		{
+			bool Active = true,
+			bool CaptureMouse = false,
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5275aa4d802dd6dc:Square",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 500],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 24,
+		},
+		Named = 
+		{
+			string Name = "Block2",
+		},
+		Archetyped = 
+		{
+			string Name = "585ff0ae7121c6fb:Block2",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-3.5, -0.5, 0],
+			Vec3 Scale = [1, 1, 1],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		BlockLogic = 
+		{
+		},
+		Reactive = 
+		{
+			bool Active = true,
+			bool CaptureMouse = false,
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "5275aa4d802dd6dc:Square",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		BoxCollider = 
+		{
+			bool Ghost = false,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			Vec3 Size = [0.5, 0.5, 500],
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 25,
+		},
+		Named = 
+		{
+			string Name = "Block2",
+		},
+		Archetyped = 
+		{
+			string Name = "585ff0ae7121c6fb:Block2",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [-7.5, -0.5, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -979,7 +974,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-3.5, -0.5, 0],
+			Vec3 Translation = [-6.5, -0.5, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -1036,7 +1031,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-7.5, -0.5, 0],
+			Vec3 Translation = [-3.5, -0.5, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -1093,7 +1088,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-4.5, -0.5, 0],
+			Vec3 Translation = [-7.5, -0.5, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -1150,7 +1145,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-6.5, -0.5, 0],
+			Vec3 Translation = [-5.5, -0.5, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -1207,7 +1202,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-3.5, -0.5, 0],
+			Vec3 Translation = [-9.5, -0.5, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -1264,7 +1259,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-7.5, -0.5, 0],
+			Vec3 Translation = [-11.5, -0.5, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -1321,7 +1316,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-5.5, -0.5, 0],
+			Vec3 Translation = [-11.5, -0.5, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -1378,7 +1373,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-9.5, -0.5, 0],
+			Vec3 Translation = [-8.5, -0.5, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -1435,7 +1430,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-11.5, -0.5, 0],
+			Vec3 Translation = [-12.5, -0.5, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -1492,7 +1487,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-11.5, -0.5, 0],
+			Vec3 Translation = [-10.5, -0.5, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -1549,7 +1544,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-8.5, -0.5, 0],
+			Vec3 Translation = [-12.5, -0.5, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -1606,7 +1601,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-12.5, -0.5, 0],
+			Vec3 Translation = [-9.5, -0.5, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -1720,7 +1715,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-12.5, -0.5, 0],
+			Vec3 Translation = [-8.5, -0.5, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -1777,7 +1772,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-9.5, -0.5, 0],
+			Vec3 Translation = [-14.5, -0.5, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -1834,7 +1829,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-10.5, -0.5, 0],
+			Vec3 Translation = [-16.5, -0.5, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -1891,7 +1886,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-8.5, -0.5, 0],
+			Vec3 Translation = [-17.5, -0.5, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -1948,7 +1943,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-14.5, -0.5, 0],
+			Vec3 Translation = [-13.5, -0.5, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -2005,7 +2000,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-16.5, -0.5, 0],
+			Vec3 Translation = [-15.5, -0.5, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -2062,7 +2057,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-17.5, -0.5, 0],
+			Vec3 Translation = [-15.5, -0.5, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -2119,7 +2114,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-13.5, -0.5, 0],
+			Vec3 Translation = [-16.5, -0.5, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -2176,7 +2171,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-15.5, -0.5, 0],
+			Vec3 Translation = [-17.5, -0.5, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -2233,7 +2228,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-15.5, -0.5, 0],
+			Vec3 Translation = [-13.5, -0.5, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -2290,7 +2285,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-16.5, -0.5, 0],
+			Vec3 Translation = [-14.5, -0.5, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -2347,7 +2342,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-17.5, -0.5, 0],
+			Vec3 Translation = [-17.5, 0.5, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -2404,7 +2399,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-13.5, -0.5, 0],
+			Vec3 Translation = [-14.5, 0.5, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -2461,7 +2456,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-14.5, -0.5, 0],
+			Vec3 Translation = [-13.5, 0.5, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -2518,7 +2513,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-17.5, 0.5, 0],
+			Vec3 Translation = [-16.5, 0.5, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -2575,7 +2570,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-14.5, 0.5, 0],
+			Vec3 Translation = [-15.5, 0.5, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -2632,7 +2627,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-13.5, 0.5, 0],
+			Vec3 Translation = [-16.5, 0.5, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -2689,7 +2684,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-16.5, 0.5, 0],
+			Vec3 Translation = [-14.5, 0.5, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -2746,7 +2741,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-15.5, 0.5, 0],
+			Vec3 Translation = [-13.5, 0.5, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -2803,7 +2798,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-16.5, 0.5, 0],
+			Vec3 Translation = [-17.5, 0.5, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -2860,7 +2855,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-14.5, 0.5, 0],
+			Vec3 Translation = [-15.5, 0.5, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -2917,7 +2912,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-13.5, 0.5, 0],
+			Vec3 Translation = [-17.5, 1.5, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -2974,7 +2969,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-17.5, 0.5, 0],
+			Vec3 Translation = [-16.5, 1.5, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -3031,7 +3026,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-15.5, 0.5, 0],
+			Vec3 Translation = [-14.5, 1.5, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -3145,7 +3140,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-16.5, 1.5, 0],
+			Vec3 Translation = [-13.5, 1.5, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -3202,7 +3197,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-14.5, 1.5, 0],
+			Vec3 Translation = [-15.5, 1.5, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -3259,7 +3254,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-17.5, 1.5, 0],
+			Vec3 Translation = [-16.5, 1.5, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -3316,7 +3311,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-13.5, 1.5, 0],
+			Vec3 Translation = [-15.5, 1.5, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -3373,7 +3368,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-15.5, 1.5, 0],
+			Vec3 Translation = [-13.5, 1.5, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -3430,7 +3425,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-16.5, 1.5, 0],
+			Vec3 Translation = [-14.5, 1.5, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -3487,7 +3482,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-15.5, 1.5, 0],
+			Vec3 Translation = [-12.5, 2.5, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -3544,7 +3539,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-13.5, 1.5, 0],
+			Vec3 Translation = [-10.5, 2.5, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -3601,7 +3596,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-14.5, 1.5, 0],
+			Vec3 Translation = [-11.5, 2.5, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -3772,7 +3767,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-11.5, 2.5, 0],
+			Vec3 Translation = [-14.5, 2.5, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -3829,7 +3824,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-12.5, 2.5, 0],
+			Vec3 Translation = [-13.5, 2.5, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -3886,7 +3881,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-10.5, 2.5, 0],
+			Vec3 Translation = [-13.5, 2.5, 0],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [0, 0, 0, 1],
 		},
@@ -3989,177 +3984,6 @@ Level =
 		LinkId = 
 		{
 			uint Id = 80,
-		},
-		Named = 
-		{
-			string Name = "Block2",
-		},
-		Archetyped = 
-		{
-			string Name = "585ff0ae7121c6fb:Block2",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [-13.5, 2.5, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		BlockLogic = 
-		{
-		},
-		Reactive = 
-		{
-			bool Active = true,
-			bool CaptureMouse = false,
-		},
-		Sprite = 
-		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = true,
-			bool CastShadows = false,
-			Vec4 Color = [1, 1, 1, 1],
-			BlendMode BlendMode = Alpha,
-			SpriteGeometryMode GeometryMode = ZPlane,
-			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string SpriteSource = "5275aa4d802dd6dc:Square",
-			bool RenderMask = false,
-			bool FlipX = false,
-			bool FlipY = false,
-			bool AnimationActive = true,
-			float AnimationSpeed = 1,
-			uint StartFrame = 0,
-		},
-		BoxCollider = 
-		{
-			bool Ghost = false,
-			bool SendsMessages = true,
-			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
-			Vec3 Size = [0.5, 0.5, 500],
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 81,
-		},
-		Named = 
-		{
-			string Name = "Block2",
-		},
-		Archetyped = 
-		{
-			string Name = "585ff0ae7121c6fb:Block2",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [-13.5, 2.5, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		BlockLogic = 
-		{
-		},
-		Reactive = 
-		{
-			bool Active = true,
-			bool CaptureMouse = false,
-		},
-		Sprite = 
-		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = true,
-			bool CastShadows = false,
-			Vec4 Color = [1, 1, 1, 1],
-			BlendMode BlendMode = Alpha,
-			SpriteGeometryMode GeometryMode = ZPlane,
-			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string SpriteSource = "5275aa4d802dd6dc:Square",
-			bool RenderMask = false,
-			bool FlipX = false,
-			bool FlipY = false,
-			bool AnimationActive = true,
-			float AnimationSpeed = 1,
-			uint StartFrame = 0,
-		},
-		BoxCollider = 
-		{
-			bool Ghost = false,
-			bool SendsMessages = true,
-			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
-			Vec3 Size = [0.5, 0.5, 500],
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 82,
-		},
-		Named = 
-		{
-			string Name = "Block2",
-		},
-		Archetyped = 
-		{
-			string Name = "585ff0ae7121c6fb:Block2",
-		},
-		Transform = 
-		{
-			Vec3 Translation = [-14.5, 2.5, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
-		},
-		BlockLogic = 
-		{
-		},
-		Reactive = 
-		{
-			bool Active = true,
-			bool CaptureMouse = false,
-		},
-		Sprite = 
-		{
-			bool Visible = true,
-			bool VisibilityCulling = true,
-			bool VisibilityEvents = true,
-			bool CastShadows = false,
-			Vec4 Color = [1, 1, 1, 1],
-			BlendMode BlendMode = Alpha,
-			SpriteGeometryMode GeometryMode = ZPlane,
-			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string SpriteSource = "5275aa4d802dd6dc:Square",
-			bool RenderMask = false,
-			bool FlipX = false,
-			bool FlipY = false,
-			bool AnimationActive = true,
-			float AnimationSpeed = 1,
-			uint StartFrame = 0,
-		},
-		BoxCollider = 
-		{
-			bool Ghost = false,
-			bool SendsMessages = true,
-			bool Seamless = true,
-			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-			Vec3 Offset = [0, 0, 0],
-			Vec3 Size = [0.5, 0.5, 500],
-		},
-	},
-	Cog = 
-	{
-		LinkId = 
-		{
-			uint Id = 83,
 		},
 		Named = 
 		{

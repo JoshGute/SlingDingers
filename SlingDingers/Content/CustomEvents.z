@@ -34,3 +34,12 @@ class SuddenDeath : ZilchEvent
 {
     sends SuddenDeath : SuddenDeath;
 }
+
+class VictoryEvent : ZilchEvent
+{
+    var WinningPlayer : Integer;
+    constructor(player : Integer) : base()
+    {
+        this.WinningPlayer = player;
+    }
+}

@@ -61,7 +61,7 @@ Cog =
 	BulletScript = 
 	{
 		Enum Type = Type_Projectile,
-		Enum GunType = Pistol,
+		Enum GunType = MachineGun,
 		float Speed = 60,
 		float RoF = 0.150000006,
 		int Ammo = 30,

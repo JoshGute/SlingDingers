@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-2.98429298, 8.69110012, 5.72138648e-09],
+		Vec3 Translation = [8.07906723, 8.69110012, 5.72138648e-09],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -61,6 +61,7 @@ Cog =
 	BulletScript = 
 	{
 		Enum Type = Type_Dunk,
+		Enum GunType = Dunker,
 		float Speed = 0,
 		float RoF = 0.600000024,
 		int Ammo = 3,
