@@ -1,0 +1,69 @@
+class ScreenShake : ZilchComponent
+{
+    [Dependency] var Transform : Transform = null;
+    
+    [Property] var Time : Real = 1.0;
+    [Property] var Displacement : Real = 0.5;
+    [Property] var Frequency : Real = 12.0;
+    [Property] var StartWithShake : Boolean = false;
+    [Property] var Direction : Real3 = Real3(0, 1, 0); 
+    [Property] var Rotation : Real = 0.0;
+    
+    var StartingPos : Real3 = Real3();
+    var Tracker : Cog = null;
+    var Rand    : Random = Random();
+    var Parent  : Cog = null;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.StartingPos = this.Owner.Transform.Translation;
+        Zero.Connect(this.Space, Events.MouseDown, this.OnMouseDown);
+    }
+
+    function OnMouseDown(event : ViewportMouseEvent)
+    {
+        var mousePos = event.ToWorldViewPlane(40);
+        var direction = this.Owner.Transform.Translation - mousePos;
+        this.ShakeParam(0.015, 0.2, 19.0, direction, 0);// event.ToWorldViewPlane(40);
+    }
+    
+    function Shake()
+    {
+        this.Direction = Math.Normalize(this.Direction);
+        
+        var seq = Action.Sequence(this.Owner.Actions);
+        var interval = 1.0 / this.Frequency;
+        
+        for(var i = 0.0; i < this.Time; i += interval)
+        {
+            var newPos = this.Direction * this.Displacement;
+            var displacePart = this.Displacement / 5;
+            newPos += Real3(this.Rand.Range(-displacePart, displacePart), this.Rand.Range(-displacePart, displacePart), 0);
+            
+            newPos.Z = this.StartingPos.Z;
+            
+            var grp = Actions.Group(seq);
+            Action.Property(grp, @this.Transform.Translation, newPos, interval, Ease.QuadInOut);
+            //Action.Property(grp, @this.Parent.Transform.Rotation, newRot, interval, Ease.QuadIn);
+        }
+        
+        // Reset the position at the end
+        Action.Property(seq, @this.Transform.Translation, this.StartingPos, interval, Ease.QuadOut);
+    
+    }
+    
+    function ShakeParam(time : Real, displacement : Real, frequency : Real, direction : Real3, rotation : Real)
+    {
+        this.Time = time;
+        this.Displacement = displacement;
+        this.Frequency = frequency;
+        this.Rotation = rotation;
+        this.Direction = direction;
+        this.Shake();
+    }
+    
+    function ShakeFromLocation(source : Real3)
+    {
+        
+    }
+}
