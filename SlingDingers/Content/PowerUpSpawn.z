@@ -40,6 +40,7 @@ class PowerUpSpawn : ZilchComponent
             whatArchetype = Archetype.PickupDunker;
         }
         
+        this.Space.CreateAtPosition(Archetype.GunSpawnParticle, this.Owner.Transform.Translation);
         this.CurPowerup.Cog = this.Space.CreateAtPosition(whatArchetype, this.Owner.Transform.Translation);
     }
 }

@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-8.63732815, 2.11481047, -1.00099945],
+		Vec3 Translation = [-19.1092205, 6.04598856, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -83,6 +83,15 @@ Cog =
 		string DeathSpawn = "",
 		int PNumberData = 0,
 	},
+	SoundEmitter = 
+	{
+		float Volume = 1,
+		float Pitch = 0,
+		float PitchSemitones = 0,
+		bool UsePitchSemitones = true,
+		bool Positional = true,
+		int Version = 1,
+	},
 	Hierarchy = 
 	{
 		Cog = 
@@ -97,7 +106,7 @@ Cog =
 			},
 			Transform = 
 			{
-				Vec3 Translation = [0, 0, 0],
+				Vec3 Translation = [0, 0, 0.100000001],
 				Vec3 Scale = [1, 1, 1],
 				Quat Rotation = [0, 0, 0, 1],
 			},
@@ -159,7 +168,7 @@ Cog =
 			},
 			Transform = 
 			{
-				Vec3 Translation = [0, -0.48650372, 0],
+				Vec3 Translation = [0, -0.52029717, 0],
 				Vec3 Scale = [0.842259586, 0.0928380117, 1],
 				Quat Rotation = [0, 0, 0, 1],
 			},

@@ -1,13 +1,13 @@
 SoundCue = 
 {
 	SoundPlayMode PlayMode = Single,
-	float Volume = 0.370000005,
+	float Volume = 0.769999981,
 	float VolumeVariation = 0,
-	float VolumeDB = -8.63596535,
+	float VolumeDB = -2.27018571,
 	bool UseVolumeDB = false,
 	float VolumeDBVariation = 0,
-	float Pitch = -0.300000012,
-	float PitchSemitones = -3.58999991,
+	float Pitch = -0.600000024,
+	float PitchSemitones = -7.19000006,
 	bool UsePitchSemitones = false,
 	float PitchVariation = 0,
 	float PitchSTVariation = 0,

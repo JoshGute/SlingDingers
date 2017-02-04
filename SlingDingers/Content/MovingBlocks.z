@@ -1,0 +1,49 @@
+class MovingBlocks : ZilchComponent
+{
+    [Property]
+    var Pos1 : Real3;
+    
+    [Property]
+    var Pos2 : Real3;
+    
+    [Property]
+    var MoveSpeed : Real;
+    
+    [Property]
+    var LingerTime : Real;
+    
+    function Initialize(init : CogInitializer)
+    {
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        this.MoveToPos2();
+        
+        this.OldMovement = this.Owner.Transform.WorldTranslation;
+        this.NewMovement = this.Owner.Transform.WorldTranslation;
+    }
+    var DeltaMovement : Real3;
+    var OldMovement : Real3;
+    var NewMovement : Real3;
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.NewMovement = this.Owner.Transform.WorldTranslation;
+        this.DeltaMovement = this.NewMovement - this.OldMovement;
+        this.OldMovement = this.NewMovement;
+    }
+    
+    function MoveToPos1()
+    {
+        var seq = Actions.Sequence(this.Owner.Actions);
+        Actions.Property(seq, @this.Owner.Transform.Translation, this.Pos1, this.MoveSpeed, Ease.QuadInOut);
+        Actions.Delay(seq, this.LingerTime);
+        Actions.Call(seq, this.MoveToPos2);
+    }
+    
+    function MoveToPos2()
+    {
+        var seq = Actions.Sequence(this.Owner.Actions);
+        Actions.Property(seq, @this.Owner.Transform.Translation, this.Pos2, this.MoveSpeed, Ease.QuadInOut);
+        Actions.Delay(seq, this.LingerTime);
+        Actions.Call(seq, this.MoveToPos1);
+    }
+}
