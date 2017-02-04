@@ -3,7 +3,7 @@ class PowerupSpawnManager : ZilchComponent
     [Property]var  Player1 : CogPath;
     [Property]var  Player2 : CogPath;
     
-    var TimeBetweenPowerups : Real = 8;
+    var TimeBetweenPowerups : Real = 6;
     var TimeCurrent : Real = 0;
     
     function Initialize(init : CogInitializer)
@@ -57,7 +57,7 @@ class PowerupSpawnManager : ZilchComponent
             if(i != null)
             {
                 var distDiff = i.CompareDists(this.Player1.Cog.Transform.Translation, this.Player2.Cog.Transform.Translation);
-                if(distDiff < minDist)
+                if(distDiff < minDist && i.CurPowerup.Cog == null)
                 {
                     minDist = distDiff;
                     chosenOne = i;
