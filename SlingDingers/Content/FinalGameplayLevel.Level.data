@@ -142,7 +142,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-12.6784029, 5.4329443, 50],
+			Vec3 Translation = [14.4871569, 9.84469414, 50],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278471e-08, 0, 1],
 		},
@@ -154,7 +154,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 36.7879639,
+			float Size = 22.3130379,
 		},
 		EditorCameraController = 
 		{
@@ -162,7 +162,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [-12.6784029, 5.4329443, -6.19757884e-07],
+			Vec3 LookTarget = [14.4871569, 9.84469414, 5.67686584e-07],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -34125,22 +34125,421 @@ Level =
 			string Name = "SuddenDeathManager",
 		},
 	},
-	ArchetypeInstance = 
+	Cog = 
 	{
-		string Name = "581f59d2f468593e:PickupBomb",
 		LinkId = 
 		{
-			uint Id = 622,
-		},
-		Transform = 
-		{
-			Vec3 Translation = [17.1081085, 8.44903278, 0],
-			Vec3 Scale = [1, 1, 1],
-			Quat Rotation = [0, 0, 0, 1],
+			uint Id = 606,
 		},
 		Named = 
 		{
-			string Name = "Pickup_Bomb",
+			string Name = "PickupAR",
+		},
+		Archetyped = 
+		{
+			string Name = "585fed0c8501862f:PickupAR",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [20.0709476, 11.1791649, 0],
+			Vec3 Scale = [1.66844749, 1.66844749, 1.66844749],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "58229a157c36450b:LaserGun",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		SphereCollider = 
+		{
+			bool Ghost = true,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			float Radius = 0.57606256,
+		},
+		PowerUp = 
+		{
+			string Weapon = "585feefa1b00b9dc:ARRound",
+			Enum GunType = Pistol,
+		},
+		Bounces = 
+		{
+			Vec3 SmallPop = [1.10000002, 1.10000002, 1.10000002],
+			string Curve = "581ed8a95ee02289:BumpCurve",
+			string DownCurve = "581ed8a95ee02289:BumpCurve",
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 607,
+				},
+				Named = 
+				{
+					string Name = "Backing",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-0.0307972878, 0.00624704361, -1],
+					Vec3 Scale = [0.599359572, 0.599359572, 0.599359572],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				SpriteParticleSystem = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = false,
+					SystemChildMode ChildMode = Independent,
+					SystemSpace SystemSpace = WorldSpace,
+					uint DrawOrder = 0,
+					Vec4 Tint = [1, 0.703300118, 0.310000002, 0.0450000167],
+					float WarmUpTime = 0,
+					ParticleGeometry GeometryMode = Billboarded,
+					ParticleRenderMode RenderMode = Additive,
+					ParticleSortMode SortMode = Youngest,
+					ParticleAnimation ParticleAnimation = Single,
+					string Texture = "5310e87946eeadd0:Smoke2",
+					float VelocityScale = 1,
+					float LengthScale = 1,
+					float MaxParticleSize = 100,
+					Vec3 SystemSize = [4, 4, 4],
+				},
+				SphericalParticleEmitter = 
+				{
+					bool Active = true,
+					uint EmitCount = 0,
+					float EmitRate = 220,
+					float EmitVariance = 0,
+					float Size = 0.425487995,
+					float SizeVariance = 0.5,
+					float Lifetime = 1,
+					float LifetimeVariance = 0.200000003,
+					float Spin = 0,
+					float SpinVariance = 50,
+					bool RandomSpin = true,
+					float Fill = 1,
+					float EmitterVelocityPercent = 0,
+					Vec3 StartVelocity = [0, 0, 0],
+					Vec3 RandomVelocity = [0, 0, 0],
+					Vec3 TangentVelocity = [0, 0, 0],
+					Vec3 EmitterSize = [1, 1, 1],
+					bool FastMovingEmitter = false,
+				},
+				LinearParticleAnimator = 
+				{
+					Vec3 Force = [0, 0, 0],
+					Vec3 RandomForce = [0, 0, 0],
+					float Torque = 0,
+					float Growth = 5.45597839,
+					float Dampening = 0,
+					Vec3 Twist = [0, 0, 0],
+				},
+				ParticleColorAnimator = 
+				{
+					Vec4 Color0 = [1, 1, 1, 0],
+					Vec4 Color1 = [1, 1, 1, 0.24000001],
+					Vec4 Color2 = [1, 1, 1, 0.154999971],
+					Vec4 Color3 = [1, 1, 1, 1],
+					Vec4 Color4 = [1, 1, 1, 0],
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 608,
+		},
+		Named = 
+		{
+			string Name = "PickupBomb",
+		},
+		Archetyped = 
+		{
+			string Name = "581f59d2f468593e:PickupBomb",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [20.238039, 15.8018093, 0],
+			Vec3 Scale = [1.19098473, 1.19098473, 1.19098473],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "582285ffb591adfa:Bomb",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		SphereCollider = 
+		{
+			bool Ghost = true,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			float Radius = 0.580492258,
+		},
+		PowerUp = 
+		{
+			string Weapon = "585f903389d922a0:BounceRound",
+			Enum GunType = Pistol,
+		},
+		Bounces = 
+		{
+			Vec3 SmallPop = [0, 0, 0],
+			string Curve = "581ed8a95ee02289:BumpCurve",
+			string DownCurve = "581ed8a95ee02289:BumpCurve",
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 609,
+				},
+				Named = 
+				{
+					string Name = "Backing",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-0.080785729, 0.0026986599, -1.40089762],
+					Vec3 Scale = [0.839641392, 0.839641392, 0.839641392],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				SpriteParticleSystem = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = false,
+					SystemChildMode ChildMode = Independent,
+					SystemSpace SystemSpace = WorldSpace,
+					uint DrawOrder = 0,
+					Vec4 Tint = [0.995000005, 0.223875046, 0.223875046, 0.0450000167],
+					float WarmUpTime = 0,
+					ParticleGeometry GeometryMode = Billboarded,
+					ParticleRenderMode RenderMode = Additive,
+					ParticleSortMode SortMode = Youngest,
+					ParticleAnimation ParticleAnimation = Single,
+					string Texture = "5310e87946eeadd0:Smoke2",
+					float VelocityScale = 1,
+					float LengthScale = 1,
+					float MaxParticleSize = 100,
+					Vec3 SystemSize = [4, 4, 4],
+				},
+				SphericalParticleEmitter = 
+				{
+					bool Active = true,
+					uint EmitCount = 0,
+					float EmitRate = 220,
+					float EmitVariance = 0,
+					float Size = 0.425487995,
+					float SizeVariance = 0.5,
+					float Lifetime = 1,
+					float LifetimeVariance = 0.200000003,
+					float Spin = 0,
+					float SpinVariance = 50,
+					bool RandomSpin = true,
+					float Fill = 1,
+					float EmitterVelocityPercent = 0,
+					Vec3 StartVelocity = [0, 0, 0],
+					Vec3 RandomVelocity = [0, 0, 0],
+					Vec3 TangentVelocity = [0, 0, 0],
+					Vec3 EmitterSize = [1, 1, 1],
+					bool FastMovingEmitter = false,
+				},
+				LinearParticleAnimator = 
+				{
+					Vec3 Force = [0, 0, 0],
+					Vec3 RandomForce = [0, 0, 0],
+					float Torque = 0,
+					float Growth = 5.45597839,
+					float Dampening = 0,
+					Vec3 Twist = [0, 0, 0],
+				},
+				ParticleColorAnimator = 
+				{
+					Vec4 Color0 = [1, 1, 1, 0],
+					Vec4 Color1 = [1, 1, 1, 0.24000001],
+					Vec4 Color2 = [1, 1, 1, 0.154999971],
+					Vec4 Color3 = [1, 1, 1, 1],
+					Vec4 Color4 = [1, 1, 1, 0],
+				},
+			},
+		},
+	},
+	Cog = 
+	{
+		LinkId = 
+		{
+			uint Id = 610,
+		},
+		Named = 
+		{
+			string Name = "PickupDunker",
+		},
+		Archetyped = 
+		{
+			string Name = "581f59c0f738d5e2:PickupDunker",
+		},
+		Transform = 
+		{
+			Vec3 Translation = [16.0799103, 13.6814461, 0],
+			Vec3 Scale = [1.83078671, 1.83078671, 1.83078671],
+			Quat Rotation = [0, 0, 0, 1],
+		},
+		Sprite = 
+		{
+			bool Visible = true,
+			bool VisibilityCulling = true,
+			bool VisibilityEvents = true,
+			bool CastShadows = false,
+			Vec4 Color = [1, 1, 1, 1],
+			BlendMode BlendMode = Alpha,
+			SpriteGeometryMode GeometryMode = ZPlane,
+			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+			string SpriteSource = "58228ebda3e2539e:TheDunker",
+			bool RenderMask = false,
+			bool FlipX = false,
+			bool FlipY = false,
+			bool AnimationActive = true,
+			float AnimationSpeed = 1,
+			uint StartFrame = 0,
+		},
+		SphereCollider = 
+		{
+			bool Ghost = true,
+			bool SendsMessages = true,
+			bool Seamless = true,
+			string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
+			string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+			Vec3 Offset = [0, 0, 0],
+			float Radius = 0.512630224,
+		},
+		PowerUp = 
+		{
+			string Weapon = "585fab63a868685d:DunkRound",
+			Enum GunType = Pistol,
+		},
+		Bounces = 
+		{
+			Vec3 SmallPop = [0, 0, 0],
+			string Curve = "581ed8a95ee02289:BumpCurve",
+			string DownCurve = "581ed8a95ee02289:BumpCurve",
+		},
+		Hierarchy = 
+		{
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 611,
+				},
+				Named = 
+				{
+					string Name = "Backing",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-0.00182032585, 0.0246356726, -0.911328137],
+					Vec3 Scale = [0.546213269, 0.546213269, 0.546213269],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				SpriteParticleSystem = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = false,
+					SystemChildMode ChildMode = Independent,
+					SystemSpace SystemSpace = WorldSpace,
+					uint DrawOrder = 0,
+					Vec4 Tint = [0.466400027, 1, 0.420000017, 0.0450000167],
+					float WarmUpTime = 0,
+					ParticleGeometry GeometryMode = Billboarded,
+					ParticleRenderMode RenderMode = Additive,
+					ParticleSortMode SortMode = Youngest,
+					ParticleAnimation ParticleAnimation = Single,
+					string Texture = "5310e87946eeadd0:Smoke2",
+					float VelocityScale = 1,
+					float LengthScale = 1,
+					float MaxParticleSize = 100,
+					Vec3 SystemSize = [4, 4, 4],
+				},
+				SphericalParticleEmitter = 
+				{
+					bool Active = true,
+					uint EmitCount = 0,
+					float EmitRate = 220,
+					float EmitVariance = 0,
+					float Size = 0.425487995,
+					float SizeVariance = 0.5,
+					float Lifetime = 1,
+					float LifetimeVariance = 0.200000003,
+					float Spin = 0,
+					float SpinVariance = 50,
+					bool RandomSpin = true,
+					float Fill = 1,
+					float EmitterVelocityPercent = 0,
+					Vec3 StartVelocity = [0, 0, 0],
+					Vec3 RandomVelocity = [0, 0, 0],
+					Vec3 TangentVelocity = [0, 0, 0],
+					Vec3 EmitterSize = [1, 1, 1],
+					bool FastMovingEmitter = false,
+				},
+				LinearParticleAnimator = 
+				{
+					Vec3 Force = [0, 0, 0],
+					Vec3 RandomForce = [0, 0, 0],
+					float Torque = 0,
+					float Growth = 5.45597839,
+					float Dampening = 0,
+					Vec3 Twist = [0, 0, 0],
+				},
+				ParticleColorAnimator = 
+				{
+					Vec4 Color0 = [1, 1, 1, 0],
+					Vec4 Color1 = [1, 1, 1, 0.24000001],
+					Vec4 Color2 = [1, 1, 1, 0.154999971],
+					Vec4 Color3 = [1, 1, 1, 1],
+					Vec4 Color4 = [1, 1, 1, 0],
+				},
+			},
 		},
 	},
 },
