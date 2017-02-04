@@ -202,7 +202,7 @@ class CharacterController : ZilchComponent
         
         this.Owner.Platforming.Grounded = false;
         
-        var knoc = 1500;
+        var knoc = 3000;
         
         this.Owner.RigidBody.Velocity = Real3(0,0,0);
         
@@ -281,6 +281,10 @@ class CharacterController : ZilchComponent
     
     ////////////////////////////////////////////////////////////
     
+    
+    var PrevRightTrigger : Real = 0;
+    var PrevLeftTrigger : Real = 0;
+    
     function ManageMove(event : UpdateEvent)
     {
         if(this.HitStunned) return;
@@ -303,17 +307,21 @@ class CharacterController : ZilchComponent
             this.Owner.Platforming.FastFall(this.Controller.LeftStick.Y + 0.5);
         }
         
-        if(this.Controller.IsButtonPressed(Buttons.LeftShoulder))
+        
+        if(this.Controller.IsButtonPressed(Buttons.LeftShoulder) || (this.Controller.LeftTrigger >= 0.5 && this.PrevLeftTrigger <= 0.4))
         {
             this.Owner.Platforming.Jump();
         }
+        
+        this.PrevRightTrigger = this.Controller.RightTrigger;
+        this.PrevLeftTrigger = this.Controller.LeftTrigger;
         
         /*if(this.Controller.IsButtonPressed(Buttons.Back))
         {
             this.Space.ReloadLevel();
         }*/
         
-        if(this.Controller.IsButtonHeld(Buttons.RightShoulder) || this.Controller.IsButtonPressed(Buttons.X))
+        if(this.Controller.IsButtonHeld(Buttons.RightShoulder) || this.Controller.RightTrigger >= 0.5)
         {
             this.Shoot();
         }

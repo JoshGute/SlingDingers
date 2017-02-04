@@ -104,7 +104,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [0.92343688, 7.76661205, 50.9995003],
+			Vec3 Translation = [-0.216533646, 2.56834674, 50.9995003],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278471e-08, 0, 1],
 		},
@@ -116,7 +116,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 20.1896782,
+			float Size = 33.2871361,
 		},
 		EditorCameraController = 
 		{
@@ -124,7 +124,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [0.92343688, 7.76661205, 0.999500632],
+			Vec3 LookTarget = [-0.216533646, 2.56834674, 0.999500632],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -637,19 +637,12 @@ Level =
 					},
 				},
 			},
-			Cog = 
+			ArchetypeInstance = 
 			{
+				string Name = "585f063a68c70028:Lava",
 				LinkId = 
 				{
 					uint Id = 17,
-				},
-				Named = 
-				{
-					string Name = "Lava",
-				},
-				Archetyped = 
-				{
-					string Name = "585f063a68c70028:Lava",
 				},
 				Transform = 
 				{
@@ -657,312 +650,14 @@ Level =
 					Vec3 Scale = [1, 1, 1],
 					Quat Rotation = [0, 0, 0, 1],
 				},
-				Sprite = 
-				{
-					bool Visible = true,
-					bool VisibilityCulling = true,
-					bool VisibilityEvents = true,
-					bool CastShadows = false,
-					Vec4 Color = [1, 1, 1, 1],
-					BlendMode BlendMode = Alpha,
-					SpriteGeometryMode GeometryMode = ZPlane,
-					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-					string SpriteSource = "585f018b1762d97b:LavaAnimate",
-					bool RenderMask = false,
-					bool FlipX = false,
-					bool FlipY = false,
-					bool AnimationActive = true,
-					float AnimationSpeed = 1,
-					uint StartFrame = 0,
-				},
 				Area = 
 				{
 					Vec2 Size = [90, 35],
 					Location Origin = Center,
 				},
-				BoxCollider = 
+				Named = 
 				{
-					bool Ghost = false,
-					bool SendsMessages = true,
-					bool Seamless = true,
-					string MaterialName = "4de020863e872da8:DefaultPhysicsMaterial",
-					string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-					Vec3 Offset = [0, 0, 0],
-					Vec3 Size = [45, 17.5, 500],
-				},
-				DeathBox = 
-				{
-				},
-				Hierarchy = 
-				{
-					Cog = 
-					{
-						LinkId = 
-						{
-							uint Id = 18,
-						},
-						Named = 
-						{
-							string Name = "LavaAnimateSurface",
-						},
-						Transform = 
-						{
-							Vec3 Translation = [-0.106239319, 17.859333, 0],
-							Vec3 Scale = [1, 1, 1],
-							Quat Rotation = [1, 0, 0, -4.37113883e-08],
-						},
-						Sprite = 
-						{
-							bool Visible = true,
-							bool VisibilityCulling = true,
-							bool VisibilityEvents = true,
-							bool CastShadows = false,
-							Vec4 Color = [1, 1, 1, 1],
-							BlendMode BlendMode = Alpha,
-							SpriteGeometryMode GeometryMode = ZPlane,
-							string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-							string SpriteSource = "585f006d115b4057:LavaAnimateSurface",
-							bool RenderMask = false,
-							bool FlipX = false,
-							bool FlipY = false,
-							bool AnimationActive = true,
-							float AnimationSpeed = 1,
-							uint StartFrame = 0,
-						},
-						Area = 
-						{
-							Vec2 Size = [98.0218887, 1],
-							Location Origin = Center,
-						},
-					},
-					Cog = 
-					{
-						LinkId = 
-						{
-							uint Id = 19,
-						},
-						Named = 
-						{
-							string Name = "BasicParticleEffect",
-						},
-						Transform = 
-						{
-							Vec3 Translation = [-2.33250761, 15.1115999, -3.57627869e-07],
-							Vec3 Scale = [1, 1, 1],
-							Quat Rotation = [0, 0, 0, 1],
-						},
-						SpriteParticleSystem = 
-						{
-							bool Visible = true,
-							bool VisibilityCulling = true,
-							bool VisibilityEvents = true,
-							bool CastShadows = false,
-							SystemChildMode ChildMode = Independent,
-							SystemSpace SystemSpace = WorldSpace,
-							uint DrawOrder = 0,
-							Vec4 Tint = [1, 0.509999871, 0, 1],
-							float WarmUpTime = 2,
-							ParticleGeometry GeometryMode = Beam,
-							ParticleRenderMode RenderMode = Additive,
-							ParticleSortMode SortMode = Youngest,
-							ParticleAnimation ParticleAnimation = Single,
-							string Texture = "5310e87a46e703cc:ShockWave",
-							float VelocityScale = 0.5,
-							float LengthScale = 0,
-							float MaxParticleSize = 100,
-							Vec3 SystemSize = [4, 4, 4],
-						},
-						SphericalParticleEmitter = 
-						{
-							bool Active = true,
-							uint EmitCount = 0,
-							float EmitRate = 10,
-							float EmitVariance = 0,
-							float Size = 0.100000001,
-							float SizeVariance = 0.100000001,
-							float Lifetime = 1,
-							float LifetimeVariance = 0.200000003,
-							float Spin = 0,
-							float SpinVariance = 50,
-							bool RandomSpin = true,
-							float Fill = 1,
-							float EmitterVelocityPercent = 0,
-							Vec3 StartVelocity = [0, 15, 0],
-							Vec3 RandomVelocity = [10, 5, 2],
-							Vec3 TangentVelocity = [0, 0, 0],
-							Vec3 EmitterSize = [40, 0, 0],
-							bool FastMovingEmitter = false,
-						},
-						LinearParticleAnimator = 
-						{
-							Vec3 Force = [0, -15, 0],
-							Vec3 RandomForce = [0, 0, 0],
-							float Torque = 0,
-							float Growth = 0,
-							float Dampening = 0,
-							Vec3 Twist = [0, 0, 0],
-						},
-						ParticleColorAnimator = 
-						{
-							Vec4 Color0 = [1, 1, 1, 0],
-							Vec4 Color1 = [1, 1, 1, 1],
-							Vec4 Color2 = [1, 1, 1, 1],
-							Vec4 Color3 = [1, 1, 1, 1],
-							Vec4 Color4 = [1, 1, 1, 0],
-						},
-					},
-					Cog = 
-					{
-						LinkId = 
-						{
-							uint Id = 20,
-						},
-						Named = 
-						{
-							string Name = "BasicParticleEffect",
-						},
-						Transform = 
-						{
-							Vec3 Translation = [-2.33250761, 15.1115999, -3.57627869e-07],
-							Vec3 Scale = [1, 1, 1],
-							Quat Rotation = [0, 0, 0, 1],
-						},
-						SpriteParticleSystem = 
-						{
-							bool Visible = true,
-							bool VisibilityCulling = true,
-							bool VisibilityEvents = true,
-							bool CastShadows = false,
-							SystemChildMode ChildMode = Independent,
-							SystemSpace SystemSpace = WorldSpace,
-							uint DrawOrder = 0,
-							Vec4 Tint = [1, 0.509999871, 0, 1],
-							float WarmUpTime = 2,
-							ParticleGeometry GeometryMode = Billboarded,
-							ParticleRenderMode RenderMode = Additive,
-							ParticleSortMode SortMode = Youngest,
-							ParticleAnimation ParticleAnimation = Single,
-							string Texture = "5310e87a46e703cc:ShockWave",
-							float VelocityScale = 1,
-							float LengthScale = 1,
-							float MaxParticleSize = 100,
-							Vec3 SystemSize = [4, 4, 4],
-						},
-						SphericalParticleEmitter = 
-						{
-							bool Active = true,
-							uint EmitCount = 0,
-							float EmitRate = 300,
-							float EmitVariance = 0,
-							float Size = 0.100000001,
-							float SizeVariance = 0.100000001,
-							float Lifetime = 1,
-							float LifetimeVariance = 0.200000003,
-							float Spin = 0,
-							float SpinVariance = 50,
-							bool RandomSpin = true,
-							float Fill = 1,
-							float EmitterVelocityPercent = 0,
-							Vec3 StartVelocity = [0, 15, 0],
-							Vec3 RandomVelocity = [2, 10, 2],
-							Vec3 TangentVelocity = [0, 0, 0],
-							Vec3 EmitterSize = [40, 0, 0],
-							bool FastMovingEmitter = false,
-						},
-						LinearParticleAnimator = 
-						{
-							Vec3 Force = [0, -15, 0],
-							Vec3 RandomForce = [0, 0, 0],
-							float Torque = 0,
-							float Growth = 0,
-							float Dampening = 0,
-							Vec3 Twist = [0, 0, 0],
-						},
-						ParticleColorAnimator = 
-						{
-							Vec4 Color0 = [1, 1, 1, 0],
-							Vec4 Color1 = [1, 1, 1, 1],
-							Vec4 Color2 = [1, 1, 1, 1],
-							Vec4 Color3 = [1, 1, 1, 1],
-							Vec4 Color4 = [1, 1, 1, 0],
-						},
-					},
-					Cog = 
-					{
-						LinkId = 
-						{
-							uint Id = 21,
-						},
-						Named = 
-						{
-							string Name = "BasicParticleEffect",
-						},
-						Transform = 
-						{
-							Vec3 Translation = [0.0515756607, 14.8860111, -1],
-							Vec3 Scale = [1.1184268, 1, 1],
-							Quat Rotation = [0, 0, 0, 1],
-						},
-						SpriteParticleSystem = 
-						{
-							bool Visible = true,
-							bool VisibilityCulling = true,
-							bool VisibilityEvents = true,
-							bool CastShadows = false,
-							SystemChildMode ChildMode = Independent,
-							SystemSpace SystemSpace = WorldSpace,
-							uint DrawOrder = 0,
-							Vec4 Tint = [1, 0.509999871, 0, 0.404999971],
-							float WarmUpTime = 2,
-							ParticleGeometry GeometryMode = Billboarded,
-							ParticleRenderMode RenderMode = Additive,
-							ParticleSortMode SortMode = Youngest,
-							ParticleAnimation ParticleAnimation = Single,
-							string Texture = "5310e87946eeadd0:Smoke2",
-							float VelocityScale = 1,
-							float LengthScale = 1,
-							float MaxParticleSize = 100,
-							Vec3 SystemSize = [4, 4, 4],
-						},
-						SphericalParticleEmitter = 
-						{
-							bool Active = true,
-							uint EmitCount = 0,
-							float EmitRate = 1000,
-							float EmitVariance = 0,
-							float Size = 4,
-							float SizeVariance = 0.100000001,
-							float Lifetime = 3,
-							float LifetimeVariance = 0.200000003,
-							float Spin = 0,
-							float SpinVariance = 50,
-							bool RandomSpin = true,
-							float Fill = 1,
-							float EmitterVelocityPercent = 0,
-							Vec3 StartVelocity = [0, 5, 0],
-							Vec3 RandomVelocity = [0, 0, 0],
-							Vec3 TangentVelocity = [0, 0, 0],
-							Vec3 EmitterSize = [40, 0, 0],
-							bool FastMovingEmitter = false,
-						},
-						LinearParticleAnimator = 
-						{
-							Vec3 Force = [0, 0, 0],
-							Vec3 RandomForce = [0, 0, 0],
-							float Torque = 0,
-							float Growth = 0,
-							float Dampening = 0,
-							Vec3 Twist = [0, 0, 0],
-						},
-						ParticleColorAnimator = 
-						{
-							Vec4 Color0 = [1, 1, 1, 0.999899983],
-							Vec4 Color1 = [1, 1, 1, 0.574999988],
-							Vec4 Color2 = [1, 1, 1, 0.204999983],
-							Vec4 Color3 = [1, 1, 1, 0.0400000215],
-							Vec4 Color4 = [1, 1, 1, 0],
-						},
-					},
+					string Name = "Lava",
 				},
 			},
 		},
@@ -971,7 +666,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 22,
+			uint Id = 18,
 		},
 		Named = 
 		{
@@ -1036,7 +731,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 23,
+			uint Id = 19,
 		},
 		Named = 
 		{

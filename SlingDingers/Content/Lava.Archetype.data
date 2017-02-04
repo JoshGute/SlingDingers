@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [0.550579071, -26.4068871, -1.00099945],
+		Vec3 Translation = [0, -32.2526321, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -115,7 +115,7 @@ Cog =
 			SpriteParticleSystem = 
 			{
 				bool Visible = true,
-				bool VisibilityCulling = true,
+				bool VisibilityCulling = false,
 				bool VisibilityEvents = true,
 				bool CastShadows = false,
 				SystemChildMode ChildMode = Independent,
@@ -191,7 +191,7 @@ Cog =
 			SpriteParticleSystem = 
 			{
 				bool Visible = true,
-				bool VisibilityCulling = true,
+				bool VisibilityCulling = false,
 				bool VisibilityEvents = true,
 				bool CastShadows = false,
 				SystemChildMode ChildMode = Independent,
@@ -260,14 +260,14 @@ Cog =
 			},
 			Transform = 
 			{
-				Vec3 Translation = [0.0515756607, 14.8860111, -10],
+				Vec3 Translation = [0.0515756607, 14.8860111, -1],
 				Vec3 Scale = [1.1184268, 1, 1],
 				Quat Rotation = [0, 0, 0, 1],
 			},
 			SpriteParticleSystem = 
 			{
 				bool Visible = true,
-				bool VisibilityCulling = true,
+				bool VisibilityCulling = false,
 				bool VisibilityEvents = true,
 				bool CastShadows = false,
 				SystemChildMode ChildMode = Independent,
