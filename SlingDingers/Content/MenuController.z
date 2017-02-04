@@ -33,12 +33,14 @@ class MenuController : ZilchComponent
         if(this.Controller.IsButtonPressed(Buttons.A))
         {
             ++this.ScreenCounter;
+            this.Space.SoundSpace.PlayCue(SoundCue.Jump);
             this.Advance();
         }
         
         if(this.Controller.IsButtonPressed(Buttons.B))
         {
             --this.ScreenCounter;
+            this.Space.SoundSpace.PlayCue(SoundCue.Land);
             this.Advance();
         }
     }

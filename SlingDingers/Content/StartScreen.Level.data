@@ -104,7 +104,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [4.708992, 3.33155251, 50.9995003],
+			Vec3 Translation = [0.92343688, 7.76661205, 50.9995003],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278471e-08, 0, 1],
 		},
@@ -116,7 +116,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 49.6585426,
+			float Size = 20.1896782,
 		},
 		EditorCameraController = 
 		{
@@ -124,7 +124,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [4.708992, 3.33155251, 0.999500394],
+			Vec3 LookTarget = [0.92343688, 7.76661205, 0.999500632],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -388,6 +388,191 @@ Level =
 				},
 				Named = 
 				{
+					string Name = "Credits",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [0, -3.13891268, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				SpriteText = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = false,
+					Vec4 Color = [1, 1, 1, 1],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string FontName = "58eb1361aad84c0f:HOBOSTD",
+					uint FontSize = 50,
+					string Text = "By The SlingDingers",
+					TextAlign Align = Center,
+					float PixelsPerUnit = 64,
+					bool Smoothing = true,
+				},
+				Hierarchy = 
+				{
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 11,
+				},
+				Named = 
+				{
+					string Name = "Credits",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-12, 1.20810747, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				SpriteText = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = false,
+					Vec4 Color = [0.149999976, 0.125999987, 0.125999987, 1],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string FontName = "58eb1361aad84c0f:HOBOSTD",
+					uint FontSize = 50,
+					string Text = "Juice",
+					TextAlign Align = Center,
+					float PixelsPerUnit = 64,
+					bool Smoothing = true,
+				},
+				Hierarchy = 
+				{
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 12,
+				},
+				Named = 
+				{
+					string Name = "Credits",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-6, 1.20810747, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				SpriteText = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = false,
+					Vec4 Color = [0.149999976, 0.125999987, 0.125999987, 1],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string FontName = "58eb1361aad84c0f:HOBOSTD",
+					uint FontSize = 50,
+					string Text = "Jarsh",
+					TextAlign Align = Center,
+					float PixelsPerUnit = 64,
+					bool Smoothing = true,
+				},
+				Hierarchy = 
+				{
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 13,
+				},
+				Named = 
+				{
+					string Name = "Credits",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [6, 1.20810747, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				SpriteText = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = false,
+					Vec4 Color = [0.149999976, 0.125999987, 0.125999987, 1],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string FontName = "58eb1361aad84c0f:HOBOSTD",
+					uint FontSize = 50,
+					string Text = "Reean",
+					TextAlign Align = Center,
+					float PixelsPerUnit = 64,
+					bool Smoothing = true,
+				},
+				Hierarchy = 
+				{
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 14,
+				},
+				Named = 
+				{
+					string Name = "Credits",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [12, 1.20810747, 0],
+					Vec3 Scale = [1, 1, 1],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				SpriteText = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = false,
+					Vec4 Color = [0.149999976, 0.125999987, 0.125999987, 1],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string FontName = "58eb1361aad84c0f:HOBOSTD",
+					uint FontSize = 50,
+					string Text = "LO",
+					TextAlign Align = Center,
+					float PixelsPerUnit = 64,
+					bool Smoothing = true,
+				},
+				Hierarchy = 
+				{
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 15,
+				},
+				Named = 
+				{
 					string Name = "QuitGame",
 				},
 				Transform = 
@@ -419,7 +604,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 11,
+							uint Id = 16,
 						},
 						Named = 
 						{
@@ -456,7 +641,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 12,
+					uint Id = 17,
 				},
 				Named = 
 				{
@@ -514,7 +699,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 13,
+							uint Id = 18,
 						},
 						Named = 
 						{
@@ -554,7 +739,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 14,
+							uint Id = 19,
 						},
 						Named = 
 						{
@@ -630,7 +815,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 15,
+							uint Id = 20,
 						},
 						Named = 
 						{
@@ -706,7 +891,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 16,
+							uint Id = 21,
 						},
 						Named = 
 						{
@@ -786,7 +971,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 17,
+			uint Id = 22,
 		},
 		Named = 
 		{
@@ -851,7 +1036,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 18,
+			uint Id = 23,
 		},
 		Named = 
 		{

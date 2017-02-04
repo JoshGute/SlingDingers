@@ -14,12 +14,12 @@ class MusicManager : ZilchComponent
 
     function OnCountdown(event : Countdown)
     {
-        this.Owner.FindChildByName("Sound2").SoundEmitter.VolumeDB = -15;
+        this.Owner.FindChildByName("Sound2").SoundEmitter.VolumeDB = -10;
         this.Owner.FindChildByName("Sound2").SimpleSound.Play();
         var seq = Actions.Sequence(this.Owner.Actions);
         var group = Actions.Group(seq);
-        Actions.Property(group, @this.Owner.SoundEmitter.VolumeDB, -32, 15, Ease.Linear);
-        Actions.Property(group, @this.Owner.FindChildByName("Sound2").SoundEmitter.VolumeDB, 2, 15, Ease.Linear);
+        Actions.Property(group, @this.Owner.SoundEmitter.VolumeDB, -32, 14, Ease.Linear);
+        Actions.Property(group, @this.Owner.FindChildByName("Sound2").SoundEmitter.VolumeDB, 2, 14, Ease.Linear);
         
     }
 

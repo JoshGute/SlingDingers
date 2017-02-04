@@ -31625,7 +31625,7 @@ Level =
 		string Name = "58ea037ae90d1afa:Player",
 		LinkId = 
 		{
-			uint Id = 552,
+			uint Id = 3,
 		},
 		Transform = 
 		{
@@ -31642,7 +31642,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 553,
+			uint Id = 4,
 		},
 		Named = 
 		{
@@ -31750,7 +31750,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 554,
+					uint Id = 552,
 				},
 				Named = 
 				{
@@ -31775,7 +31775,7 @@ Level =
 					{
 						LinkId = 
 						{
-							uint Id = 555,
+							uint Id = 553,
 						},
 						Named = 
 						{
@@ -31812,7 +31812,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 556,
+					uint Id = 554,
 				},
 				Named = 
 				{
@@ -31862,7 +31862,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 557,
+			uint Id = 555,
 		},
 		Named = 
 		{
@@ -31920,7 +31920,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 558,
+					uint Id = 556,
 				},
 				Named = 
 				{
@@ -31960,7 +31960,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 559,
+					uint Id = 557,
 				},
 				Named = 
 				{
@@ -32036,7 +32036,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 560,
+					uint Id = 558,
 				},
 				Named = 
 				{
@@ -32112,7 +32112,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 561,
+					uint Id = 559,
 				},
 				Named = 
 				{
@@ -32190,7 +32190,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 562,
+			uint Id = 560,
 		},
 		Named = 
 		{
@@ -32210,7 +32210,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 563,
+			uint Id = 561,
 		},
 		Named = 
 		{
@@ -32230,7 +32230,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 564,
+			uint Id = 562,
 		},
 		Named = 
 		{
@@ -32250,7 +32250,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 565,
+			uint Id = 563,
 		},
 		Named = 
 		{
@@ -32270,7 +32270,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 566,
+			uint Id = 564,
 		},
 		Named = 
 		{
@@ -32290,7 +32290,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 567,
+			uint Id = 565,
 		},
 		Named = 
 		{
@@ -32311,7 +32311,7 @@ Level =
 		string Name = "585fe7368a9b6a95:SuddenDeathManager",
 		LinkId = 
 		{
-			uint Id = 568,
+			uint Id = 566,
 		},
 		Transform = 
 		{
@@ -32328,7 +32328,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 569,
+			uint Id = 567,
 		},
 		Named = 
 		{
@@ -32352,7 +32352,7 @@ Level =
 		SimpleSound = 
 		{
 			bool StartPlaying = true,
-			string CueName = "4e1bd44008b4dc2a:DefaultCue",
+			string CueName = "5823c36386f00436:ShinyTech2",
 		},
 		MusicManager = 
 		{
@@ -32363,7 +32363,7 @@ Level =
 			{
 				LinkId = 
 				{
-					uint Id = 570,
+					uint Id = 568,
 				},
 				Named = 
 				{
@@ -32377,7 +32377,7 @@ Level =
 				},
 				SoundEmitter = 
 				{
-					float Volume = 0.0251188632,
+					float Volume = 0.177827939,
 					float Pitch = 0,
 					float PitchSemitones = 0,
 					bool UsePitchSemitones = false,
@@ -32387,7 +32387,7 @@ Level =
 				SimpleSound = 
 				{
 					bool StartPlaying = false,
-					string CueName = "4e1bd44008b4dc2a:DefaultCue",
+					string CueName = "5823e3dfeafa1978:Mirrorball",
 				},
 			},
 		},
@@ -32396,7 +32396,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 571,
+			uint Id = 569,
 		},
 		Named = 
 		{
@@ -32497,7 +32497,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 572,
+			uint Id = 570,
 		},
 		Named = 
 		{
@@ -32598,7 +32598,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 573,
+			uint Id = 571,
 		},
 		Named = 
 		{
@@ -32699,7 +32699,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 574,
+			uint Id = 572,
 		},
 		Named = 
 		{
@@ -32800,7 +32800,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 575,
+			uint Id = 573,
 		},
 		Named = 
 		{
@@ -32901,7 +32901,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 576,
+			uint Id = 574,
 		},
 		Named = 
 		{
@@ -33002,7 +33002,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 577,
+			uint Id = 575,
 		},
 		Named = 
 		{
@@ -33103,7 +33103,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 578,
+			uint Id = 576,
 		},
 		Named = 
 		{
@@ -33204,7 +33204,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 579,
+			uint Id = 577,
 		},
 		Named = 
 		{
@@ -33305,7 +33305,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 580,
+			uint Id = 578,
 		},
 		Named = 
 		{
@@ -33406,7 +33406,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 581,
+			uint Id = 579,
 		},
 		Named = 
 		{
@@ -33507,7 +33507,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 582,
+			uint Id = 580,
 		},
 		Named = 
 		{
@@ -33608,7 +33608,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 583,
+			uint Id = 581,
 		},
 		Named = 
 		{
@@ -33709,7 +33709,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 584,
+			uint Id = 582,
 		},
 		Named = 
 		{
@@ -33810,7 +33810,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 585,
+			uint Id = 583,
 		},
 		Named = 
 		{
@@ -33911,7 +33911,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 586,
+			uint Id = 584,
 		},
 		Named = 
 		{
@@ -34012,7 +34012,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 587,
+			uint Id = 585,
 		},
 		Named = 
 		{
@@ -34113,7 +34113,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 588,
+			uint Id = 586,
 		},
 		Named = 
 		{
@@ -34214,7 +34214,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 589,
+			uint Id = 587,
 		},
 		Named = 
 		{
@@ -34315,7 +34315,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 590,
+			uint Id = 588,
 		},
 		Named = 
 		{
@@ -34416,7 +34416,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 591,
+			uint Id = 589,
 		},
 		Named = 
 		{
@@ -34517,7 +34517,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 592,
+			uint Id = 590,
 		},
 		Named = 
 		{
@@ -34618,7 +34618,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 593,
+			uint Id = 591,
 		},
 		Named = 
 		{
@@ -34719,7 +34719,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 594,
+			uint Id = 592,
 		},
 		Named = 
 		{
@@ -34820,7 +34820,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 595,
+			uint Id = 593,
 		},
 		Named = 
 		{
@@ -34877,7 +34877,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 596,
+			uint Id = 594,
 		},
 		Named = 
 		{
@@ -34934,7 +34934,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 597,
+			uint Id = 595,
 		},
 		Named = 
 		{
@@ -34991,7 +34991,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 598,
+			uint Id = 596,
 		},
 		Named = 
 		{
@@ -35048,7 +35048,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 599,
+			uint Id = 597,
 		},
 		Named = 
 		{
@@ -35105,7 +35105,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 600,
+			uint Id = 598,
 		},
 		Named = 
 		{
@@ -35162,7 +35162,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 601,
+			uint Id = 599,
 		},
 		Named = 
 		{
@@ -35219,7 +35219,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 602,
+			uint Id = 600,
 		},
 		Named = 
 		{
@@ -35276,7 +35276,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 603,
+			uint Id = 601,
 		},
 		Named = 
 		{
@@ -35333,7 +35333,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 604,
+			uint Id = 602,
 		},
 		Named = 
 		{
@@ -35390,7 +35390,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 605,
+			uint Id = 603,
 		},
 		Named = 
 		{
@@ -35447,7 +35447,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 606,
+			uint Id = 604,
 		},
 		Named = 
 		{
@@ -35504,7 +35504,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 607,
+			uint Id = 605,
 		},
 		Named = 
 		{
@@ -35561,7 +35561,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 608,
+			uint Id = 606,
 		},
 		Named = 
 		{
@@ -35618,7 +35618,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 609,
+			uint Id = 607,
 		},
 		Named = 
 		{
@@ -35675,7 +35675,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 610,
+			uint Id = 608,
 		},
 		Named = 
 		{
@@ -35732,7 +35732,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 611,
+			uint Id = 609,
 		},
 		Named = 
 		{
@@ -35789,7 +35789,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 612,
+			uint Id = 610,
 		},
 		Named = 
 		{
@@ -35846,7 +35846,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 613,
+			uint Id = 611,
 		},
 		Named = 
 		{
@@ -35903,7 +35903,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 614,
+			uint Id = 612,
 		},
 		Named = 
 		{
@@ -35960,7 +35960,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 615,
+			uint Id = 613,
 		},
 		Named = 
 		{
@@ -36017,7 +36017,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 616,
+			uint Id = 614,
 		},
 		Named = 
 		{
@@ -36074,7 +36074,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 617,
+			uint Id = 615,
 		},
 		Named = 
 		{
@@ -36131,7 +36131,7 @@ Level =
 	{
 		LinkId = 
 		{
-			uint Id = 618,
+			uint Id = 616,
 		},
 		Named = 
 		{
@@ -36189,7 +36189,7 @@ Level =
 		string Name = "585eba271d88f542:BackgroundEffect",
 		LinkId = 
 		{
-			uint Id = 619,
+			uint Id = 617,
 		},
 		Transform = 
 		{

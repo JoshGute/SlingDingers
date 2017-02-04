@@ -257,7 +257,7 @@ class CharacterController : ZilchComponent
         if(this.Controller.IsButtonPressed(Buttons.B))
         {
             if(CharacterController.GameEnded)
-                this.GameSession.Quit();
+                this.Space.LoadLevel(Level.StartScreen);
         }
         
         
