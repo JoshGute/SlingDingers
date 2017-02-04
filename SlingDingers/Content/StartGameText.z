@@ -6,22 +6,22 @@ class StartGameText : ZilchComponent
     [Property]
     var EndOfScreen : Real3;
     
+    [Property]
+    var Multiplier : Real = 1;
+    
     function Initialize(init : CogInitializer)
     {
-        this.EndOfScreen.X = this.Owner.Transform.Translation.X + (2 * Math.Abs(this.Owner.Transform.Translation.X - this.LevelSettings.CameraViewport.Camera.Transform.Translation.X));
+        this.EndOfScreen.X = this.Owner.Transform.Translation.X + (2 * this.Multiplier * Math.Abs(this.Owner.Transform.Translation.X - this.LevelSettings.CameraViewport.Camera.Transform.Translation.X));
         
         var grp = Actions.Group(this.Owner.Actions);
         
-        Actions.Property(grp, @this.Owner.Transform.Translation, this.EndOfScreen, 6, this.Curve);
+        Actions.Property(grp, @this.Owner.Transform.Translation, this.EndOfScreen, 3, this.Curve);
         var seq = Actions.Sequence(grp);
-        Actions.Delay(seq, 3);
-        Actions.Property(seq, @this.Owner.SpriteText.Text, "GO!", 0, Ease.Linear);
-        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);]
         Actions.Delay(seq, 3);
         Actions.Call(seq, this.Owner.Destroy);
         
         var seq2 = Actions.Sequence(grp);
-        Actions.Delay(seq2, 4.5);
+        Actions.Delay(seq2, 2.5);
         Actions.Call(seq2, this.StartGame);
     }
     

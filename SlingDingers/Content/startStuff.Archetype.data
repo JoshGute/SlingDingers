@@ -1,0 +1,105 @@
+Cog = 
+{
+	LinkId = 
+	{
+		uint Id = 1,
+	},
+	Named = 
+	{
+		string Name = "startStuff",
+	},
+	Transform = 
+	{
+		Vec3 Translation = [-0.452797413, 16.0824051, -8.53593676e-08],
+		Vec3 Scale = [1, 1, 1],
+		Quat Rotation = [0, 0, 0, 1],
+	},
+	Hierarchy = 
+	{
+		ArchetypeInstance = 
+		{
+			string Name = "581fb1c4beeeb56e:StartText",
+			LinkId = 
+			{
+				uint Id = 2,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [-120.678772, -1.99913216, 35],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Named = 
+			{
+				string Name = "StartText",
+			},
+		},
+		Cog = 
+		{
+			LinkId = 
+			{
+				uint Id = 3,
+			},
+			Named = 
+			{
+				string Name = "StartText",
+			},
+			Archetyped = 
+			{
+				string Name = "581fb1c4beeeb56e:StartText",
+			},
+			Transform = 
+			{
+				Vec3 Translation = [76.4445038, -9.39639282, 35],
+				Vec3 Scale = [1, 1, 1],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			StartGameText = 
+			{
+				string Curve = "581fbe8337f42331:StartTextCurve",
+				Vec3 EndOfScreen = [51, 22.5764008, 35],
+				float Multiplier = -1,
+			},
+			SpriteText = 
+			{
+				bool Visible = true,
+				bool VisibilityCulling = true,
+				bool VisibilityEvents = true,
+				bool CastShadows = false,
+				Vec4 Color = [0, 0, 0, 1],
+				BlendMode BlendMode = Alpha,
+				SpriteGeometryMode GeometryMode = ZPlane,
+				string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+				string FontName = "581fb1b9a46d90bb:Digitalt",
+				uint FontSize = 132,
+				string Text = "Go!",
+				TextAlign Align = Center,
+				float PixelsPerUnit = 13.973835,
+				bool Smoothing = true,
+			},
+		},
+		ArchetypeInstance = 
+		{
+			string Name = "581fb1f3bf5c4498:StartBack",
+			LinkId = 
+			{
+				uint Id = 4,
+			},
+			Transform = 
+			{
+				Vec3 Translation = [4.43492937, 6.33410835, 30],
+				Vec3 Scale = [181.157135, 99.5759277, 31.6016979],
+				Quat Rotation = [0, 0, 0, 1],
+			},
+			Named = 
+			{
+				string Name = "StartBack",
+			},
+			EditorFlags = 
+			{
+				bool Locked = true,
+				bool Hidden = true,
+			},
+		},
+	},
+},

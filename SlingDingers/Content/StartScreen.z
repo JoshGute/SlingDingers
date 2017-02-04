@@ -7,7 +7,7 @@ class StartScreen : ZilchComponent
     {
         var seq = Actions.Sequence(this.Owner.Actions);
         
-        Actions.Property(seq, @this.Owner.Sprite.Color, Real4(0, 0, 0, 0), 6, this.OpacityCurve);
+        Actions.Property(seq, @this.Owner.Sprite.Color, Real4(0, 0, 0, 0), 4, this.OpacityCurve);
 
         Actions.Call(seq, this.Owner.Destroy);
         //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
