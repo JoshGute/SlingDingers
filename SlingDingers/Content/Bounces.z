@@ -1,0 +1,40 @@
+class Bounces : ZilchComponent
+{
+    [Property]
+    var SmallPop : Real3;
+    var NormalSize : Real3 = Real3(1, 1, 1);
+    
+    var NormalPos : Real3 = Real3(1, 1, 1);
+    var SmallPos : Real3;
+    
+    [Property]
+    var Curve : SampleCurve;
+    [Property]
+    var DownCurve : SampleCurve;
+    
+    function Initialize(init : CogInitializer)
+    {
+        this.NormalSize = this.Owner.Transform.Scale;
+        this.SmallPop = this.NormalSize * 1.2;
+        this.NormalPos = this.Owner.Transform.Translation;
+        this.SmallPos = this.NormalPos + Real3(0, 0.3, 0);
+        this.SmallBump();
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+    }
+    
+    function SmallBump()
+    {
+        var seq = Actions.Sequence(this.Owner.Actions);
+        var grp = Actions.Group(seq);
+        Actions.Property(grp, @this.Owner.Transform.Scale, this.SmallPop, 0.5, this.Curve);
+        Actions.Property(grp, @this.Owner.Transform.Translation, this.SmallPos, 0.35, this.Curve);
+        var grp2 = Actions.Group(seq);
+        Actions.Property(grp2, @this.Owner.Transform.Scale, this.NormalSize, 0.5, this.DownCurve);
+        Actions.Property(grp2, @this.Owner.Transform.Translation, this.NormalPos, 0.35, this.DownCurve);
+        Actions.Call(seq, this.SmallBump);
+    }
+}
