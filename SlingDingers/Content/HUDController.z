@@ -108,7 +108,7 @@ class HUDController : ZilchComponent
         }
         else if(playerNum == 1)
         {
-            if(this.MyState1 != HUDState.AR)
+            if(this.MyState2 != HUDState.AR)
             {
                 this.MyState2 = HUDState.AR;
                 this.Space.FindObjectByName("Player2Ammo").SpriteText.Visible = true;
@@ -375,19 +375,20 @@ class HUDController : ZilchComponent
         var seq = Actions.Sequence(this.CurrentGun1.Cog.Actions);
         var seq2 = Actions.Sequence(this.CurrentGunShadow1.Cog.Actions);
         Actions.Property(seq, @this.CurrentGun1.Cog.Transform.Scale, this.CurrentGun1.Cog.Transform.Scale + Real3(0.25, 0.25, 0.25), 0.025, Ease.QuadOut);
-        Actions.Property(seq, @this.CurrentGun1.Cog.Transform.Scale, this.CurrentGun1.Cog.Transform.Scale, 0.1, Ease.QuadIn);
+        Actions.Property(seq, @this.CurrentGun1.Cog.Transform.Scale, this.CurrentGun1.Cog.Transform.Scale, 0.025, Ease.QuadIn);
         Actions.Property(seq2, @this.CurrentGunShadow1.Cog.Transform.Scale, this.CurrentGunShadow1.Cog.Transform.Scale + Real3(0.25, 0.25, 0.25), 0.025, Ease.QuadOut);
-        Actions.Property(seq2, @this.CurrentGunShadow1.Cog.Transform.Scale, this.CurrentGunShadow1.Cog.Transform.Scale, 0.1, Ease.QuadIn);
+        Actions.Property(seq2, @this.CurrentGunShadow1.Cog.Transform.Scale, this.CurrentGunShadow1.Cog.Transform.Scale, 0.025, Ease.QuadIn);
     }
     
     function ShootShakeMicro2()
     {
+        Console.WriteLine("Pew pew");
         var seq = Actions.Sequence(this.CurrentGun2.Cog.Actions);
         var seq2 = Actions.Sequence(this.CurrentGunShadow2.Cog.Actions);
         Actions.Property(seq, @this.CurrentGun2.Cog.Transform.Scale, this.CurrentGun2.Cog.Transform.Scale + Real3(0.25, 0.25, 0.25), 0.025, Ease.QuadOut);
-        Actions.Property(seq, @this.CurrentGun2.Cog.Transform.Scale, this.CurrentGun2.Cog.Transform.Scale, 0.1, Ease.QuadIn);
+        Actions.Property(seq, @this.CurrentGun2.Cog.Transform.Scale, this.CurrentGun2.Cog.Transform.Scale, 0.025, Ease.QuadIn);
         Actions.Property(seq2, @this.CurrentGunShadow2.Cog.Transform.Scale, this.CurrentGunShadow2.Cog.Transform.Scale + Real3(0.25, 0.25, 0.25), 0.025, Ease.QuadOut);
-        Actions.Property(seq2, @this.CurrentGunShadow2.Cog.Transform.Scale, this.CurrentGunShadow2.Cog.Transform.Scale, 0.1, Ease.QuadIn);
+        Actions.Property(seq2, @this.CurrentGunShadow2.Cog.Transform.Scale, this.CurrentGunShadow2.Cog.Transform.Scale, 0.025, Ease.QuadIn);
     }
     
     function GunSwap1()

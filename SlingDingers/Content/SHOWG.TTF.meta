@@ -1,0 +1,8 @@
+FontContent = 
+{
+	FontBuilder = 
+	{
+		string Name = "SHOWG",
+		uint64 ResourceId = 58eb167c22e9a511,
+	},
+},

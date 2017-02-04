@@ -41,7 +41,7 @@ class Foot : ZilchComponent
     
     function OnCollisionPersisted(event : CollisionEvent)
     {
-        if(this.Actor.RigidBody.Velocity.Y > 0) return;
+        /*if(this.Actor.RigidBody.Velocity.Y > 0) return;
         
         if(!event.OtherObject.Collider.Ghost)
         {
@@ -51,7 +51,7 @@ class Foot : ZilchComponent
             }
             
             this.Actor.Platforming.Grounded = true;
-        }
+        }*/
     }
     
     function OnCollisionEnded(event : CollisionEvent)
