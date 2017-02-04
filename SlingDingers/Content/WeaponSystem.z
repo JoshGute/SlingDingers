@@ -99,6 +99,7 @@ class WeaponSystem : ZilchComponent
         --this.Ammo;
         
         var hud = this.GameSession.FindSpaceByName("HudSpace");
+        Console.WriteLine(this.GunType);
         hud.DispatchEvent(Events.AmmoUpdate, new AmmoEvent(this.Owner.CharacterController.PNumberData, this.GunType, this.Ammo, this.MaxAmmo));
         
         this.Delay = 0;
