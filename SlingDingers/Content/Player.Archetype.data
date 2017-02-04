@@ -61,16 +61,6 @@ Cog =
 		string DefaultWeapon = "585f9ee48b5c1a4d:PistolRound",
 		string CurrentWepaon = "585f903389d922a0:BounceRound",
 	},
-	SphereCollider = 
-	{
-		bool Ghost = false,
-		bool SendsMessages = true,
-		bool Seamless = true,
-		string MaterialName = "58ea7ad736b8f14d:Slippidy",
-		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
-		Vec3 Offset = [0, 0, 0],
-		float Radius = 0.5,
-	},
 	Platforming = 
 	{
 		float JumpStrength = 1000,
@@ -91,6 +81,28 @@ Cog =
 		bool UsePitchSemitones = true,
 		bool Positional = true,
 		int Version = 1,
+	},
+	CapsuleCollider = 
+	{
+		bool Ghost = false,
+		bool SendsMessages = true,
+		bool Seamless = true,
+		string MaterialName = "58ea7ad736b8f14d:Slippidy",
+		string SerializedGroupName = "4e740859314e5515:DefaultGroup",
+		Vec3 Offset = [0, 0, 0],
+		float Radius = 0.5,
+		float Height = 1000,
+		AxisDirection Direction = Z,
+		CapsuleScalingMode ScalingMode = PreserveScale,
+	},
+	MassOverride = 
+	{
+		bool Active = true,
+		float invMass = 1.66666663,
+		Vec3 invInertiaX = [0, 0, 0],
+		Vec3 invInertiaY = [0, 0, 0],
+		Vec3 invInertiaZ = [0, 0, 0],
+		Vec3 LocalCenterOfMass = [0, 0, 0],
 	},
 	Hierarchy = 
 	{
@@ -168,7 +180,7 @@ Cog =
 			},
 			Transform = 
 			{
-				Vec3 Translation = [0, -0.497174859, 0],
+				Vec3 Translation = [0, -0.52029717, 0],
 				Vec3 Scale = [0.842259586, 0.0928380117, 1],
 				Quat Rotation = [0, 0, 0, 1],
 			},

@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "MenuController",
+		uint64 ResourceId = 58eb1d366bb8d1ab,
+	},
+},

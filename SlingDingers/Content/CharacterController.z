@@ -207,7 +207,7 @@ class CharacterController : ZilchComponent
         this.Owner.RigidBody.Velocity = Real3(0,0,0);
         
         if(event.OtherObject.BulletScript.Type != WeaponType.Type_Dunk) 
-            this.Owner.RigidBody.ApplyForce(event.FirstPoint.WorldNormalTowardsOther * knoc);
+            this.Owner.RigidBody.ApplyForce(-event.FirstPoint.WorldNormalTowardsOther * knoc);
         else
             this.Owner.RigidBody.ApplyForce(Real3(0, -4000, 0));
     }
