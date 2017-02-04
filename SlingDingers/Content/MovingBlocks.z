@@ -16,10 +16,19 @@ class MovingBlocks : ZilchComponent
     {
         //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
         this.MoveToPos2();
+        
+        this.OldMovement = this.Owner.Transform.WorldTranslation;
+        this.NewMovement = this.Owner.Transform.WorldTranslation;
     }
+    var DeltaMovement : Real3;
+    var OldMovement : Real3;
+    var NewMovement : Real3;
 
     function OnLogicUpdate(event : UpdateEvent)
     {
+        this.NewMovement = this.Owner.Transform.WorldTranslation;
+        this.DeltaMovement = this.NewMovement - this.OldMovement;
+        this.OldMovement = this.NewMovement;
     }
     
     function MoveToPos1()
