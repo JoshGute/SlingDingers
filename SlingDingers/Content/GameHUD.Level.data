@@ -169,7 +169,7 @@ Level =
 				CogPathPreference PathPreference2 = Absolute,
 			},
 			Vec4 P1Color = [1, 0, 0, 1],
-			Vec4 P2Color = [0, 0.970000029, 1, 1],
+			Vec4 P2Color = [0, 0.100000143, 1, 1],
 		},
 	},
 	Cog = 
@@ -184,7 +184,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-0.0735354125, 16.7787533, 50],
+			Vec3 Translation = [-9.271842, 18.6154957, 50],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278471e-08, 0, 1],
 		},
@@ -196,7 +196,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 44.9330101,
+			float Size = 30.1195297,
 		},
 		EditorCameraController = 
 		{
@@ -204,7 +204,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [-0.0735354125, 16.7787533, -3.21430504e-09],
+			Vec3 LookTarget = [-9.271842, 18.6154957, -4.0528505e-07],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -344,7 +344,7 @@ Level =
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
 			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string FontName = "4e7bac697bec55c5:Verdana",
+			string FontName = "581fb1b9a46d90bb:Digitalt",
 			uint FontSize = 100,
 			string Text = "30",
 			TextAlign Align = Center,
@@ -677,7 +677,7 @@ Level =
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
 			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string FontName = "4e7bac697bec55c5:Verdana",
+			string FontName = "581fb1b9a46d90bb:Digitalt",
 			uint FontSize = 75,
 			string Text = "01/99",
 			TextAlign Align = Center,
@@ -711,7 +711,7 @@ Level =
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
 			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string FontName = "4e7bac697bec55c5:Verdana",
+			string FontName = "581fb1b9a46d90bb:Digitalt",
 			uint FontSize = 78,
 			string Text = "01/99",
 			TextAlign Align = Center,
@@ -885,7 +885,7 @@ Level =
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
 			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string FontName = "4e7bac697bec55c5:Verdana",
+			string FontName = "581fb1b9a46d90bb:Digitalt",
 			uint FontSize = 78,
 			string Text = "01/99",
 			TextAlign Align = Center,
@@ -919,7 +919,7 @@ Level =
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
 			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-			string FontName = "4e7bac697bec55c5:Verdana",
+			string FontName = "581fb1b9a46d90bb:Digitalt",
 			uint FontSize = 75,
 			string Text = "01/99",
 			TextAlign Align = Center,
@@ -1269,7 +1269,7 @@ Level =
 					BlendMode BlendMode = Alpha,
 					SpriteGeometryMode GeometryMode = ZPlane,
 					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-					string FontName = "4e7bac697bec55c5:Verdana",
+					string FontName = "581fb1b9a46d90bb:Digitalt",
 					uint FontSize = 100,
 					string Text = "Player One Wins!",
 					TextAlign Align = Center,
@@ -1303,9 +1303,9 @@ Level =
 					BlendMode BlendMode = Alpha,
 					SpriteGeometryMode GeometryMode = ZPlane,
 					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-					string FontName = "4e7bac697bec55c5:Verdana",
+					string FontName = "581fb1b9a46d90bb:Digitalt",
 					uint FontSize = 75,
-					string Text = "Press 'A' to Play Again",
+					string Text = "Press     to Play Again",
 					TextAlign Align = Center,
 					float PixelsPerUnit = 64,
 					bool Smoothing = true,
@@ -1337,12 +1337,82 @@ Level =
 					BlendMode BlendMode = Alpha,
 					SpriteGeometryMode GeometryMode = ZPlane,
 					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-					string FontName = "4e7bac697bec55c5:Verdana",
+					string FontName = "581fb1b9a46d90bb:Digitalt",
 					uint FontSize = 70,
-					string Text = "Press 'B' to Quit to Menu",
+					string Text = "Press      to Quit to Menu",
 					TextAlign Align = Center,
 					float PixelsPerUnit = 64,
 					bool Smoothing = true,
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 35,
+				},
+				Named = 
+				{
+					string Name = "AButton",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-0.984309673, -0.887865067, 1],
+					Vec3 Scale = [0.5, 0.5, 0.5],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Sprite = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = false,
+					Vec4 Color = [1, 1, 1, 1],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string SpriteSource = "58eb2c7ca087c5d2:360_A",
+					bool RenderMask = false,
+					bool FlipX = false,
+					bool FlipY = false,
+					bool AnimationActive = true,
+					float AnimationSpeed = 1,
+					uint StartFrame = 0,
+				},
+			},
+			Cog = 
+			{
+				LinkId = 
+				{
+					uint Id = 36,
+				},
+				Named = 
+				{
+					string Name = "BButton",
+				},
+				Transform = 
+				{
+					Vec3 Translation = [-1.16770434, -2.38559341, 1],
+					Vec3 Scale = [0.5, 0.5, 0.5],
+					Quat Rotation = [0, 0, 0, 1],
+				},
+				Sprite = 
+				{
+					bool Visible = true,
+					bool VisibilityCulling = true,
+					bool VisibilityEvents = true,
+					bool CastShadows = false,
+					Vec4 Color = [1, 1, 1, 1],
+					BlendMode BlendMode = Alpha,
+					SpriteGeometryMode GeometryMode = ZPlane,
+					string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
+					string SpriteSource = "58eb0500569f26a9:360_B",
+					bool RenderMask = false,
+					bool FlipX = false,
+					bool FlipY = false,
+					bool AnimationActive = true,
+					float AnimationSpeed = 1,
+					uint StartFrame = 0,
 				},
 			},
 		},
