@@ -13,6 +13,10 @@ class Foot : ZilchComponent
     
     function FixGroundHit(event : CollisionEvent)
     {
+        if(this.Owner.Parent.Platforming.Grounded == false)
+        {
+            this.Owner.Parent.SoundEmitter.PlayCue(SoundCue.Land);
+        }
         this.Owner.Parent.Platforming.AirDodgeSpent = false;
         this.Owner.Parent.Platforming.Grounded = true;
         

@@ -2,7 +2,7 @@ DataContent =
 {
 	DataBuilder = 
 	{
-		string Name = "land",
+		string Name = "Land",
 		uint64 ResourceId = 581fb010b5e74543,
 		string LoaderType = "SoundCue",
 		uint Version = 0,
