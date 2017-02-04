@@ -142,7 +142,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [-0.99419558, 13.959259, 50],
+			Vec3 Translation = [-1.09594762, 1.22913778, 50],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278471e-08, 0, 1],
 		},
@@ -154,7 +154,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 8.96337986,
+			float Size = 100,
 		},
 		EditorCameraController = 
 		{
@@ -162,7 +162,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [-0.99419558, 13.959259, -1.09024903e-07],
+			Vec3 LookTarget = [-1.09594762, 1.22913778, -1.13472595e-07],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -34153,7 +34153,7 @@ Level =
 		SimpleSound = 
 		{
 			bool StartPlaying = true,
-			string CueName = "5823c36386f00436:ShinyTech2",
+			string CueName = "4e1bd44008b4dc2a:DefaultCue",
 		},
 		MusicManager = 
 		{
@@ -34188,7 +34188,7 @@ Level =
 				SimpleSound = 
 				{
 					bool StartPlaying = false,
-					string CueName = "5823c33b8faa42ee:ExitthePremises",
+					string CueName = "4e1bd44008b4dc2a:DefaultCue",
 				},
 			},
 		},

@@ -1,0 +1,8 @@
+FontContent = 
+{
+	FontBuilder = 
+	{
+		string Name = "HOBOSTD",
+		uint64 ResourceId = 58eb1361aad84c0f,
+	},
+},

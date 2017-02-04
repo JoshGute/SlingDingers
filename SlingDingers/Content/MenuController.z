@@ -1,0 +1,86 @@
+class MenuController : ZilchComponent
+{
+    var PlayerIndex : Integer = 0;
+    var ScreenCounter : Integer = 0;
+    
+    [Property]
+    var Screen1Path : CogPath = null;
+    var Screen1 : Cog = null;
+    
+    [Property]
+    var Screen2Path : CogPath = null;
+    var Screen2 : Cog = null;
+    
+    [Property]
+    var Screen3Path : CogPath = null;
+    var Screen3 : Cog = null;
+    
+    
+    var Controller : Gamepad = null;
+    var GameLevel : Level = Level.Find("FinalGameplayLevel");
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        this.Controller = Zero.Gamepads.GetGamePad(this.PlayerIndex);
+        this.Screen1 = this.Screen1Path.Cog;
+        this.Screen2 = this.Screen2Path.Cog;
+        this.Screen3 = this.Screen3Path.Cog;
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(this.Controller.IsButtonPressed(Buttons.A))
+        {
+            ++this.ScreenCounter;
+            this.Advance();
+        }
+        
+        if(this.Controller.IsButtonPressed(Buttons.B))
+        {
+            --this.ScreenCounter;
+            this.Advance();
+        }
+    }
+    
+    function Advance()
+    {
+
+        if(this.ScreenCounter == 0)
+        {
+            this.Screen1.Transform.Translation = Real3(0,8.25,1);
+            this.Screen2.Transform.Translation = Real3(0,0,-5);
+            this.Screen3.Transform.Translation = Real3(0,0,-5);
+        }
+        
+        else if(this.ScreenCounter == 1)
+        {
+            this.Screen1.Transform.Translation = Real3(0,8.25,-5);
+            this.Screen2.Transform.Translation = Real3(0,0,1);
+            this.Screen3.Transform.Translation = Real3(0,0,-5);
+        }
+        
+        else if(this.ScreenCounter == 2)
+        {
+            this.Screen1.Transform.Translation = Real3(0,8.25,-5);
+            this.Screen2.Transform.Translation = Real3(0,0,-5);
+            this.Screen3.Transform.Translation = Real3(0,0,1);
+        }
+        
+        else if(this.ScreenCounter == 3)
+        {
+            this.Space.LoadLevel(this.GameLevel);
+        }
+        
+        else if(this.ScreenCounter < 0)
+        {
+            this.Quit();
+        }
+        
+    }
+    
+    function Quit()
+    {
+        this.GameSession.Quit();
+    }
+}
