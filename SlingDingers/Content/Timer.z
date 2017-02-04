@@ -27,6 +27,8 @@ class Timer : ZilchComponent
     
     var GameStarted : Boolean = false;
     
+    var FirstBump : Boolean = false;
+    
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
@@ -89,6 +91,11 @@ class Timer : ZilchComponent
     
     function LargeBumpOn()
     {
+        if(this.FirstBump == false)
+        {
+            this.FirstBump = true;
+            this.GameSession.FindSpaceByName("Main").DispatchEvent(Events.Countdown, new Countdown());
+        }
         this.Owner.SoundEmitter.PlayCue(SoundCue.Warning);
         var seq = Actions.Sequence(this.Owner.Actions);
         var group = Actions.Group(seq);

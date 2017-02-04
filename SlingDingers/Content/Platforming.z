@@ -84,6 +84,7 @@ class Platforming : ZilchComponent
             this.Grounded = false;
             this.Owner.RigidBody.ApplyForce(Real3(0,1,0) * this.JumpStrength);
             
+            this.Owner.SoundEmitter.PlayCue(SoundCue.Jump);
             var jump = this.Space.CreateAtPosition(Archetype.Find("JumpParticle"), 
                                                   Real3(this.Owner.Transform.WorldTranslation.X, this.Owner.Transform.WorldTranslation.Y - (this.Owner.Transform.Scale.Y)/2, 5));
             
@@ -98,6 +99,7 @@ class Platforming : ZilchComponent
                 
                 --this.JumpsLeft;
                 
+                this.Owner.SoundEmitter.PlayCue(SoundCue.Jump);
                 this.Owner.RigidBody.ApplyForce(Real3(0,1,0) * this.JumpStrength);
             
                 var jump = this.Space.CreateAtPosition(Archetype.Find("JumpParticle"), 

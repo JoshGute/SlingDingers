@@ -1,0 +1,28 @@
+class MusicManager : ZilchComponent
+{
+    function Initialize(init : CogInitializer)
+    {
+        //Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Space, Events.Countdown, this.OnCountdown);
+        Zero.Connect(this.Space, Events.SuddenDeath, this.OnSuddenDeath);
+    }
+
+    function OnSuddenDeath(event : SuddenDeath)
+    {
+        this.Owner.SimpleSound.Stop();
+    }
+
+    function OnCountdown(event : Countdown)
+    {
+        this.Owner.FindChildByName("Sound2").SimpleSound.Play();
+        var seq = Actions.Sequence(this.Owner.Actions);
+        var group = Actions.Group(seq);
+        Actions.Property(group, @this.Owner.SoundEmitter.VolumeDB, -32, 10, Ease.Linear);
+        Actions.Property(group, @this.Owner.FindChildByName("Sound2").SoundEmitter.VolumeDB, 0, 10, Ease.Linear);
+        
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+    }
+}

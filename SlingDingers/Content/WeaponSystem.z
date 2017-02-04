@@ -61,7 +61,7 @@ class WeaponSystem : ZilchComponent
         bulletObj.Destroy();
         
         this.Owner.CharacterController.Gun.FindChildByName("Reticule").Sprite.SpriteSource = bulletObj.BulletScript.Sprite;
-        
+        this.Owner.SoundEmitter.PlayCue(SoundCue.PickUpAK);
         //TODO: fix player sent when players exist
         //TODO: send to HUD instead of space maybe
         var hud = this.GameSession.FindSpaceByName("HudSpace");
@@ -86,6 +86,7 @@ class WeaponSystem : ZilchComponent
             this.CurrentWepaon = this.DefaultWeapon;
             if(previousWeapon != this.DefaultWeapon)
             {
+                this.Owner.SoundEmitter.PlayCue(SoundCue.OutOfAmmo);
                 Console.WriteLine("Oboi");
                 this.Equip();
             }
