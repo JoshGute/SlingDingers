@@ -50,3 +50,8 @@ class GameStart : ZilchEvent
 {
     sends GameStart : GameStart;
 }
+
+class Countdown : ZilchEvent
+{
+    sends Countdown : Countdown;
+}
