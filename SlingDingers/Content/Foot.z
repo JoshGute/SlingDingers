@@ -13,10 +13,8 @@ class Foot : ZilchComponent
     
     function FixGroundHit(event : CollisionEvent)
     {
-        if(this.Owner.Parent.Platforming.Grounded == false)
-        {
-            this.Owner.Parent.SoundEmitter.PlayCue(SoundCue.Land);
-        }
+        Console.WriteLine("TouchedGround `new Random().DieRoll(7)`");
+        
         this.Owner.Parent.Platforming.AirDodgeSpent = false;
         this.Owner.Parent.Platforming.Grounded = true;
         
@@ -24,7 +22,7 @@ class Foot : ZilchComponent
         
         if(event.OtherObject.RigidBody != null)
         {
-            this.Actor.RigidBody.Velocity = Real3( this.Actor.RigidBody.Velocity.X,
+            this.Actor.RigidBody.Velocity = Real3( this.Actor.RigidBody.Velocity.X + event.OtherObject.RigidBody.Velocity.X,
                                                     event.OtherObject.RigidBody.Velocity.Y, 0);
         }
         else
@@ -43,7 +41,9 @@ class Foot : ZilchComponent
     
     function OnCollisionPersisted(event : CollisionEvent)
     {
-        /*if(!event.OtherObject.Collider.Ghost)
+        if(this.Actor.RigidBody.Velocity.Y > 0) return;
+        
+        if(!event.OtherObject.Collider.Ghost)
         {
             if(this.Actor.Platforming.Grounded)
             {
@@ -51,7 +51,7 @@ class Foot : ZilchComponent
             }
             
             this.Actor.Platforming.Grounded = true;
-        }*/
+        }
     }
     
     function OnCollisionEnded(event : CollisionEvent)
