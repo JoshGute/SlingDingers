@@ -154,7 +154,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 67.0320358,
+			float Size = 33.2871361,
 		},
 		EditorCameraController = 
 		{
@@ -32340,7 +32340,7 @@ Level =
 		SimpleSound = 
 		{
 			bool StartPlaying = true,
-			string CueName = "4e1bd44008b4dc2a:DefaultCue",
+			string CueName = "5823c36386f00436:ShinyTech2",
 		},
 		MusicManager = 
 		{
@@ -32365,7 +32365,7 @@ Level =
 				},
 				SoundEmitter = 
 				{
-					float Volume = 0.0251188632,
+					float Volume = 0.177827939,
 					float Pitch = 0,
 					float PitchSemitones = 0,
 					bool UsePitchSemitones = false,
@@ -32375,7 +32375,7 @@ Level =
 				SimpleSound = 
 				{
 					bool StartPlaying = false,
-					string CueName = "4e1bd44008b4dc2a:DefaultCue",
+					string CueName = "5823e3dfeafa1978:Mirrorball",
 				},
 			},
 		},

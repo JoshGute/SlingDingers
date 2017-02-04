@@ -413,6 +413,7 @@ class HUDController : ZilchComponent
     
     function VictoryScreenBounce()
     {
+        this.Space.SoundSpace.PlayCue(SoundCue.Yay);
         var seq = Actions.Sequence(this.Owner.Actions);
         Actions.Property(seq, @this.VictoryScreen.Cog.Transform.Translation, Real3(0, 0, 0), 0.75, Ease.QuadIn);
         Actions.Property(seq, @this.VictoryScreen.Cog.Transform.Translation, Real3(0, 5, 0), 0.5, Ease.QuadOut);
