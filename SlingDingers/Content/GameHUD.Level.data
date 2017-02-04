@@ -168,6 +168,8 @@ Level =
 				CogPathPreference PathPreference1 = SpaceRelative,
 				CogPathPreference PathPreference2 = Absolute,
 			},
+			Vec4 P1Color = [1, 0, 0, 1],
+			Vec4 P2Color = [0, 0.970000029, 1, 1],
 		},
 	},
 	Cog = 
@@ -182,7 +184,7 @@ Level =
 		},
 		Transform = 
 		{
-			Vec3 Translation = [1.61287463, -3.11391544, 50],
+			Vec3 Translation = [5.618361, -4.85531139, 50],
 			Vec3 Scale = [1, 1, 1],
 			Quat Rotation = [-0, -1.09278471e-08, 0, 1],
 		},
@@ -194,7 +196,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 500,
-			float Size = 30.1194363,
+			float Size = 16.5299225,
 		},
 		EditorCameraController = 
 		{
@@ -202,7 +204,7 @@ Level =
 			float LookDistance = 50,
 			float VerticalAngle = 0,
 			float HorizontalAngle = 0,
-			Vec3 LookTarget = [1.61287463, -3.11391544, 7.05010237e-08],
+			Vec3 LookTarget = [5.618361, -4.85531139, 2.45586364e-07],
 			float MoveSensitivity = 1,
 		},
 		EditorRenderer = 
@@ -531,7 +533,7 @@ Level =
 			bool VisibilityCulling = true,
 			bool VisibilityEvents = true,
 			bool CastShadows = false,
-			Vec4 Color = [0.574999988, 0, 0, 0.5],
+			Vec4 Color = [0.574999988, 0, 0, 0.300000012],
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
 			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
@@ -566,7 +568,7 @@ Level =
 			bool VisibilityCulling = true,
 			bool VisibilityEvents = true,
 			bool CastShadows = false,
-			Vec4 Color = [0.0797999203, 0, 0.569999993, 0.5],
+			Vec4 Color = [0.0797999203, 0, 0.569999993, 0.300000012],
 			BlendMode BlendMode = Alpha,
 			SpriteGeometryMode GeometryMode = ZPlane,
 			string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
